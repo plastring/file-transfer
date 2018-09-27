@@ -1,0 +1,3011 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+
+<!--taglib	-->
+
+ 
+ 
+
+
+	
+	<!--self -->
+	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" />
+	<link rel="shortcut icon" href="../../../img/site/favicon.ico" />
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/css/css-link/255.html" />
+	
+		
+	<script src="../../../js/how2j/code.js"></script>
+
+<link href="../../../css/all.css" rel="stylesheet">
+
+
+<script src="../../../js/all.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+
+<!-- code hightlight -->
+
+
+<script>
+function formatMoney(num){
+	num = num.toString().replace(/\$|\,/g,'');  
+	if(isNaN(num))  
+	    num = "0";  
+	sign = (num == (num = Math.abs(num)));  
+	num = Math.floor(num*100+0.50000000001);  
+	cents = num%100;  
+	num = Math.floor(num/100).toString();  
+	if(cents<10)  
+	cents = "0" + cents;  
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)  
+	num = num.substring(0,num.length-(4*i+3))+','+  
+	num.substring(num.length-(4*i+3));  
+	return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+function insertSpecalDiv(div, className){
+	var li = document.createElement("div");
+	var classAttr = document.createAttribute("class");
+	var text = document.createTextNode(" ");
+	li.appendChild(text);
+	classAttr.nodeValue = className;
+	li.setAttributeNode(classAttr);
+	div.appendChild(li);
+}
+
+<!--code mirror-->
+var yourcode, siteCode, divDiffer, highlight = true, connect = null, collapse = false;
+function betterTab(cm) {
+	var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+    cm.replaceSelection(spaces);
+}
+function initUI() {
+	  var target = document.getElementById("codeDifferOriginal");
+	  target.innerHTML = "";
+	  divDiffer = CodeMirror.MergeView(target, {
+	    value: yourcode,
+	    origRight: null,
+	    orig: siteCode,
+	    lineNumbers: true,
+	    extraKeys: { Tab: betterTab },
+	    mode: "text/html",
+	    highlightDifferences: highlight,
+	    connect: connect,
+	    collapseIdentical: collapse
+	  });
+	}
+
+	function changeDivCode2CodeStyle(mask4spider){
+		var selector = "";
+		if(mask4spider)
+			selector = "div.stephighlightDescOnly.mask4spider-true div.code";
+		else
+			selector = "div.code";
+// 		console.log("selector:"+selector);
+		$(selector).each(function() {
+			var div = this;
+			var html = $(this).html();
+			html = $.trim(html);
+			html = html.replace(/^<br>(.*)<br>$/, "\$1");
+			html = html.replace();
+			var lines = html.split("<br>");
+			$(this).html("");
+
+			insertSpecalDiv(div,"codeeven codefirst");
+			
+			var count = 0;
+			$.each(lines, function(i, n) {
+				count++;
+				var li = document.createElement("div");
+				var text = document.createTextNode(decodeHtml(n));
+				li.appendChild(text);
+
+				var classAttr = document.createAttribute("class");
+				if (0 == i % 2)
+					classAttr.nodeValue = "codeodd";
+				if (1 == i % 2)
+					classAttr.nodeValue = "codeeven";
+				li.setAttributeNode(classAttr);
+
+				div.appendChild(li);
+			})
+			
+			if(0!=count%2)
+				insertSpecalDiv(div,"codeeven codelast");
+			else
+				insertSpecalDiv(div,"codeodd codelast");
+		});		
+	}
+
+	$(function() {
+		<!--把div.code中的文本转换为代码表现风格-->
+		changeDivCode2CodeStyle(false);
+		
+		<!--每个stage的享字所具备的弹出模态窗口效果-->
+	    		
+		
+    	<!--练习姿势-->
+    	 $("a.practisePostureLink").click(function(){
+				$("div#practiseModal").modal('show');
+		 });    
+    	 
+    	
+    	<!--视频加载成功后的处理-->
+    	$("div.4safari video").attr("poster","");
+//     	$("div.4safari video").each(function(){
+//     		var videoSrc=$(this).attr("thefile");
+//     		$(this).attr("src",videoSrc);
+//     	});
+//     	$("div.4safari video").attr("preload","meta");
+//     	$("div.4safari video").on("canplaythrough",function(){
+//             $(this).attr("poster","");
+//         });	    	
+
+	});
+</script>
+
+
+<script>
+//当bootstrap toc 加载完毕后，才进行跳转
+var go2ArchorFlag = true;
+//当show it ,try it, toc 的额外高度
+var showittryitheight=30;
+
+
+var l = function(msg){return console.log(msg)};
+$(function () {
+	$("[data-toggle='tooltip']").tooltip({animation:true,html:true,delay:{ show: 1000, hide: 000 }});
+	
+	
+	if(!logon)
+		$("a.module span.progressBar").hide();
+	
+	
+
+	$('.progress-bar').each(function(){
+		var progress = $(this).attr("aria-valuenow");
+	 	$(this).css({'width':progress+"%"});
+// 	    $(this).animate({width:progress+'%'},progress*100/2);
+	});
+	
+
+	
+});
+
+<!--是否登陆的全局变量-->
+var logon;
+
+
+
+
+
+	logon = false;
+
+
+</script>
+
+<style>
+<!--pre{-->
+<!--	width:500px;-->
+<!--}-->
+</style>
+
+
+<title>CSS 把样式写在一个外部文件中 | 基于实例代码分步讲解 一站式学习Java | how2j.cn</title>
+
+
+
+
+	
+	<meta name="keywords" content="css文件,直接在html里面写样式,把样式代码写在style.css，并在html中包含它,css是本地文件 如何包含,CSS">
+	<meta name="description" content="如果把所有的css都写在html文件里面，一旦样式比较多的时候，就会显得不易维护,这个时候就会选择把所有的css内容，放在一个独立文件里,然后在html中引用该文件,通常这个文件会被命名为style.css;直接在html里面写样式,样式代码写在style标签里;把样式代码写在style.cs...">
+	
+		<link rel="canonical" href="http://how2j.cn/k/css/css-link/255.html" />	
+	
+</head>
+
+
+<body id="body">
+
+
+<script>
+
+	
+   	$(function() {
+		var categorySelected=0;
+                   	
+       	if(categorySelected==1){
+			$("#homepageNavLink").removeClass("active");
+       	}
+       	
+
+      	
+      	
+
+       	
+      	
+   	});
+      	
+</script>
+<div id="allContent">
+	<!-- end with footer -->
+
+	
+
+	<div>
+		<br />
+
+		<table width="100%">
+			<tr height="50px">
+				<td width="200px">
+						<a href="http://how2j.cn"><img title="how2j.cn" alt="how2j.cn"
+							src="../../../img/site/logo.png" /></a>
+					 </td>
+				<td align="center">
+					
+						<a href="http://how2j.cn/k/tmall-front/tmall-front-790/790.html">
+							<img src="../../../img/site/advertise/2.png">
+						</a>
+					
+				</td>
+
+				<td align="right">
+				
+	
+				 </td>
+
+				<td align="right" width="240px">
+					<div>
+						
+							<form action="/frontsearch" method="post">
+								<div class="input-group" style="margin-right: 10px;width: 200px">
+									<input name="outsideSearchKeyword" 
+									class="form-control" placeholder="搜索.." required >
+									<span class="input-group-btn ">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+
+						
+					</div>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<nav>
+
+		<div class="nav bg-primary">
+
+			<span class="pull-left"> <a href="../../../default.html">首页</a>  <!-- 		<a href="../../../c">最新提问</a> --> 
+				 
+
+				
+				
+					<a style="color: #F0AD4E; font-weight: bold"
+						href="../../../stage/39.html">实践项目</a>
+																
+				
+
+ 
+				
+
+				
+				
+				
+<!-- 					<a href="../../../frontshowJavaPractises">JAVA 练习题</a> -->
+<!-- 					<a href="../../../k/1144">JAVA 书籍</a> -->
+				
+				
+				
+				
+				
+				 
+				 
+				 
+				
+				
+				
+				
+				
+				 
+				 
+				
+				
+								
+				
+				
+				
+
+				
+
+			</span> <span class="pull-right">  
+					<img src="../../../img/site/qqqun.png" alt="官方QQ群: 661682521"
+						title="官方QQ群: 661682521" />
+				 
+					<a href="http://how2j.cn/frontloginPage?act=register">注册</a>
+					<a href="http://how2j.cn/frontloginPage?act=login">登录</a>
+					<!--			<a href="#"><img src="../../../img/site/Connect_logo_7.png"/ ></a>-->
+
+
+				
+			</span>
+
+		</div>
+	</nav>
+
+<br/>
+
+<script>
+$(function() {
+	bootstrapButton   = $.fn.button.noConflict();  
+	$.fn.bootstrapBtn = bootstrapButton;  
+
+	
+	var interviewStepids = new Array();
+	
+	$("#k255 ").removeClass("unread");
+	$("#k255 ").removeClass("brower");
+	$("#k255 ").removeClass("finish");
+	$("#k255 ").addClass("active");
+	
+	
+	
+	$("button.interviewCheckAnswerButton").click(function(){
+		var sid = $(this).attr("sid");
+		$("div.interviewAnswer[sid="+sid+"]").show();		
+	});
+	
+	
+	
+	$("span.interviewStatus").css("color","green");
+	
+	$("textarea.interviewdesc").keyup(function(){
+		var sid = $(this).attr("sid");
+		$("span.interviewStatus[sid="+sid+"]").css("color","red");
+		interviewStepids.push(sid);
+	});
+	
+	timeout=setInterval(sync,1500);
+	function sync(){
+		stepids = $.unique(interviewStepids);
+		var sid = interviewStepids.pop();
+		if(null!=sid){
+			$("span.interviewStatus[sid="+sid+"]").css("color","yellow");
+			$("form.updatInterviewForm[sid="+sid+"]").ajaxSubmit(function(){
+				$("span.interviewStatus[sid="+sid+"]").css("color","green");
+			});
+		}
+	}	
+	
+	
+	$("select.degree4stepFront").change(function(){
+		var sid = $(this).attr("stepid");
+		var page=  "/frontchangeDegreeOfStep";
+		var degree = $(this).val();
+		
+		var select = $(this);
+		select.css("background-color","red");
+			$.post(
+					page,
+					{
+						"step.id":sid,
+						"step.degree":degree,
+					},
+						function(result){
+							if("success"==result){
+								select.css("background-color","yellow");
+							}
+						}
+					); 
+		
+		
+		
+	});
+	
+	//work for step
+	$("ul.codetitle li.codetitle0").addClass("active");
+	$("div.stepCode").hide();
+	$("div.stepCode_index_0").show();
+
+	$("a.codetitleLink").click(function(){
+		var stindex = $(this).attr("stindex");
+		var sid = $(this).attr("sid");
+		$("a.showStepCodeLink[sid="+sid+"]").hide();
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+		$("li.codetitle"+sid).removeClass("active");
+		$("li.codetitle"+sid+"_"+stindex).addClass("active");
+		$("div.stepCode"+sid).hide();
+		$("div.stepCode"+sid+"_"+stindex).show();
+	});	
+	
+	$("a.jump2commentLink").click(function(){
+		$("input#commentTitle")[0].focus();
+	});
+	
+	$("a.stepresize").click(function(){
+		var stepid = $(this).attr("stepid");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-small");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-full");
+		$(".stepbody[stepid="+stepid+"]").toggle();
+	});
+	
+	$("button.answerButton").click(function(){
+		var sid = $(this).attr("sid");
+		if(!logon){
+			$("a.ask2login[sid="+sid+"]").show();
+			$(this).hide();
+			return;
+		}
+		
+		var sid = $(this).attr("sid");
+		$("div.stepAnswer[sid="+sid+"]").show();
+		$(this).parent().hide();
+		var page = "/frontanswerVisited";
+        $.ajax({
+            url: page,
+            data:{"step.id":sid},
+            success: function(result){
+            }
+        });
+        
+        var page ="/frontscoreConsume";
+        $.get(
+     		page,
+     		{"scoreConsume.step.id":sid},
+     		function(result){
+     			
+     		}
+        );   
+        
+        
+        
+	});		
+	
+	
+	$("button.copyButton").click(function(){
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code = decodeHtml(code);
+// 		decode();
+		$("#codeCopySource").val(code);
+		$("#codeCopyInModal").modal('show');
+	});
+	
+	$("button.differButton").click(function(){
+		highlight = true;
+		connect = null;
+		collapse = false;
+		$("#codeDifferOriginal").show();
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code =$.trim(code);
+		code = decodeHtml(code);
+		yourcode = "";
+		siteCode = code;
+		var charIndex = 6;
+		$("#codeDifferInModal").modal('show');
+		
+		initUI();
+
+// 	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+// 		var outSide= $("#codeDifferOriginalOutSide")[0];
+// 		var inSide= $("#codeDifferOriginalInSide")[0];
+// 		outSide.removeChild(codeDifferOriginal);
+// 		inSide.appendChild(codeDifferOriginal);
+	});
+	
+    $("#codeDifferInModal").on("hidden.bs.modal",function(){
+	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+		var outSide= $("#codeDifferOriginalOutSide")[0];
+		var inSide= $("#codeDifferOriginalInSide")[0];
+		inSide.removeChild(codeDifferOriginal);
+		outSide.appendChild(codeDifferOriginal);
+		$("#codeDifferOriginal").hide();
+		
+    });	
+
+
+
+
+    	
+
+	
+
+	<!--当超过20行，隐藏代码，下面用于显示代码-->
+	$("a.showStepCodeLink").click(function(){
+		$(this).hide();
+		var sid = $(this).attr("sid");
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+	});
+
+	
+	var page = "/frontnormalPageVisited";
+    $.ajax({
+        url: page,
+        data:{"knowledge.id":255},
+        success: function(result){
+        }
+    });
+
+    <!--折叠左侧菜单-->
+    
+    
+		    	
+   	
+    	$("a.leftKnowledgeMenuItem").hide();
+    	
+    	$("a.leftKnowledgeMenuItem[gid=32]").show();
+    	$("a.leftKnowledgeMenuHeader").click(function(){
+    		console.log(1);
+//     		$("a.leftKnowledgeMenuItem").hide();
+    		var gid=$(this).attr("gid");
+    		var clicked=$(this).attr("clicked");
+			
+    		if(clicked=="true")
+	    		$("a.leftKnowledgeMenuItem[gid="+gid+"]").hide();
+    		else
+    			$("a.leftKnowledgeMenuItem[gid="+gid+"]").show();
+    		
+ 
+    		
+    		$(this).attr("clicked","true"==clicked?"false":"true");
+    	});
+    	
+    	$("a.leftKnowledgeMenuWholeTitle").click(function(){
+    		var clicked=$(this).attr("clicked");
+    		if(clicked=="true")
+	    		$("a.leftKnowledgeMenuItem").hide();
+    		else
+    			$("a.leftKnowledgeMenuItem").show();
+    		$(this).attr("clicked","true"==clicked?"false":"true");   
+    		$("a.leftKnowledgeMenuWholeTitle span.resizable").toggleClass("glyphicon-resize-small");
+    		$("a.leftKnowledgeMenuWholeTitle span.resizable").toggleClass("glyphicon-resize-full");
+    	});
+
+    	
+    
+    
+    <!--增加积分的模态窗口-->
+    
+    
+
+    <!--视频div-->
+    
+    
+    $("div.4safari video").css("width",(window.innerWidth-400)+"px");
+
+	<!--tooltips-->
+// 	 $("[data-toggle='tooltip']").tooltip();
+	 
+	$("label.speed").click(function(){
+		var speed = $(this).attr("speed");
+		$(this).parents("div.4safari").children("video")[0].playbackRate = speed;
+		$(this).parents("div.4safari").children("video")[0].play();
+	});
+	
+	$("button.videoGoBackButton").click(function(){
+		$(this).parents("div.4safari").children("video")[0].currentTime -= 10;
+	});	 
+	
+
+	
+	
+	
+
+
+});
+
+
+
+</script>
+
+<table width="100%" class="allTable showTable1">
+
+	<tr valign="top">
+		<td width="145px" style="padding-left:20px" >
+			
+	
+
+<style>
+
+.list-group-item.unread {
+  background-color: #fefefe;
+}
+.list-group-item.unread:hover{
+  background-color: #d9edf7;
+}
+.list-group-item.brower {
+  background-color: #d9edf7;
+}
+.list-group-item.brower:hover{
+  background-color: #dff0d8;
+}
+
+
+.list-group-item.finish {
+  background-color: #dff0d8;
+}
+.list-group-item.finish:hover {
+  background-color: #c1e2b3;
+}
+
+</style>
+
+<nav>
+<div style="margin-left:00px;width:170px">
+					  <a href="#nowhere" clicked="true" class="list-group-item success_bg leftKnowledgeMenuWholeTitle">
+					  		<h2>CSS</h2>
+					  		 
+	  					    	<span class="resizable pull-right glyphicon glyphicon-resize-full"></span>
+	  					     
+					  </a>	  
+					  
+					  
+					  
+					  
+					  
+							  	
+						
+							<a href="#nowhere" clicked="true" class="list-group-item leftKnowledgeMenuHeader" gid="32" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;基础
+						    </a>
+							
+								<a id="k238" href="../../../k/css/css-tutorial/238.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>CSS教程</span> </a>
+							
+								<a id="k240" href="../../../k/css/css-gramma/240.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>语法</span> </a>
+							
+								<a id="k239" href="../../../k/css/css-selector/239.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>选择器</span> </a>
+							
+								<a id="k257" href="../../../k/css/css-comment/257.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>注释</span> </a>
+							
+								<a id="k243" href="../../../k/css/css-size/243.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>尺寸</span> </a>
+							
+								<a id="k242" href="../../../k/css/css-backgroud/242.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>背景</span> </a>
+							
+								<a id="k241" href="../../../k/css/css-text/241.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>文本</span> </a>
+							
+								<a id="k244" href="../../../k/css/css-font/244.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>字体</span> </a>
+							
+								<a id="k782" href="../../../k/css/css-cursor/782.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>鼠标样式</span> </a>
+							
+								<a id="k245" href="../../../k/css/css-table/245.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>表格</span> </a>
+							
+								<a id="k246" href="../../../k/css/css-border/246.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>边框</span> </a>
+							
+								<a id="k247" href="../../../k/css/css-padding/247.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>内边距</span> </a>
+							
+								<a id="k248" href="../../../k/css/css-margin/248.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>外边距</span> </a>
+							
+								<a id="k249" href="../../../k/css/css-border/249.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>边框模型</span> </a>
+							
+								<a id="k253" href="../../../k/css/css-pseudo/253.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>超链状态</span> </a>
+							
+								<a id="k254" href="../../../k/css/css-visibility/254.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>隐藏</span> </a>
+							
+								<a id="k255" href="../../../k/css/css-link/255.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>css文件</span> </a>
+							
+								<a id="k256" href="../../../k/css/css-priority/256.html" kid="255" gid="32" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>优先级</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="33" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;布局
+						    </a>
+							
+								<a id="k250" href="../../../k/css/css-absolute/250.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>绝对定位</span> </a>
+							
+								<a id="k251" href="../../../k/css/css-relative/251.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>相对定位</span> </a>
+							
+								<a id="k252" href="../../../k/css/css-float/252.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>浮动</span> </a>
+							
+								<a id="k767" href="../../../k/css/css-display/767.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>显示方式</span> </a>
+							
+								<a id="k774" href="../../../k/css/css-center/774.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>水平居中</span> </a>
+							
+								<a id="k781" href="../../../k/css/css-left-fix/781.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>左侧固定</span> </a>
+							
+								<a id="k780" href="../../../k/css/css-vertical-center/780.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>垂直居中</span> </a>
+							
+								<a id="k1038" href="../../../k/css/css-left-right/1038.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>左右固定</span> </a>
+							
+								<a id="k784" href="../../../k/css/css-stick-to-foot/784.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>贴在下方</span> </a>
+							
+								<a id="k785" href="../../../k/css/css-blank-between-block/785.html" kid="255" gid="33" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>块之间的空格</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="34" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;练习
+						    </a>
+							
+								<a id="k645" href="../../../k/css/css-practise1/645.html" kid="255" gid="34" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>综合性练习1</span> </a>
+							
+								<a id="k646" href="../../../k/css/css-practise2/646.html" kid="255" gid="34" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>综合性练习2</span> </a>
+							
+								<a id="k643" href="../../../k/css/css-practise3/643.html" kid="255" gid="34" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>综合性练习3</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="35" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;应用
+						    </a>
+							
+								<a id="k783" href="../../../k/css/css-showpartpicture/783.html" kid="255" gid="35" class="leftKnowledgeMenuItem knowledgeBar list-group-item "> 
+								
+								<span>显示图片一部分</span> </a>
+							  	
+							    
+					    
+					  
+					  
+
+</div>		    
+</nav>
+		    
+		    
+			    
+		</td>
+		
+		<td align="left"  style="padding-left:60px;padding-right:40px" >
+			
+	
+	
+<nav>
+<div class="panel panel-success">
+  <div class="panel-heading">
+<div class="text-uppercase">
+
+
+						  <a href="../../../stage/27.html">前端基础</a>
+						  /
+						  
+						  <a href="../../../module/63.html">CSS</a>
+						  /
+ 						  
+ 						  	<span class="text-muted">CSS 把样式写在一个外部文件中</span>
+ 						  
+ 						  
+ 						  
+
+									
+						  
+						  
+						  
+ 		  
+						
+						
+						
+		
+						
+
+						
+	
+
+	
+
+	
+
+
+
+
+	
+
+			
+			
+					  
+						</div>  
+  </div>
+
+
+</div>
+</nav>
+	
+						  
+						
+						
+						
+
+	
+<div class="bg-info" style="width:100%" align="left">
+						
+				
+		
+							
+</div>
+			
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/css/css-visibility/254.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 隐藏
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/css/css-priority/256.html">
+					优先级
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			
+						<!-- JiaThis Button BEGIN -->
+	
+						
+			
+			
+		
+			
+
+
+<script>
+$(function () {
+
+    $("#login2downloadAlertDiv").hide();
+
+	$(".login2download").click(function(){
+		$("#login2downloadAlertDiv").show();	
+	});;
+	
+});
+
+</script>	
+	
+	
+<div>
+		
+	<table width="100%">
+		<tr valign="top">
+			<td>
+				
+					<div class="well" style="margin-top:20px">
+						如果把所有的css都写在html文件里面，一旦样式比较多的时候，就会显得不易维护<br><br>这个时候就会选择把所有的css内容，放在一个独立文件里<br><br>然后在html中引用该文件<br><br>通常这个文件会被命名为style.css
+					</div>								
+				
+				<br/>
+					
+					
+					
+					
+			</td>
+			<td align="right" style="padding-right:50px;padding-left:50px">
+			
+		
+		
+			<!-- knowledge.module.downloadable && -->
+			
+			
+				<div id="login2downloadAlertDiv" class="alert alert-warning" style="display:none;text-align:center;width:300px">
+	
+							<a href="http://how2j.cn/frontloginPage?act=login">登录</a>后可下载
+				</div>										
+																				
+			</td>
+		</tr>
+	</table>					
+</div>
+			
+			
+			
+			
+			
+			
+
+
+
+		
+			<a href="#step497" >
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">1</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					直接在html里面写样式 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step496" >
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">2</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					把样式代码写在style.css，并在html中包含它 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step501" >
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">3</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					css是本地文件 如何包含 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+
+
+<br>
+			
+			
+				
+
+<script>
+$(function () {
+
+	$("#practiseDiv").hide();
+	$("#answerDiv").hide();
+    $("#practiseButton").click(function(){
+    	$("#practiseDiv").show(200);
+    });
+    $("#answerButton").click(function(){
+        
+			location.href="http://how2j.cn/frontloginPage?act=login";
+        
+                
+    });
+
+	
+});
+
+</script>
+
+
+	
+
+			
+
+			
+
+<!--这个是      前台         的step.jsp-->
+<script>
+$(function(){
+
+});
+
+</script>
+<div>
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step497">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">1</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>直接在html里面写样式 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+		
+
+				
+
+		<a href="#nowhere" stepid="497" title="折叠" class="stepresize">
+			<span stepid="497" class="pull-right glyphicon glyphicon-resize-small"></span>
+		</a>
+		<a href="#">
+			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span>
+		</a> 
+		<div class="pull-right">
+			<a href="#nowhere" title="提问" stepName="直接在html里面写样式" class="jump2commentLink" sid="497" >
+				<span sid="497"  class="smallword jump2commentWord glyphicon glyphicon-question-sign">&nbsp;提问</span>
+				<a href="http://how2j.cn/frontloginPage" style="display:none"  sid="497" class="smallword jump2commentlogin" >
+				请先登录
+				</a>
+<!--				<input type="button" style="background-color1:#FCF8E3;color1:black" class="btn btn-xs btn-default" value="没整明白，提个问">-->
+			</a> 
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="497" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="497">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="497"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="497" >
+					样式代码写在style标签里
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=497] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=497] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show497").height(0);
+			window.frames["iframe_show497"].document.write("<html><body>");
+			window.frames["iframe_show497"].document.write(decodeHtml($("textarea#stepcodeTextarea497").val()));
+			window.frames["iframe_show497"].document.close();
+			
+			$(window.frames["iframe_show497"]).load(function(){
+				$("#iframe_show497").height($("#iframe_show497").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show497").height($("#iframe_show497").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show497").height($("#iframe_show497").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show497").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea497").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+
+
+
+	<div class="showDiv" >
+		<fieldset  class="forstep">
+		    <legend  class="forstep"><span style="margin:0px 5px 0px 5px;"> 运行效果  </span></legend>
+		    
+			  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show497" id="iframe_show497">
+			  	</iframe>			
+		  						
+		</fieldset>
+	</div>
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode497  stepCode497_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code497_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code497_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code497_0" >&lt;style&gt;
+.p1{
+  color:red;
+}
+
+.span1{
+  color:blue;
+}
+&lt;/style&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</div>
+									
+								<div  sid="497" class="stepCodeTipsDiv" style="display:n"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code497_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;style&gt;
+.p1{
+  color:red;
+}
+
+.span1{
+  color:blue;
+}
+&lt;/style&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='497']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea497").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":497,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step497";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code497= "";
+			var alreadyWriteCode497 = "";
+			var lastModifedTime497 = new Date().getTime();
+
+			function rereshRetry2DemoPanel497(){
+				if(alreadyWriteCode497==code497){
+					return;
+				}
+				
+				currentTime497 = new Date().getTime();
+				if(currentTime497- lastModifedTime497<1000)
+					return;
+				
+				$("#iframe497").height(0);
+				window.frames["iframe497"].document.write("<html><body>");
+				window.frames["iframe497"].document.write(decodeHtml(code497));
+				window.frames["iframe497"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe497"]).load(function(){
+					$("#iframe497").height($("#iframe497").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe497").height($("#iframe497").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode497 = code497;
+				$("#rendering497").hide();
+				$("#rendered497").show();				
+			}
+			var tRereshRetry2DemoPanel497 = setInterval(rereshRetry2DemoPanel497,1000);
+			var binded497 = false;
+			$("textarea#stepcodeTextarea497").keyup(function(){
+	    		
+	    			if(!binded497){
+						$(window).bind('beforeunload',function(){
+							binded497 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code497 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code497!=newCode){
+// 					window.frames["iframe497"].document.write("<html><body>");
+// 					window.frames["iframe497"].document.write(decodeHtml($("textarea#stepcodeTextarea497").val()));
+// 					window.frames["iframe497"].document.close();
+// 					$(window.frames["iframe497"]).load(function(){
+// 						$("#iframe497").height($("#iframe497").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code497 = newCode;
+// 				}
+			});
+
+			$(".tryButton497").click(function(){
+				$("#tryDiv497").show();
+				$("#stepcodeTextarea497").focus();
+				$("#stepcodeTextarea497").height(200);
+
+				$("#iframe497").height(0);
+
+				window.frames["iframe497"].document.write("<html><body>");
+				window.frames["iframe497"].document.write(decodeHtml($("textarea#stepcodeTextarea497").val()));
+				window.frames["iframe497"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe497"]).load(function(){
+					$("#iframe497").height($("#iframe497").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe497").height($("#iframe497").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor497.focus();
+				editor497.setSize(null, "250");
+				
+				$("#rendering497").hide();
+				$("#rendered497").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor497 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea497"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor497.on("change",function(doc){
+				
+	    			if(!binded497){
+						$(window).bind('beforeunload',function(){
+							binded497 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code497 = newCode;
+    			$("textarea#stepcodeTextarea497").val(newCode);
+    			
+				if(alreadyWriteCode497!=code497){
+					lastModifedTime497 = new Date().getTime();
+					$("#rendering497").show();
+					$("#rendered497").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor497 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor497.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv497").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class=" tryButton497 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv497">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="497"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="18" style="width:100%" id="stepcodeTextarea497">&lt;style&gt;
+.p1{
+  color:red;
+}
+
+.span1{
+  color:blue;
+}
+&lt;/style&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering497" class="label label-warning">渲染中</span>
+						<span id="rendered497" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv497" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe497" name="iframe497" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step496">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">2</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>把样式代码写在style.css，并在html中包含它 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+		
+
+				
+
+		<a href="#nowhere" stepid="496" title="折叠" class="stepresize">
+			<span stepid="496" class="pull-right glyphicon glyphicon-resize-small"></span>
+		</a>
+		<a href="#">
+			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span>
+		</a> 
+		<div class="pull-right">
+			<a href="#nowhere" title="提问" stepName="把样式代码写在style.css，并在html中包含它" class="jump2commentLink" sid="496" >
+				<span sid="496"  class="smallword jump2commentWord glyphicon glyphicon-question-sign">&nbsp;提问</span>
+				<a href="http://how2j.cn/frontloginPage" style="display:none"  sid="496" class="smallword jump2commentlogin" >
+				请先登录
+				</a>
+<!--				<input type="button" style="background-color1:#FCF8E3;color1:black" class="btn btn-xs btn-default" value="没整明白，提个问">-->
+			</a> 
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="496" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="496">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="496"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="496" >
+					创建一个文件叫<a href="../../../study/style.css">style.css</a><br>其内容为<br><div class="code"><br>.p1{<br>  color:red;<br>}<br><br>.span1{<br>  color:blue;<br>}<br></div><br>然后在html中包含该文件<br><div class="code"><br>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/study/style.css&quot; /&gt;<br></div><br><br><span class="strong">注：</span>style.css文件里，<span class="strong">就不要再使用style标签了</span>
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=496] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=496] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show496").height(0);
+			window.frames["iframe_show496"].document.write("<html><body>");
+			window.frames["iframe_show496"].document.write(decodeHtml($("textarea#stepcodeTextarea496").val()));
+			window.frames["iframe_show496"].document.close();
+			
+			$(window.frames["iframe_show496"]).load(function(){
+				$("#iframe_show496").height($("#iframe_show496").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show496").height($("#iframe_show496").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show496").height($("#iframe_show496").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show496").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea496").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+
+
+
+	<div class="showDiv" >
+		<fieldset  class="forstep">
+		    <legend  class="forstep"><span style="margin:0px 5px 0px 5px;"> 运行效果  </span></legend>
+		    
+			  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show496" id="iframe_show496">
+			  	</iframe>			
+		  						
+		</fieldset>
+	</div>
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode496  stepCode496_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code496_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code496_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code496_0" >&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://127.0.0.1/study/style.css&quot; /&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</div>
+									
+								<div  sid="496" class="stepCodeTipsDiv" style="display:n"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code496_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://127.0.0.1/study/style.css&quot; /&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='496']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea496").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":496,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step496";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code496= "";
+			var alreadyWriteCode496 = "";
+			var lastModifedTime496 = new Date().getTime();
+
+			function rereshRetry2DemoPanel496(){
+				if(alreadyWriteCode496==code496){
+					return;
+				}
+				
+				currentTime496 = new Date().getTime();
+				if(currentTime496- lastModifedTime496<1000)
+					return;
+				
+				$("#iframe496").height(0);
+				window.frames["iframe496"].document.write("<html><body>");
+				window.frames["iframe496"].document.write(decodeHtml(code496));
+				window.frames["iframe496"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe496"]).load(function(){
+					$("#iframe496").height($("#iframe496").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe496").height($("#iframe496").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode496 = code496;
+				$("#rendering496").hide();
+				$("#rendered496").show();				
+			}
+			var tRereshRetry2DemoPanel496 = setInterval(rereshRetry2DemoPanel496,1000);
+			var binded496 = false;
+			$("textarea#stepcodeTextarea496").keyup(function(){
+	    		
+	    			if(!binded496){
+						$(window).bind('beforeunload',function(){
+							binded496 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code496 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code496!=newCode){
+// 					window.frames["iframe496"].document.write("<html><body>");
+// 					window.frames["iframe496"].document.write(decodeHtml($("textarea#stepcodeTextarea496").val()));
+// 					window.frames["iframe496"].document.close();
+// 					$(window.frames["iframe496"]).load(function(){
+// 						$("#iframe496").height($("#iframe496").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code496 = newCode;
+// 				}
+			});
+
+			$(".tryButton496").click(function(){
+				$("#tryDiv496").show();
+				$("#stepcodeTextarea496").focus();
+				$("#stepcodeTextarea496").height(200);
+
+				$("#iframe496").height(0);
+
+				window.frames["iframe496"].document.write("<html><body>");
+				window.frames["iframe496"].document.write(decodeHtml($("textarea#stepcodeTextarea496").val()));
+				window.frames["iframe496"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe496"]).load(function(){
+					$("#iframe496").height($("#iframe496").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe496").height($("#iframe496").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor496.focus();
+				editor496.setSize(null, "250");
+				
+				$("#rendering496").hide();
+				$("#rendered496").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor496 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea496"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor496.on("change",function(doc){
+				
+	    			if(!binded496){
+						$(window).bind('beforeunload',function(){
+							binded496 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code496 = newCode;
+    			$("textarea#stepcodeTextarea496").val(newCode);
+    			
+				if(alreadyWriteCode496!=code496){
+					lastModifedTime496 = new Date().getTime();
+					$("#rendering496").show();
+					$("#rendered496").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor496 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor496.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv496").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class=" tryButton496 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv496">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="496"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="10" style="width:100%" id="stepcodeTextarea496">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://127.0.0.1/study/style.css&quot; /&gt;
+
+&lt;p class=&quot;p1&quot;&gt;红色&lt;/p&gt;
+
+&lt;span class=&quot;span1&quot;&gt;蓝色&lt;/span&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering496" class="label label-warning">渲染中</span>
+						<span id="rendered496" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv496" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe496" name="iframe496" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step501">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">3</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>css是本地文件 如何包含 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+		
+
+				
+
+		<a href="#nowhere" stepid="501" title="折叠" class="stepresize">
+			<span stepid="501" class="pull-right glyphicon glyphicon-resize-small"></span>
+		</a>
+		<a href="#">
+			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span>
+		</a> 
+		<div class="pull-right">
+			<a href="#nowhere" title="提问" stepName="css是本地文件 如何包含" class="jump2commentLink" sid="501" >
+				<span sid="501"  class="smallword jump2commentWord glyphicon glyphicon-question-sign">&nbsp;提问</span>
+				<a href="http://how2j.cn/frontloginPage" style="display:none"  sid="501" class="smallword jump2commentlogin" >
+				请先登录
+				</a>
+<!--				<input type="button" style="background-color1:#FCF8E3;color1:black" class="btn btn-xs btn-default" value="没整明白，提个问">-->
+			</a> 
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="501" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="501">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="501"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="501" >
+					在测试的时候，大家写的css文件都是放在本地的，比如d:/style.css<br>这时就应该写成<br>href="file://d:/style.css"
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=501] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=501] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					    <legend class="forstep"><span title="截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend>
+								    
+						
+							<img class="stepImage" alt="css是本地文件 如何包含" title="css是本地文件 如何包含" style="margin:10px" src="../../../img/site/step_offline/501.png"/>		
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+</div>
+
+
+	
+
+			
+			<!-- codediffer modal-->
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+
+<div>
+		<div class="modal " id="codeDifferInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">文件内容比较器</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>把你的代码复制到下面区域。 如果在线比较不好用，请使用客户端比较软件： <a href="../../../k/655">beyond compare</a></p>
+					<div id="codeDifferOriginal"></div>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal " id="codeCopyInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">复制代码</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>代码高亮插件双击即可选中，不过部分同学反应，通过代码高亮插件复制的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢</p>
+					<textarea style="width:80%;height:300px;display:block;margin:0px auto" id="codeCopySource"></textarea>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal fade" id="practiseModal"  data-backdrop="static1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:500px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">做练习的正确姿势</h4>
+		          </div>
+		          <div class="modal-body">
+					<div class="practisePostureHeading">1. 自行完成练习</div>
+						<div  class="practisePostureDesc">根据练习目标尽量自己实现代码效果，期间会碰到疑问，难题，和自己不懂的地方，这些都是必要的过程</div>
+					<div class="practisePostureHeading">2. 带着疑问查看答案</div>
+						<div  class="practisePostureDesc">完成过程中，碰到无法解决的问题，带着疑问，查看答案，分析答案的解决思路</div>
+					<div class="practisePostureHeading">3. 查看答案讲解视频</div>
+						<div  class="practisePostureDesc">依然有不明白的地方，点开视频讲解，带着疑问，听视频讲解有问题的部分</div>
+					<div class="practisePostureHeading">4. 再做一遍</div>
+						<div  class="practisePostureDesc">理解后，再从头做一遍，把有疑问的地方都捋清楚</div>
+					<div class="practisePostureHeading">5. 总结</div>
+						<div  class="practisePostureDesc">最后再总结一边，总结思路，总结解决办法，以后遇到类似的问题，怎么处理</div>	
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	var codeNoteComment= "";
+	var alreadyWriteCodeNoteComment = "";
+	var lastModifedTimeNoteComment = new Date().getTime();
+	var tNoteCommentSavingCount;
+	var tRereshRetry2DemoPanelNoteComment;
+	
+	function rereshRetry2DemoPanelNoteComment(){
+		if(alreadyWriteCodeNoteComment==codeNoteComment)
+			return;
+		
+		
+		currentTimeNoteComment = new Date().getTime();
+		if(currentTimeNoteComment- lastModifedTimeNoteComment<5000)
+			return;
+		
+		var page = "frontnoteComment";
+		
+		var noteCommentid = $("#noteCommentid").val();
+		var noteCommentKnowledgeId = $("#noteCommentKnowledgeId").val();
+		var noteCommentDesc = $("#noteCommentDesc").val();
+		var noteCommentCode = $("#noteCommentCode").val();
+		var page="/frontnoteComment";
+		alreadyWriteCodeNoteComment = codeNoteComment;
+		$.ajax({
+			   url: page,
+			   type:"post",
+			   data:{"noteComment.id":noteCommentid,
+				   "noteComment.code":noteCommentCode,
+				   "noteComment.desc":noteCommentDesc,
+				   "noteComment.knowledge.id":noteCommentKnowledgeId
+				   },
+			   success: function(result){
+			     	if("success"==result){
+			     		
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").show();			
+			     	}
+			     	else{
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").hide();	
+			    		$("#failNoteComment").show();	
+			    		
+			     	}
+			     	
+			   }
+		});
+		
+				
+	}
+	$("textarea.noteCommentCodeDesc").keyup(function(){
+		var newDesc = $("textarea#noteCommentDesc").val();
+		var newCode = $("textarea#noteCommentCode").val();
+		codeNoteComment = newDesc+"@"+newCode;
+		if(alreadyWriteCodeNoteComment!=codeNoteComment){
+			lastModifedTimeNoteComment = new Date().getTime();
+			$("#renderingNoteComment").show();
+			$("#renderedNoteComment").hide();
+		}	
+		if(null!=tNoteCommentSavingCount){
+			clearInterval(tNoteCommentSavingCount);
+		}
+		$(".noteCommentSavingCount").html("5");
+		tNoteCommentSavingCount = setInterval(noteCommentSavingCount,1000);
+	
+		if(null==tRereshRetry2DemoPanelNoteComment){
+			tRereshRetry2DemoPanelNoteComment = setInterval(rereshRetry2DemoPanelNoteComment,1000);
+		}	
+		
+	});
+	
+	function noteCommentSavingCount(){
+		var times =	$(".noteCommentSavingCount").html();
+		console.log(times);
+		times = parseInt(times);
+		if(isNaN(times)){
+			times =6;
+		}
+		times = times-1;
+		$(".noteCommentSavingCount").html(times);		
+		if(1==times){
+			clearInterval(tNoteCommentSavingCount);
+		}
+	
+	}
+
+	$("#renderingNoteComment").hide();
+	$("#renderedNoteComment").hide();
+	$("#failNoteComment").hide();
+	var newDesc = $("textarea#noteCommentDesc").val();
+	var newCode = $("textarea#noteCommentCode").val();
+	codeNoteComment = newDesc+newCode;
+});
+</script>
+
+
+<div>
+		<div class="modal fade" id="nodeCommentModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:960px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">CSS 把样式写在一个外部文件中-总结笔记</h4>
+		          </div>
+		          <div class="modal-body">
+		          		<div class="text-muted">
+		          			把这时的想法，思路，研究都记录下来，等全部学完了，再回过头来巩固和理解，学习效果就会很好，知识点掌握得也牢固
+		          		</div>
+		          		<br>
+						<ul class="nav nav-tabs" id="commentTabs">
+						  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >总结</a></li>
+						  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+						</ul>			
+						<br>
+						<div class="tabDiv" tabName="desc"  >
+								<textarea style="height:300px;" id="noteCommentDesc"   class="noteCommentCodeDesc form-control" placeholder="就把这时的想法，思路，研究都记录下来。 全部学完了，再回过头来巩固和理解，学习效果就会非常好了，知识点掌握得也牢固"  ></textarea>
+						</div>		
+						<div class="tabDiv"  tabName="code" >
+								<textarea style="height:300px;" id="noteCommentCode"  class="noteCommentCodeDesc form-control" placeholder="记录关键代码，将来复习的时候，提醒用"  ></textarea>
+						</div>	
+						<input type="hidden" id= "noteCommentid" value="">	
+						<input type="hidden" id= "noteCommentKnowledgeId" value="255">	
+		          </div>
+		          <div class="modal-footer">
+		          	<div style="margin-bottom:20px">
+						<span  id="renderingNoteComment" class="label label-warning">保存中预计需要<span class="noteCommentSavingCount"></span>秒</span>
+						<span id="renderedNoteComment" class="label label-success">保存完成</span>
+						<span id="failNoteComment" class="label label-danger">保存失败，请联系站长</span>
+						 <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+					</div>				
+		          
+		          
+		           
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+			
+		
+		
+			
+			<br>
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/css/css-visibility/254.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 隐藏
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/css/css-priority/256.html">
+					优先级
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+
+			
+			
+			
+
+
+
+<script>
+$(function(){
+
+
+	
+	$(".tabDiv").hide();
+	$(".tabDiv[tabName=desc]").show();
+
+	$("input#commentFile").change(function(){
+		$("#commentFilePath").html( $(this).val());
+	});
+
+	$("ul#commentTabs li a").click(function(){
+		var tabName = $(this).attr("tabName");
+		
+		$("ul#commentTabs li").removeClass("active");
+		$(this).parent().addClass("active");
+		
+
+		$("div.tabDiv").hide();
+
+		$("div.tabDiv[tabName="+tabName+"]").show(0);
+		$("div.tabDiv[tabName="+tabName+"]")[0].focus();
+
+		
+	});
+
+	$(".jump2commentLink").click(function(){
+		var stepName = $(this).attr("stepName");
+		$("#commentInfoStepName").html("-"+stepName);
+		var sid = $(this).attr("sid");
+		$("#commentStepId").val(sid);
+
+		if(!!logon){
+			$("#commentDiv").show();
+			$("input.logcommentButton").hide();
+			location.href="#commentDiv";
+		}
+		else{
+			$("span.jump2commentWord[sid="+sid+"]").hide();
+			$("a.jump2commentlogin[sid="+sid+"]").show();
+		}
+		
+	});
+
+// 	var tinyEditor= new TINY.editor.edit('editor',{
+// 		id:'commentdesc',
+// 		height:'161px',
+// 		cssclass:'te',
+// 		controlclass:'tecontrol',
+// 		rowclass:'teheader',
+// 		dividerclass:'tedivider',
+// 		controls:['bold','italic','underline','strikethrough','|',
+// 				  'orderedlist','unorderedlist','|','unformat','undo','redo','link','unlink'],
+// 		footer:false,
+
+// 		xhtml:true,
+// 		cssfile:'../../../css/tinyeditor/tinyeditor.css',
+// 		bodyid:'editor',
+// 		footerclass:'tefooter',
+// <!--		toggle:{text:'源代码',activetext:'可视化',cssclass:'toggle'},-->
+// 		resize:{cssclass:'resize'}
+// 	});
+
+	$("#commentForm").submit(function(){
+// 		tinyEditor.post();
+
+		var commentdesc = $("#commentdesc").val();
+		if(0==commentdesc.length){
+			alert("问题描述信息不可为空");
+			return false;
+		}
+		return true;	
+	});
+
+	$("#commentDiv").hide();
+
+	$("input.notlogcommentButton hidden").click(function(){
+		//需要登陆后作答
+		location.href="http://how2j.cn/frontloginPage";
+	});
+	$("input.logcommentButton").click(function(){
+		$("#commentDiv").show();
+		$(this).hide();
+	});
+
+	
+	
+});
+</script>
+
+
+<style>
+
+/*a  upload */
+.a-upload {
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #D0EEFF;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #78c3f3;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+
+
+</style>
+
+<br>
+<br>
+
+	
+	
+			<input id="commentButton" type="button" value="提问" class="btn btn-primary btn notlogcommentButton hidden" >
+			
+			<span class="text-muted hidden">提问之前请<a href="http://how2j.cn/frontloginPage">登陆</a>
+			</span>
+	
+
+
+<form method="post" id="commentForm" action="/frontcomment" enctype="multipart/form-data">
+<div id="commentDiv">
+		
+		
+		
+		<div class="text-muted">关于
+		<span style="font-style:italic;font-weight:bold"> 
+		前端基础-CSS-css文件 <span id="commentInfoStepName"></span>
+		</span>
+		 的提问</div>
+		
+
+		<input value="" style="margin-top:20px;"  id="commentTitle" name="comment.title"  class="form-control" placeholder="标题： 简要说明问题概况" required >
+		
+		<br/>
+		<div class="text-muted">尽量提供<span class="strong">截图</span>、<span class="strong">代码</span>和<span class="strong">异常信息</span>，有助于分析和解决问题。
+		
+		
+		
+		
+			也可进本站QQ群交流: 661682521
+			<div class="text-muted">
+				站长会在每个工作日早上尽量回答提问（如果有漏掉没有回答的，请进群提醒一下） <br>
+				提问尽量提供完整的代码，环境描述，越是有利于问题的重现，您的问题越能更快得到解答。<br>
+				对教程中代码有疑问，请提供是哪个步骤，哪一行有疑问，这样便于快速定位问题，提高问题得到解答的速度 <br>
+				站长是玻璃心，提问的时候请语气温柔些  kiss~<br>
+				截止2017-5-19日累计提问 1638个，站长回答了 1546个<br>
+				截止2017-8-15日累计提问 2788个，站长回答了 2544个<br>
+			</div>
+		 
+		
+		
+		
+		</div>
+		<br/>
+		<table>
+			<tr valign="top">
+				<td style="padding-right:50px">
+					<a href="#nowhere" class="a-upload">
+						<input id="commentFile" type="file" name="doc" id=""  accept="image/*">上传截图
+					</a>				
+				</td>
+				<td style="padding-top:5px">
+					<span id="commentFilePath"  class="text-muted"></span>
+				</td>
+			</tr>
+		
+		</table>
+		
+		<br/>
+		<br/>
+		
+
+			<ul class="nav nav-tabs" id="commentTabs">
+			  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >描述</a></li>
+			  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+			  <li role="presentation"  test="test"  ><a href="#nowhere" tabName="exception" >异常</a></li>
+			</ul>			
+			<br>
+			<div class="tabDiv" tabName="desc"  >
+					<textarea style="height:200px;" id="commentdesc" name="comment.desc"  class="form-control" placeholder="描述：描述问题发生的环境，本来期望的结果，实际得到的结果"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="code" >
+					<textarea style="height:200px;"  name="comment.code"  class="form-control" placeholder="粘贴代码,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="exception" >
+					<textarea style="height:200px;"  name="comment.exception"  class="form-control" placeholder="粘贴异常,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>
+			
+			<br/>
+		<div>
+			<input type="hidden" name="comment.knowledge.id" value="255" >
+			
+			<input type="hidden" id="commentStepId" name="comment.step.id" value="" >
+			
+			<input type="submit" id="commentSubmitButton" value="提交问题" class="btn btn-success btn-lg pull-left" >
+		</div>
+				
+	</div>
+</form>	
+			
+		<br/>
+		<br/>
+
+	
+
+
+
+
+
+
+
+				
+					<div style="position:fixed;bottom:60px;right:10px">
+						<a href="#" class="addNoteCommentLink">
+							<span  style="font-size:20px" title="笔记" class="glyphicon glyphicon-pencil"></span>
+						</a>				
+					</div>
+				
+			
+				<div style="position:fixed;bottom:20px;right:10px">
+					<a href="#">
+						<span  style="font-size:20px" title="跳到顶部" class="glyphicon glyphicon-upload"></span>
+					</a>				
+				</div>
+				
+		</td>
+	</tr>
+</table>
+
+ 
+
+</body>
+
+
+
+
+
+
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+
+
+	<footer class="footer" id="footer">
+		    
+	     		© 2015-2018 <a href="http://how2j.cn">how2j.cn</a> — All Rights Reserved. 蜀ICP备15000533号
+	     		
+	     			<a href="../../../frontshowFriendLinks">友情链接</a>
+	     		
+	     		
+	     		<a href="../../../frontshowJavaPractises">JAVA 练习题</a>
+	     		 
+
+
+	     		<a href="http://how2j.cn/frontabout">关于本站</a>  
+<!-- 	     		本站QQ群: 661682521 -->
+
+				<div style="display:none">
+<!-- 					<script type="text/javascript">//var cnzz_protocol  = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258013751'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1258013751%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+				</div>
+				
+				  <script>
+				    $(function () {
+				      // 延迟CNZZ统计, 以免影响页面载入
+				      
+				      setTimeout(function(){
+				    	  
+					      var cz = document.createElement("script");
+					      cz.src = "//s11.cnzz.com/z_stat.php?id=1258013751&web_id=1258013751";
+					      document.getElementsByTagName('body')[0].appendChild(cz);
+				    	  
+				      },1000);
+
+				    });
+ 				 </script>
+	     		
+					
+	</footer>
+	
+
+
+	
+
+<script type="text/javascript">
+function syntaxCallback(){
+	$('div.syntaxhighlighter').each(function(){
+		
+// 		console.log("allContent width:"+ $("#allContent").width());
+		var width = ($("div#allContent").width()-255)*0.95;
+		
+		var commentHighLight = $(this).parent().parent().parent().attr("commentHighLight");
+
+		
+		var commentWidth = $(".eachCommentDiv:visible").width();
+		commentWidth-=150;
+
+		
+		if("true"== commentHighLight){
+			$(this).css("width",commentWidth+"px");
+			console.log(commentWidth);
+		}
+			
+		else{
+			$(this).css("width",width+"px");
+		}
+
+		$(".eachCommentDescDiv").css("width",commentWidth+"px");
+			
+	});
+
+	
+}
+
+$(function () {
+
+	var count = SyntaxHighlighter.findElements().length,
+    now = 0;
+	SyntaxHighlighter.complete = function(callback){
+	    (function wait() {
+	        setTimeout(function () {
+	            now = $('div.syntaxhighlighter');
+	            if (now.length < count) {
+	                wait();
+	            } else {
+	            	syntaxCallback();
+	            }
+	        }, 200);
+	    })();
+	};
+	
+	$(document).ready(function(){
+	    $(".stepCode").on("dblclick", ".syntaxhighlighter", function(){
+	        var textarea = $(this).find('textarea');
+	        textarea.val(textarea.val().replace(new RegExp(String.fromCharCode(160), 'g'), " "));
+	        textarea.trigger("select");
+	    });
+	    SyntaxHighlighter.all();
+	})
+	
+	SyntaxHighlighter.all();
+	SyntaxHighlighter.complete(syntaxCallback);
+
+});
+</script>
+</div> <!-- start from siteframe.jsp -->
+
+</body>
+
+
+
+
+
+<script>
+$(function(){
+	    
+	    
+	
+	$(document).keydown(function (event) {
+	    //判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+	    //判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+<!--	    console.log(event.keyCode);-->
+<!--	    if (event.keyCode == 37) {-->
+<!--	    	history.back(-1);-->
+<!--	    }-->
+<!--	    if (event.keyCode == 39) {-->
+<!--	    	history.forward(1);-->
+<!--	    }-->
+	});
+	
+});
+//获取键盘ascII码;
+//$(document).keydown(function (event) {
+//    alert(console.log(event.keyCode));
+//    alert(event.keyCode);
+//});
+
+
+
+</script>
+
+<script>
+$(function(){
+	var hash = window.location.hash; 
+	hash = hash.replace("#",""); 
+	function go2Archor(){
+		if(!go2ArchorFlag){
+			setTimeout(go2Archor,1000);
+			return;
+		}
+		if(hash.length!=0){
+			var pos = document.getElementById(hash);
+			if(null!=pos)
+				pos.scrollIntoView(true);				
+		}
+	
+	}
+	setTimeout(go2Archor,1000);
+	
+	setTimeout(function(){
+		$("div.stepAnswer").hide();
+	},500);	
+		
+	//4offline
+		$("a").click(function(e){
+			var href= $(this).attr("href");
+			if(-1!=href.indexOf("how2j.cn")){
+				e.preventDefault();
+				if(-1!=href.indexOf("?")){
+					var newLocation = href+"&tid="+56;
+					location=newLocation;
+				}
+				else{
+					var newLocation = href+"?tid="+56;
+					location=newLocation;				
+				}
+
+			}
+		});		
+	
+
+});
+
+
+</script> 
+
+
+
+
+
+
+
+<div class="modal fade" id="popAdModal" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="popAdModalLabel">
+<div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">优惠活动</h4>
+            
+          </div>
+          <div class="modal-body" style="text-align:center">
+          
+          
+          <p class="text-danger" style="font-size:40px">全场五折</p>
+          
+          <p >模仿天猫整站SSM版上架，全场五折，优惠码：<span class="text-danger" style="font-weight:bold;text-decoration: underline1;margin-left:10px" >TMALLSSM</span> <p>
+          <p class="text-danger"  style="font-weight:bold;text-decoration: underline1;margin-left:10px">可用于全站通</p>
+          
+    	  <p>有效期10.30 - 11.1</p>      
+          <p><a style="font-size:20px;text-decoration: underline;" class="text-info" target="_blank" href="http://how2j.cn/frontproductList?promoteCode.code=TMALLSSM&tid=99">点击查看</a></p>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<script>
+$(function(){
+	var page = "/frontcheckPopAd";
+	$.post(
+	    page,
+	    function(result){
+	    	if("yes"==result){
+		    	$("#popAdModal").modal('show');	    		
+	    	}
+	    }
+	);
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>

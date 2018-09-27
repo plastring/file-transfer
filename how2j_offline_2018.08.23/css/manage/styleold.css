@@ -1,0 +1,67 @@
+body a{
+	text-decoration: none;
+}
+/*table tr td{*/
+/*	font-size:85%;*/
+/*}*/
+/*table{*/
+/*	text-align:center;*/
+/*	border-collapse:collapse;*/
+/*}*/
+
+.nocssTable{
+	width:50px;
+}
+
+label.checkboxLabel{
+margin-left:-300;
+}
+
+.strutsTable tr{
+	border:0px;
+}
+.strutsTable td{
+	border:0px;
+}
+
+tr{
+	background-color:#efefef;
+	height:25px;
+}
+
+td{
+	border:1px solid #aaa;
+}
+
+table.clearTable td{
+	border:0px solid #fff;
+}
+
+
+div.navigator{
+  position:absolute;
+  left:20px;
+  top:20px;
+}
+
+.basicColor{
+color:#428BCA;	
+}
+
+
+tr.first{
+	border:1px solid #8888ff;
+	background-color:#ddd;
+	height:25px;
+}
+
+h1{
+	text-align:center;
+	text-transform:capitalize;
+	color:#666;	
+}
+
+textarea{
+	width:500px;
+	height:300px;
+}

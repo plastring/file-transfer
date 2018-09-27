@@ -1,0 +1,7030 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/dom/dom-senario/525.html" />	
+	
+
+	
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+
+<!--taglib	-->
+
+ 
+ 
+
+
+	
+	<!--self -->
+	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" />
+<!-- 	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" /> -->
+	<link rel="shortcut icon" href="../../../img/site/favicon.ico" />
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/dom/dom-senario/525.html" />
+	
+		
+	<script src="../../../js/how2j/code.js"></script>
+
+<script src="../../../js/how2j/pid.js"></script>
+<!-- <link href="../../../css/all.css" rel="stylesheet"> -->
+
+<link href="../../../css/all.css" rel="stylesheet">
+<!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com../../../css/all.css" rel="stylesheet"> -->
+
+
+
+<!-- <script src="../../../js/all.js"></script> -->
+<script src="../../../js/all.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+
+<!-- code hightlight -->
+
+
+<script>
+function jumpwww(){
+	if(-1!=location.hostname.indexOf("www.")){
+		var x = new String(location);
+		var newLocation = x.replace("www.","");
+		location = newLocation;
+		return;
+	}
+	
+}
+
+jumpwww();
+
+function formatMoney(num){
+	num = num.toString().replace(/\$|\,/g,'');  
+	if(isNaN(num))  
+	    num = "0";  
+	sign = (num == (num = Math.abs(num)));  
+	num = Math.floor(num*100+0.50000000001);  
+	cents = num%100;  
+	num = Math.floor(num/100).toString();  
+	if(cents<10)  
+	cents = "0" + cents;  
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)  
+	num = num.substring(0,num.length-(4*i+3))+','+  
+	num.substring(num.length-(4*i+3));  
+	return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+function insertSpecalDiv(div, className){
+	var li = document.createElement("div");
+	var classAttr = document.createAttribute("class");
+	var text = document.createTextNode(" ");
+	li.appendChild(text);
+	classAttr.nodeValue = className;
+	li.setAttributeNode(classAttr);
+	div.appendChild(li);
+}
+
+<!--code mirror-->
+var yourcode, siteCode, divDiffer, highlight = true, connect = null, collapse = false;
+function betterTab(cm) {
+	var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+    cm.replaceSelection(spaces);
+}
+function initUI() {
+	  var target = document.getElementById("codeDifferOriginal");
+	  target.innerHTML = "";
+	  divDiffer = CodeMirror.MergeView(target, {
+	    value: yourcode,
+	    origRight: null,
+	    orig: siteCode,
+	    lineNumbers: true,
+	    extraKeys: { Tab: betterTab },
+	    mode: "text/html",
+	    highlightDifferences: highlight,
+	    connect: connect,
+	    collapseIdentical: collapse
+	  });
+	}
+
+	function changeDivCode2CodeStyle(mask4spider){
+		var selector = "";
+		if(mask4spider)
+			selector = "div.stephighlightDescOnly.mask4spider-true div.code";
+		else
+			selector = "div.code";
+// 		console.log("selector:"+selector);
+		$(selector).each(function() {
+			var div = this;
+			var html = $(this).html();
+			html = $.trim(html);
+			html = html.replace(/^<br>(.*)<br>$/, "\$1");
+			html = html.replace();
+			var lines = html.split("<br>");
+			$(this).html("");
+
+			insertSpecalDiv(div,"codeeven codefirst");
+			
+			var count = 0;
+			$.each(lines, function(i, n) {
+				count++;
+				var li = document.createElement("div");
+				var text = document.createTextNode(decodeHtml(n));
+				li.appendChild(text);
+
+				var classAttr = document.createAttribute("class");
+				if (0 == i % 2)
+					classAttr.nodeValue = "codeodd";
+				if (1 == i % 2)
+					classAttr.nodeValue = "codeeven";
+				li.setAttributeNode(classAttr);
+
+				div.appendChild(li);
+			})
+			
+			if(0!=count%2)
+				insertSpecalDiv(div,"codeeven codelast");
+			else
+				insertSpecalDiv(div,"codeodd codelast");
+		});		
+	}
+
+	$(function() {
+		<!--把div.code中的文本转换为代码表现风格-->
+		changeDivCode2CodeStyle(false);
+		
+		<!--每个stage的享字所具备的弹出模态窗口效果-->
+	    		
+		
+    	<!--练习姿势-->
+    	 $("a.practisePostureLink").click(function(){
+				$("div#practiseModal").modal('show');
+		 });    
+    	 
+    	
+    	<!--视频加载成功后的处理-->
+    	$("div.4safari video").attr("poster","");
+//     	$("div.4safari video").each(function(){
+//     		var videoSrc=$(this).attr("thefile");
+//     		$(this).attr("src",videoSrc);
+//     	});
+//     	$("div.4safari video").attr("preload","meta");
+//     	$("div.4safari video").on("canplaythrough",function(){
+//             $(this).attr("poster","");
+//         });	    	
+
+	});
+</script>
+
+
+<script>
+//当bootstrap toc 加载完毕后，才进行跳转
+var go2ArchorFlag = true;
+//当show it ,try it, toc 的额外高度
+var showittryitheight=30;
+
+
+var l = function(msg){return console.log(msg)};
+$(function () {
+	$("[data-toggle='tooltip']").tooltip({animation:true,html:true,delay:{ show: 1000, hide: 000 }});
+	
+	
+	if(!logon)
+		$("a.module span.progressBar").hide();
+	
+	
+
+	$('.progress-bar').each(function(){
+		var progress = $(this).attr("aria-valuenow");
+	 	$(this).css({'width':progress+"%"});
+// 	    $(this).animate({width:progress+'%'},progress*100/2);
+	});
+	
+
+	
+});
+
+<!--是否登陆的全局变量-->
+var logon;
+
+
+
+
+
+	logon = false;
+
+
+</script>
+
+<style>
+<!--pre{-->
+<!--	width:500px;-->
+<!--}-->
+</style>
+
+
+<title>HTML DOM 常用场景 | 基于实例代码分步讲解 一站式学习Java | how2j.cn</title>
+	
+	<meta name="keywords" content="常用场景,删除行为前的提示,登陆时候，验证账号密码是否为空,提交数据，验证长度,提交数据，验证年龄是否为数字,提交数据，验证email格式是否正确,隐藏和现实,HTML DOM">
+	<meta name="description" content="所谓的常用场景指的是工作中会经常用到的javascript结合HTML,DOM运用.  示例  1 : 删除行为前的提示  示例  2 : 登陆时候，验证账号密码是否为空  示例  3 : 提交数据，验证长度  示例  4 : 提交数据，验证年龄是否为数字  示例  5 : 提交数据，验证email格式是否正确  示例  6 : 隐藏和现实">
+
+	
+	
+	
+<script type="text/javascript">
+// JavaScript Document
+function urlredirect() {
+	
+}	
+ 
+
+	
+		urlredirect();
+	
+	
+	
+</script>
+</head>
+<body id="body">
+
+
+	
+
+	
+	
+		
+<script>
+
+	
+   	$(function() {
+		var categorySelected=0;
+                   	
+       	if(categorySelected==1){
+			$("#homepageNavLink").removeClass("active");
+       	}
+       	
+
+      	
+
+//       	$("#qqqunspan").html("官方QQ群: 620943819");
+      	
+
+
+		$(".advertiseLink#ad15").mouseenter(function(e){
+				$("#qrcodeImg4Ad").show();
+				
+				var e = e||window.event;  
+		        var scrollx = window.scrollX|| document.documentElement.scrollLeft;  
+		        var scrolly = window.scrollY|| document.documentElement.scrollTop;  
+		        var x = parseFloat(e.clientX) + parseFloat(scrollx) ;  
+		        var y = parseFloat(e.clientY) + parseFloat(scrolly);  
+
+		        $("#qrcodeImg4Ad").css({'left':x,'top':y,'display':'block'});  
+				
+		});
+		$(".advertiseLink#ad15").mouseleave(function(){
+				$("#qrcodeImg4Ad").hide();
+		});
+   	});
+      	
+</script>
+<div id="allContent">
+	<!-- end with footer -->
+
+	
+
+	<div>
+		<br />
+
+		<table width="100%">
+			<tr height="50px">
+				<td width="200px">
+						<a href="http://how2j.cn"><img title="how2j.cn" alt="how2j.cn"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAAtCAYAAAC6RRfMAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKN0lEQVR4Xu2dT2gXRxTHNxUU7L+IrdpSMWKgoC2JtpeKYHIytyiWQg9t9OCpBw09eCoqnjxFD548mLSHQqlobvGUCNKeqimtQsGSiEVUWkxrKVgorZ8tUzabnfdmdnY3+6szsMRkZ97MvHnfeW/eezt2/f2kJLFEDkQOtIoDz7RqNHEwkQORAykHIjCjIEQOtJADEZgtXJQ4pMiBCMwoA5EDLeRABGYLFyUOKXIgAjPKQORACznQ1enhkpmZmYTn9u3byfz8/CIW9/f3J5s2bUoGBgYS/h3L/5cDvz/+K7l662Fy79c/k29/evTfRJ9btSLZ8vLqpHfd6qR/4/MJv3dCEYGJwA8ODlrn4RoCPX78eHLixIlCOoBmenrai1cAEHqXLl1KFhYWnNr29PQkIyMjyZEjR5Lu7m61zcGDB5Px8fHguY+OjianT59eQodxjI2NqeOgwubNm5dsOqbhgQMHkvPnzy+ic/XWQiqctx78kQrqvd8eLxJUhJRnz9a16c+qSldXl5UUa8xaV11m7zxKLly7/wSUbnKwq7c72b9jfQrSbBn94ocEWkUFHo2997oXqKEFTVuZ/vhtkRUdZcoCQgCDoAIaV1DCAQNm2rJRaGV4eFiswqblUtg8iort7/m6s7OzVlBSd/fu3UvII6hffnM/FbQsKKmIZuHvvD/02c3k/XPfWQXSZX7LVYd5Ifg8rqBkrNS1AdA2Fza4s9N3Gp1qxwATAd2+fbuoxVw4B5jRtlgCErD37t0rkpucnFS7k0DFRsF7rWgA1sap0TcCfnamWcHTxiW9B1yHPr3pDbCQPqdu/JxuZk2VjgAmAgyQ8mfIECYZM70sOF00pgYq7T3zkzYAQOlilrvwCaHrBHACkE8mb6Wav+kCf9CeTZTWA9OA0sdsdWWcRlsyZ2mrjUnTqtp76EtaVTO3Xflg6gFOH7PQl35ofUB5amo+lExQe0znJjaF1gOTM6UGgBBOI/iSY0qiLWlNF1NVOz9qGjXUjC2aW9NnKde1W45zXtHYACUau+7SamDipHE5h2HOGe8k3j8ePJ6ugovXtAhkeHKlMIuk8TRQmYWVwC3Rx8NpM2PxIn40sDH1JOL9Mw+/D217SZQpzpxNmWs+wn3q8ryTpsLbaubOfE8O9ybvvrU+2fDCKp/uxLo4j8a/ulsZvSJCrQUmWvLMmTPq5Ak7zM3NpSEDwInA8vD3ixcvpu9cAFpGa0qgmpiYUMeunSEl+pIZi2AijPmQAL8fHepJzn2wVXT9+3otnSYaUAkTVtssTEgDMJq5M1/CI/Dj80Nvpj+rKhNf363V7G8tMF1ilIARzSg5QNB6ABTQamZpkXYm9mkrmKtFDikXM9bQtM0TUJZ1TGnChxCPvPOqtVoTZyhtjNn3F649EKsbUOY3onwjAKttSj7jOjU1tyQc5dNeqttaYGqOEQCpgS07cUCsac4iLYcpKwG/yGR1NWMlc1aaP2NiwwkpQ2/IJm0I7SrbaqY1mTw+wX9ADECrKP+eN390MrF9+wsCpkmH036SLudT0BSScCOUmKq+Rcu0sfUpAfrKlStLhuFqxpqGRSCUzFhJi7vyREpN2/DiSlcytdfTzGqyeJYzza4up1QQMIktujxSalvRymoOn8OHD5cSCAAtaVlbnFQ6z+UBJJmxNs2b3xA0U1jT/C7MkczV3ie5pW0ppBRKpSrtp/UhgZ8zME+VJQiYVQ4kS0sDZkjOZVEKW7bvIk0l9ZePNUqa3rYpQCPbr0SjCjOW+ZLwXVTwXlaZPxsqI9mE9DwtxtqEtnx25YrUuysV4quag8qHF60Epha3DPlSpMzZDE0naakskGxmLGOWNH3WnC0yj82ihmxKWcG4fOOXQjnZs22tj/wsa90mTW4ThpEmXOV5s5XAXNbVtnQuaVoDJMkE5VwoxUWz4JY0ZhXnS1siN9qnCdOwjevrMiZ4Q/jFVnBU4amtonQkMENyZsu2lTSmMUMlQJn2NmCZ0Ivm9AqxFhAYSXiODm1uxDSsQnDTuSjnz6r6ydKBR5Kpz6ZXRfJBEDBNlo320yesARM0c80lgdy2KJKZKPWtZQEBKMmMNSa0ZhJrSeuhwmYzt9AEkjYI7bds+77XFn83maXDJtN0zBWr4uieHnEDI/lA8yZr/AgCpsmy0X5yi4BP0c6BtiwdrQ+0kuQh1vqVNgxAaXNaZbUkfdj6gUadYRLb1xGpsD3RBG0s2jmyyU+xDH/SlMdBOYsIcIaUIGCGdCy1lYSXdgDM5WPnfB/cJiAVTVNL5zsXM9b0bdOaUlI7DqgQM1b6nhCPYxPezTLyomXz8FF401qTeZBzrOUdl5mvadNKYDI4zcmB1vSJj/KVipaRo/WpZQEVLURReEPrp4hOSOxSCoIX5dSGCFTVbbXwDaD0+RQLXlSlZck7riu01FpgutzNA9jQnFJ4Be26b98+FcTGHNcEyxcgRSAsE4ss++0lgmv7MkPLmZV44bMpajzV3u/fsU6sAtikO3tMY3OdSpUa9uTwllqsjdYCE9PNJcMHzck9PpipaESTHsinXOZ+IE1TsnDHjh3T5CN9ryUo5InYgKyZzVk6WhxVGjjue1vgm8u4eIejoujJ3xdk+oGv8Du7IWo8DrlpAZNR00wGnADU3HfEnPCScrbmbqM6bmhAo2vJB06ClavU+lvyuOdHywQqM/FsG58b6xDGNWvWOHWJZrx+/XphXQQZTe5Sim7Cc2kXel0In0plv2Nk7ozZOKiYn9nQ2CBt6wQoHz4szjRymQd1DPCq0HZ8WXNg5+KvaySNW1Q/P25CJD4On46/JY+vQkJ2W23hs8Kl1eU9Y3HVdtJZ0ue+njJmbHquDLhgC6dLHpTkRWe9xgARoPJIm6dk/jNObgQAGFK+qYsn1GX96qoD0DVHlU/frTVlzSQADnHSOsBZlrYrULTzqPbe8MC1nqlvHCI+gpCvy1cbpqApAWUZy4V1sx0TMJW5QtNkIpFvKoETkxaHS1sLJm1VNyW0HpgsggGQFmf0WTBz0XQZwLsAxcXB4wJwl77y8w69RQ7hyiYbwKMyfGJcfGpnW7ep75fm69pyeM0cAWdbwzuEnHAGVVE6ApgGnJzXfLOI8kwyO3iIFtbirPTpEhJxMYldwJudI+ZraNbJyM5XlsgWt0C4jDfb0Fz3YhPUouQBF43DpnHuw62Vmo5VgAkamNxVaPWOASaTBlQsNvf4AFCfXRwwYVLRtkxyQn7hNE2mvTfz0epp77PjwiQMjdGx6+/qXercgtdsZvBQ4zsAdtlE80F6QFm0KRSBhrrcXMDjk0pI3SrPgkVjqyL5IP6nQlVtlU8RHXPDBHnH5qMAwNrX15d+HueboYQDiHNxCGCeqv9U6CmStTjVyIFWcaCjTNlWcS4OJnKgRg5EYNbI3Eg6cqAsByIwy3IutoscqJEDEZg1MjeSjhwoy4EIzLKci+0iB2rkQARmjcyNpCMHynIgArMs52K7yIEaOfAP54dRCyBirNkAAAAASUVORK5CYII=" />
+							</a>
+					 </td>
+				<td align="center">
+					
+						<a href="http://how2j.cn/k/tmall-front/tmall-front-790/790.html" style="height1:30px !important; display:block !important;" class="advertiseLink" id ="ad2">
+							<img src="../../../img/site/advertise/2.png">
+						</a>
+						
+						<img src="../../../img/site/430.jpg" style="display:none;position:absolute;z-index: 99" id="qrcodeImg4Ad">
+						
+					
+				</td>
+
+				<td align="right">
+				
+	
+				 </td>
+
+				<td align="right" width="240px">
+					<div>
+						
+							<form action="/frontsearch" method="post">
+								<div class="input-group" style="margin-right: 10px;width: 200px">
+									<input name="outsideSearchKeyword" 
+									class="form-control" placeholder="搜索.." required >
+									<span class="input-group-btn ">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+
+						
+					</div>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<nav>
+
+		<div class="nav bg-primary">
+
+			<span class="pull-left"> <a href="../../../default.html">首页</a>  <!-- 		<a href="../../../c">最新提问</a> --> 
+				 
+
+				
+				
+					<a style="color: #F0AD4E; font-weight: bold"
+						href="../../../stage/39.html">实践项目</a>
+												
+						
+
+<!-- 								<a style="color: #F0AD4E; font-weight: bold" -->
+<!-- 									href="../../../frontproductList">付费内容</a> -->
+
+				
+
+ 
+ 				
+ 				
+				
+
+				
+
+				
+				
+				
+<!-- 					<a href="http://how2j.cn/frontshowJavaPractises">JAVA 练习题</a> -->
+<!-- 					<a href="../../../k/1144">JAVA 书籍</a> -->
+				
+				
+				
+				
+				
+				 
+				 
+				 
+				
+				
+				
+				
+
+				 
+				 
+
+				
+							
+							
+							
+				<a style="position:relative" id="newestLessons" href="../../../k/plan/plan-history/1785.html">
+					最新教程
+					
+					<span style="position:absolute; top:-28px;left:50px" class="strong">new</span>
+					
+				</a>
+				
+				
+								
+				
+				
+				
+				
+
+				
+
+			</span> <span class="pull-right">  
+<!-- 					<span id="qqqunspan" style="width:160px;display:inline-block;margin-right:10px"></span> -->
+
+					
+					<a href="http://how2j.cn/frontqqQun" alt="qq群: 620943819" title="qq群：620943819，如果满了请到 how2j.cn 获取最新的群">加入QQ群</a>
+					
+
+				 
+					<a href="http://how2j.cn/frontloginPage?act=register">注册</a>
+					<a href="http://how2j.cn/frontloginPage?act=login">登录</a>
+					<!--			<a href="#"><img src="../../../img/site/Connect_logo_7.png"/ ></a>-->
+
+
+				
+			</span>
+
+		</div>
+	</nav>
+
+	
+<br/>
+
+<script>
+$(function() {
+	bootstrapButton   = $.fn.button.noConflict();  
+	$.fn.bootstrapBtn = bootstrapButton;  
+
+	
+	var interviewStepids = new Array();
+	
+	$("#k525 ").removeClass("unread");
+	$("#k525 ").removeClass("brower");
+	$("#k525 ").removeClass("finish");
+	$("#k525 ").addClass("active");
+	
+	
+	
+	$("button.interviewCheckAnswerButton").click(function(){
+		var sid = $(this).attr("sid");
+		$("div.interviewAnswer[sid="+sid+"]").show();		
+	});
+	
+	
+	
+	$("span.interviewStatus").css("color","green");
+	
+	$("textarea.interviewdesc").keyup(function(){
+		var sid = $(this).attr("sid");
+		$("span.interviewStatus[sid="+sid+"]").css("color","red");
+		interviewStepids.push(sid);
+	});
+	
+	timeout=setInterval(sync,1500);
+	function sync(){
+		stepids = $.unique(interviewStepids);
+		var sid = interviewStepids.pop();
+		if(null!=sid){
+			$("span.interviewStatus[sid="+sid+"]").css("color","yellow");
+			$("form.updatInterviewForm[sid="+sid+"]").ajaxSubmit(function(){
+				$("span.interviewStatus[sid="+sid+"]").css("color","green");
+			});
+		}
+	}	
+	
+	
+	$("select.degree4stepFront").change(function(){
+		var sid = $(this).attr("stepid");
+		var page=  "/frontchangeDegreeOfStep";
+		var degree = $(this).val();
+		
+		var select = $(this);
+		select.css("background-color","red");
+			$.post(
+					page,
+					{
+						"step.id":sid,
+						"step.degree":degree,
+					},
+						function(result){
+							if("success"==result){
+								select.css("background-color","yellow");
+							}
+						}
+					); 
+		
+		
+		
+	});
+	
+	//work for step
+	$("ul.codetitle li.codetitle0").addClass("active");
+	$("div.stepCode").hide();
+	$("div.stepCode_index_0").show();
+
+	$("a.codetitleLink").click(function(){
+		var stindex = $(this).attr("stindex");
+		var sid = $(this).attr("sid");
+		$("a.showStepCodeLink[sid="+sid+"]").hide();
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+		$("li.codetitle"+sid).removeClass("active");
+		$("li.codetitle"+sid+"_"+stindex).addClass("active");
+		$("div.stepCode"+sid).hide();
+		$("div.stepCode"+sid+"_"+stindex).show();
+	});	
+	
+	$("a.jump2commentLink").click(function(){
+		$("input#commentTitle")[0].focus();
+	});
+	
+	$("a.stepresize").click(function(){
+		var stepid = $(this).attr("stepid");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-small");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-full");
+		$(".stepbody[stepid="+stepid+"]").toggle();
+	});
+	
+	$("button.answerButton").click(function(){
+		var sid = $(this).attr("sid");
+		if(!logon){
+			$("a.ask2login[sid="+sid+"]").show();
+			$(this).hide();
+			return;
+		}
+		
+		var sid = $(this).attr("sid");
+		$("div.stepAnswer[sid="+sid+"]").show();
+		$(this).parent().hide();
+		var page = "/frontanswerVisited";
+        $.ajax({
+            url: page,
+            data:{"step.id":sid},
+            success: function(result){
+            }
+        });
+        
+        var page ="/frontscoreConsume";
+        $.get(
+     		page,
+     		{"scoreConsume.step.id":sid},
+     		function(result){
+     			
+     		}
+        );   
+        
+        
+        
+	});		
+	
+	
+	$("button.copyButton").click(function(){
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code = decodeHtml(code);
+// 		decode();
+		$("#codeCopySource").val(code);
+		$("#codeCopyInModal").modal('show');
+	});
+	
+	$("button.differButton").click(function(){
+		highlight = true;
+		connect = null;
+		collapse = false;
+		$("#codeDifferOriginal").show();
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code =$.trim(code);
+		code = decodeHtml(code);
+		yourcode = "";
+		siteCode = code;
+		var charIndex = 6;
+		$("#codeDifferInModal").modal('show');
+		
+		initUI();
+
+// 	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+// 		var outSide= $("#codeDifferOriginalOutSide")[0];
+// 		var inSide= $("#codeDifferOriginalInSide")[0];
+// 		outSide.removeChild(codeDifferOriginal);
+// 		inSide.appendChild(codeDifferOriginal);
+	});
+	
+    $("#codeDifferInModal").on("hidden.bs.modal",function(){
+	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+		var outSide= $("#codeDifferOriginalOutSide")[0];
+		var inSide= $("#codeDifferOriginalInSide")[0];
+		inSide.removeChild(codeDifferOriginal);
+		outSide.appendChild(codeDifferOriginal);
+		$("#codeDifferOriginal").hide();
+		
+    });	
+
+
+
+
+    	
+
+	
+
+	<!--当超过20行，隐藏代码，下面用于显示代码-->
+	$("a.showStepCodeLink").click(function(){
+		$(this).hide();
+		var sid = $(this).attr("sid");
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+	});
+
+	
+	var page = "/frontnormalPageVisited";
+    $.ajax({
+        url: page,
+        data:{"knowledge.id":525},
+        success: function(result){
+        }
+    });
+
+    <!--折叠左侧菜单-->
+    
+    
+    
+    <!--增加积分,做笔记，收藏等的模态窗口-->
+    
+    
+    
+
+    <!--视频div-->
+    
+    
+    $("div.4safari video").css("width",(window.innerWidth-400)+"px");
+
+	<!--tooltips-->
+// 	 $("[data-toggle='tooltip']").tooltip();
+	 
+	$("label.speed").click(function(){
+		var speed = $(this).attr("speed");
+		$(this).parents("div.4safari").children("video")[0].playbackRate = speed;
+		$(this).parents("div.4safari").children("video")[0].play();
+	});
+	
+	$("button.videoGoBackButton").click(function(){
+		$(this).parents("div.4safari").children("video")[0].currentTime -= 10;
+	});	 
+	
+
+	
+	
+	
+
+
+});
+
+
+
+</script>
+
+<table width="100%" class="allTable showTable1">
+
+	<tr valign="top">
+		<td width="145px" style="padding-left:20px" >
+			
+	
+
+<style>
+
+.list-group-item.unread {
+  background-color: #fefefe;
+}
+.list-group-item.unread:hover{
+  background-color: #d9edf7;
+}
+.list-group-item.brower {
+  background-color: #d9edf7;
+}
+.list-group-item.brower:hover{
+  background-color: #dff0d8;
+}
+
+
+.list-group-item.finish {
+  background-color: #dff0d8;
+}
+.list-group-item.finish:hover {
+  background-color: #c1e2b3;
+}
+
+</style>
+
+<script>
+
+
+
+
+$(function() {
+	if(logon){
+		$("a.leftKnowledgeMenuItem.finish_ready").addClass("finish");		
+		$("a.leftKnowledgeMenuItem.unread_ready").addClass("unread");	
+		$("a.leftKnowledgeMenuItem.active").removeClass("finish");	
+	}
+
+	
+});
+</script>
+<nav>
+<div style="margin-left:00px;width:170px">
+					  <a href="#nowhere" clicked="true" class="list-group-item success_bg leftKnowledgeMenuWholeTitle">
+					  		<h2>HTML DOM</h2>
+					  		 
+					  </a>	  
+					  
+					  
+						
+							<a id="k457" href="../../../k/dom/dom-node/457.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>节点概念</span> 
+							</a>
+						
+							<a id="k458" href="../../../k/dom/dom-fetch-node/458.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>获取节点</span> 
+							</a>
+						
+							<a id="k459" href="../../../k/dom/dom-attribute/459.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>节点的属性</span> 
+							</a>
+						
+							<a id="k522" href="../../../k/dom/dom-style/522.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>样式</span> 
+							</a>
+						
+							<a id="k464" href="../../../k/dom/dom-event/464.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>事件</span> 
+							</a>
+						
+							<a id="k523" href="../../../k/dom/dom-children/523.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>节点关系</span> 
+							</a>
+						
+							<a id="k462" href="../../../k/dom/dom-create/462.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>创建节点 </span> 
+							</a>
+						
+							<a id="k461" href="../../../k/dom/dom-delete/461.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>删除节点</span> 
+							</a>
+						
+							<a id="k460" href="../../../k/dom/dom-modify/460.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>替换节点</span> 
+							</a>
+						
+							<a id="k463" href="../../../k/dom/dom-insert/463.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>插入节点</span> 
+							</a>
+						
+							<a id="k525" href="../../../k/dom/dom-senario/525.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>常用场景</span> 
+							</a>
+						
+							<a id="k769" href="../../../k/dom/dom-tablesort/769.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>表格排序</span> 
+							</a>
+						  	
+					  
+					  
+					  
+					  
+					  
+
+</div>		    
+</nav>
+		    
+		    
+			    
+		</td>
+		
+		<td align="left"  style="padding-left:60px;padding-right:40px" >
+			
+	
+	
+<nav>
+<div class="panel panel-success">
+  <div class="panel-heading">
+<div class="text-uppercase">
+
+
+						  <a href="../../../stage/27.html">前端部分</a>
+						  /
+						  
+						  <a href="../../../module/67.html">HTML DOM</a>
+						  /
+ 						  
+ 						  	<span class="text-muted">HTML DOM 常用场景</span>
+ 						  
+ 						  
+ 						  
+
+									
+						  
+						  
+						  
+ 		  
+						
+						
+						
+		
+						
+
+						
+	
+
+
+
+
+
+
+
+	
+
+			
+			
+					  
+						</div>  
+  </div>
+
+
+</div>
+</nav>
+	
+						  
+						
+						
+						
+
+	
+<div class="bg-info" style="width:100%" align="left">
+						
+				
+		
+							
+</div>
+			
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/dom/dom-insert/463.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 插入节点
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/dom/dom-tablesort/769.html">
+					表格排序
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			
+						<!-- JiaThis Button BEGIN -->
+	
+						
+			
+			
+		
+			
+
+
+<script>
+$(function () {
+
+    $("#login2downloadAlertDiv").hide();
+
+	$(".login2download").click(function(){
+		$("#login2downloadAlertDiv").show();	
+	});;
+	
+});
+
+</script>	
+	
+	
+<div>
+
+	<div id="DescAndDownloadRightPart" style="float:right;margin:0px 0px 20px 20px">
+			
+		
+		
+			<!-- knowledge.module.downloadable && -->
+			
+			
+				<div id="login2downloadAlertDiv" class="alert alert-warning" style="display:none;text-align:center;width:300px">
+	
+							<a href="http://how2j.cn/frontloginPage?act=login">登录</a>后可下载
+				</div>		
+	</div>		
+	
+	<div id="DescAndDownloadLeftPart">
+					<br>
+					
+						<a style="margin-left:20px" href="../../../k/helloworld/helloworld-version/1718.html" class="label label-warning">工具版本兼容问题</a>					
+					
+					<br>
+	
+				
+					<div style="width1:100%;margin:20px 0px;background-color: #fff;padding:20px;border-radius1:5px;border-style:none;border-bottom:0px solid #C8BFE7;">
+						所谓的常用场景指的是工作中会经常用到的javascript结合HTML DOM运用。
+					</div>				
+					
+
+											
+				
+				<br/>
+					
+					
+					
+					<div>
+					
+					
+					</div>	
+	</div>	
+	
+	<div style="clear:both"></div>
+
+<!-- 	<table width="100%"> -->
+<!-- 		<tr valign="top"> -->
+<!-- 			<td> -->
+
+					
+<!-- 			</td> -->
+<!-- 			<td align="right" style="padding-right:50px;padding-left:50px"> -->
+									
+																				
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table>					 -->
+</div>
+			
+			
+			
+			
+			
+			
+
+
+
+		
+			<a href="#step1199" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">1</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-删除行为前的提示 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2919" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">2</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-删除行为前的提示 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step1200" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">3</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-登陆时候，验证账号密码是否为空 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2920" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">4</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-登陆时候，验证账号密码是否为空 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step1201" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">5</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-提交数据，验证长度 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2921" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">6</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-提交数据，验证长度 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step1202" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">7</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-提交数据，验证年龄是否为数字 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2923" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">8</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-提交数据，验证年龄是否为数字 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step3099" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">9</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-提交数据，验证年龄是否为整数 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step3100" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">10</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-提交数据，验证年龄是否为整数 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step1203" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">11</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-提交数据，验证email格式是否正确 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2924" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">12</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-提交数据，验证email格式是否正确 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step1208" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">13</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					练习-隐藏和显示 
+					 &nbsp;&nbsp;
+					
+					
+					
+						
+							<span class="glyphicon glyphicon glyphicon-star"></span>
+						
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+						
+							<span class="glyphicon glyphicon-star-empty"></span>
+									
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step2922" style="color:#F0AD4E">
+				 
+				
+					示例
+				 
+				<span style="font-weight: bold">14</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+						<span class="glyphicon glyphicon-edit"></span>
+					
+					答案-隐藏和显示 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+
+
+<br>
+			
+			
+				
+
+<script>
+$(function () {
+
+	$("#practiseDiv").hide();
+	$("#answerDiv").hide();
+    $("#practiseButton").click(function(){
+    	$("#practiseDiv").show(200);
+    });
+    $("#answerButton").click(function(){
+        
+			location.href="http://how2j.cn/frontloginPage?act=login";
+        
+                
+    });
+
+	
+});
+
+</script>
+
+
+	
+
+			
+
+			
+
+<!--这个是      前台         的step.jsp-->
+<script>
+$(function(){
+
+});
+
+</script>
+<div>
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1199">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">1</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-删除行为前的提示 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1199">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1199" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1199" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1199">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1199"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1199" >
+					在进行删除操作前，都应该提示用户是否要删除
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1199] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1199] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1199").height(0);
+			window.frames["iframe_show1199"].document.write("<html><body>");
+			window.frames["iframe_show1199"].document.write(decodeHtml($("textarea#stepcodeTextarea1199").val()));
+			window.frames["iframe_show1199"].document.close();
+			
+			$(window.frames["iframe_show1199"]).load(function(){
+				$("#iframe_show1199").height($("#iframe_show1199").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1199").height($("#iframe_show1199").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1199").height($("#iframe_show1199").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1199").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1199").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1199" id="iframe_show1199">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1199  stepCode1199_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1199_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1199_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1199_0" >&lt;script&gt;
+function deleteRow(link){
+ var b =  confirm(&quot;确定删除？&quot;)
+ if(!b)
+   return;
+
+var table = document.getElementById(&quot;heroTable&quot;);
+var td = link.parentNode;
+var tr = td.parentNode;
+var index=tr.rowIndex;
+table.deleteRow(index);
+
+}
+&lt;/script&gt;
+&lt;table width=&quot;100%&quot; border = &quot;1&quot; cellspacing=&quot;0&quot; id=&quot;heroTable&quot;&gt;
+
+&lt;tr &gt;
+   &lt;td width=&quot;50%&quot;&gt;英雄名称&lt;/td&gt;
+   &lt;td&gt;
+       操作
+   &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;盖伦&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;提莫&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;祈求者&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="1199" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="1199" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1199_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;script&gt;
+function deleteRow(link){
+ var b =  confirm(&quot;确定删除？&quot;)
+ if(!b)
+   return;
+
+var table = document.getElementById(&quot;heroTable&quot;);
+var td = link.parentNode;
+var tr = td.parentNode;
+var index=tr.rowIndex;
+table.deleteRow(index);
+
+}
+&lt;/script&gt;
+&lt;table width=&quot;100%&quot; border = &quot;1&quot; cellspacing=&quot;0&quot; id=&quot;heroTable&quot;&gt;
+
+&lt;tr &gt;
+   &lt;td width=&quot;50%&quot;&gt;英雄名称&lt;/td&gt;
+   &lt;td&gt;
+       操作
+   &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;盖伦&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;提莫&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;祈求者&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1199']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1199").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1199,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1199";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1199= "";
+			var alreadyWriteCode1199 = "";
+			var lastModifedTime1199 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1199(){
+				if(alreadyWriteCode1199==code1199){
+					return;
+				}
+				
+				currentTime1199 = new Date().getTime();
+				if(currentTime1199- lastModifedTime1199<1000)
+					return;
+				
+				$("#iframe1199").height(0);
+				window.frames["iframe1199"].document.write("<html><body>");
+				window.frames["iframe1199"].document.write(decodeHtml(code1199));
+				window.frames["iframe1199"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1199"]).load(function(){
+					$("#iframe1199").height($("#iframe1199").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1199").height($("#iframe1199").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1199 = code1199;
+				$("#rendering1199").hide();
+				$("#rendered1199").show();				
+			}
+			var tRereshRetry2DemoPanel1199 = setInterval(rereshRetry2DemoPanel1199,1000);
+			var binded1199 = false;
+			$("textarea#stepcodeTextarea1199").keyup(function(){
+	    		
+	    			if(!binded1199){
+						$(window).bind('beforeunload',function(){
+							binded1199 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1199 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1199!=newCode){
+// 					window.frames["iframe1199"].document.write("<html><body>");
+// 					window.frames["iframe1199"].document.write(decodeHtml($("textarea#stepcodeTextarea1199").val()));
+// 					window.frames["iframe1199"].document.close();
+// 					$(window.frames["iframe1199"]).load(function(){
+// 						$("#iframe1199").height($("#iframe1199").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1199 = newCode;
+// 				}
+			});
+
+			$(".tryButton1199").click(function(){
+				$("#tryDiv1199").show();
+				$("#stepcodeTextarea1199").focus();
+				$("#stepcodeTextarea1199").height(200);
+
+				$("#iframe1199").height(0);
+
+				window.frames["iframe1199"].document.write("<html><body>");
+				window.frames["iframe1199"].document.write(decodeHtml($("textarea#stepcodeTextarea1199").val()));
+				window.frames["iframe1199"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1199"]).load(function(){
+					$("#iframe1199").height($("#iframe1199").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1199").height($("#iframe1199").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1199.focus();
+				editor1199.setSize(null, "250");
+				
+				$("#rendering1199").hide();
+				$("#rendered1199").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1199 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1199"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1199.on("change",function(doc){
+				
+	    			if(!binded1199){
+						$(window).bind('beforeunload',function(){
+							binded1199 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1199 = newCode;
+    			$("textarea#stepcodeTextarea1199").val(newCode);
+    			
+				if(alreadyWriteCode1199!=code1199){
+					lastModifedTime1199 = new Date().getTime();
+					$("#rendering1199").show();
+					$("#rendered1199").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1199 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1199.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1199").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1199 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1199">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1199"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="50" style="width:100%" id="stepcodeTextarea1199">&lt;script&gt;
+function deleteRow(link){
+ var b =  confirm(&quot;确定删除？&quot;)
+ if(!b)
+   return;
+
+var table = document.getElementById(&quot;heroTable&quot;);
+var td = link.parentNode;
+var tr = td.parentNode;
+var index=tr.rowIndex;
+table.deleteRow(index);
+
+}
+&lt;/script&gt;
+&lt;table width=&quot;100%&quot; border = &quot;1&quot; cellspacing=&quot;0&quot; id=&quot;heroTable&quot;&gt;
+
+&lt;tr &gt;
+   &lt;td width=&quot;50%&quot;&gt;英雄名称&lt;/td&gt;
+   &lt;td&gt;
+       操作
+   &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;盖伦&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;提莫&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr &gt;
+   &lt;td&gt;祈求者&lt;/td&gt;
+   &lt;td&gt;
+      &lt;a href=&quot;#&quot; onclick=&quot;deleteRow(this)&quot;&gt;删除&lt;/a&gt;     
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1199" class="label label-warning">渲染中</span>
+						<span id="rendered1199" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1199" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1199" name="iframe1199" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2919">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">2</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-删除行为前的提示 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2919" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2919" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2919">查看答案</button>
+				<a sid="2919" href="http://how2j.cn/frontloginPage?step.id=2919" style="display:none"  sid="2919" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1200">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">3</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-登陆时候，验证账号密码是否为空 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1200">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1200" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1200" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1200">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1200"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1200" >
+					比如在登陆的时候，如果账号或者密码为空，弹出提示，并且不提交
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1200] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1200] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1200").height(0);
+			window.frames["iframe_show1200"].document.write("<html><body>");
+			window.frames["iframe_show1200"].document.write(decodeHtml($("textarea#stepcodeTextarea1200").val()));
+			window.frames["iframe_show1200"].document.close();
+			
+			$(window.frames["iframe_show1200"]).load(function(){
+				$("#iframe_show1200").height($("#iframe_show1200").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1200").height($("#iframe_show1200").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1200").height($("#iframe_show1200").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1200").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1200").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1200" id="iframe_show1200">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1200  stepCode1200_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1200_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1200_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1200_0" >&lt;form method=&quot;post&quot; action=&quot;/study/login.jsp&quot; onsubmit=&quot;return login()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; &lt;br/&gt;
+密码：&lt;input id=&quot;password&quot; type=&quot;password&quot; name=&quot;password&quot; &gt; &lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;
+&lt;/form&gt;
+  
+&lt;script&gt;
+  function login(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length==0){
+     alert(&quot;用户名不能为空&quot;);
+     return false;
+   }
+
+   var password = document.getElementById(&quot;password&quot;);
+   if(password.value.length==0){
+     alert(&quot;密码不能为空&quot;);
+     return false;
+   }
+
+   return true;
+
+  }
+&lt;/script&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="1200" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="1200" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1200_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;form method=&quot;post&quot; action=&quot;/study/login.jsp&quot; onsubmit=&quot;return login()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; &lt;br/&gt;
+密码：&lt;input id=&quot;password&quot; type=&quot;password&quot; name=&quot;password&quot; &gt; &lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;
+&lt;/form&gt;
+  
+&lt;script&gt;
+  function login(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length==0){
+     alert(&quot;用户名不能为空&quot;);
+     return false;
+   }
+
+   var password = document.getElementById(&quot;password&quot;);
+   if(password.value.length==0){
+     alert(&quot;密码不能为空&quot;);
+     return false;
+   }
+
+   return true;
+
+  }
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1200']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1200").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1200,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1200";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1200= "";
+			var alreadyWriteCode1200 = "";
+			var lastModifedTime1200 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1200(){
+				if(alreadyWriteCode1200==code1200){
+					return;
+				}
+				
+				currentTime1200 = new Date().getTime();
+				if(currentTime1200- lastModifedTime1200<1000)
+					return;
+				
+				$("#iframe1200").height(0);
+				window.frames["iframe1200"].document.write("<html><body>");
+				window.frames["iframe1200"].document.write(decodeHtml(code1200));
+				window.frames["iframe1200"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1200"]).load(function(){
+					$("#iframe1200").height($("#iframe1200").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1200").height($("#iframe1200").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1200 = code1200;
+				$("#rendering1200").hide();
+				$("#rendered1200").show();				
+			}
+			var tRereshRetry2DemoPanel1200 = setInterval(rereshRetry2DemoPanel1200,1000);
+			var binded1200 = false;
+			$("textarea#stepcodeTextarea1200").keyup(function(){
+	    		
+	    			if(!binded1200){
+						$(window).bind('beforeunload',function(){
+							binded1200 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1200 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1200!=newCode){
+// 					window.frames["iframe1200"].document.write("<html><body>");
+// 					window.frames["iframe1200"].document.write(decodeHtml($("textarea#stepcodeTextarea1200").val()));
+// 					window.frames["iframe1200"].document.close();
+// 					$(window.frames["iframe1200"]).load(function(){
+// 						$("#iframe1200").height($("#iframe1200").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1200 = newCode;
+// 				}
+			});
+
+			$(".tryButton1200").click(function(){
+				$("#tryDiv1200").show();
+				$("#stepcodeTextarea1200").focus();
+				$("#stepcodeTextarea1200").height(200);
+
+				$("#iframe1200").height(0);
+
+				window.frames["iframe1200"].document.write("<html><body>");
+				window.frames["iframe1200"].document.write(decodeHtml($("textarea#stepcodeTextarea1200").val()));
+				window.frames["iframe1200"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1200"]).load(function(){
+					$("#iframe1200").height($("#iframe1200").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1200").height($("#iframe1200").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1200.focus();
+				editor1200.setSize(null, "250");
+				
+				$("#rendering1200").hide();
+				$("#rendered1200").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1200 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1200"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1200.on("change",function(doc){
+				
+	    			if(!binded1200){
+						$(window).bind('beforeunload',function(){
+							binded1200 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1200 = newCode;
+    			$("textarea#stepcodeTextarea1200").val(newCode);
+    			
+				if(alreadyWriteCode1200!=code1200){
+					lastModifedTime1200 = new Date().getTime();
+					$("#rendering1200").show();
+					$("#rendered1200").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1200 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1200.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1200").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1200 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1200">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1200"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="29" style="width:100%" id="stepcodeTextarea1200">&lt;form method=&quot;post&quot; action=&quot;/study/login.jsp&quot; onsubmit=&quot;return login()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; &lt;br/&gt;
+密码：&lt;input id=&quot;password&quot; type=&quot;password&quot; name=&quot;password&quot; &gt; &lt;br/&gt;
+&lt;input type=&quot;submit&quot; value=&quot;登陆&quot;&gt;
+&lt;/form&gt;
+  
+&lt;script&gt;
+  function login(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length==0){
+     alert(&quot;用户名不能为空&quot;);
+     return false;
+   }
+
+   var password = document.getElementById(&quot;password&quot;);
+   if(password.value.length==0){
+     alert(&quot;密码不能为空&quot;);
+     return false;
+   }
+
+   return true;
+
+  }
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1200" class="label label-warning">渲染中</span>
+						<span id="rendered1200" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1200" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1200" name="iframe1200" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2920">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">4</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-登陆时候，验证账号密码是否为空 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2920" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2920" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2920">查看答案</button>
+				<a sid="2920" href="http://how2j.cn/frontloginPage?step.id=2920" style="display:none"  sid="2920" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1201">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">5</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-提交数据，验证长度 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1201">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1201" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1201" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1201">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1201"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1201" >
+					比如注册用户名的时候，用户名至少需要3位长度.
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1201] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1201] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1201").height(0);
+			window.frames["iframe_show1201"].document.write("<html><body>");
+			window.frames["iframe_show1201"].document.write(decodeHtml($("textarea#stepcodeTextarea1201").val()));
+			window.frames["iframe_show1201"].document.close();
+			
+			$(window.frames["iframe_show1201"]).load(function(){
+				$("#iframe_show1201").height($("#iframe_show1201").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1201").height($("#iframe_show1201").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1201").height($("#iframe_show1201").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1201").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1201").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1201" id="iframe_show1201">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1201  stepCode1201_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1201_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1201_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1201_0" >&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+   
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   return true;
+ 
+  }
+&lt;/script&gt;
+</div>
+									
+								<div  sid="1201" class="stepCodeTipsDiv" style="display:n"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1201_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+   
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   return true;
+ 
+  }
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1201']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1201").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1201,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1201";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1201= "";
+			var alreadyWriteCode1201 = "";
+			var lastModifedTime1201 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1201(){
+				if(alreadyWriteCode1201==code1201){
+					return;
+				}
+				
+				currentTime1201 = new Date().getTime();
+				if(currentTime1201- lastModifedTime1201<1000)
+					return;
+				
+				$("#iframe1201").height(0);
+				window.frames["iframe1201"].document.write("<html><body>");
+				window.frames["iframe1201"].document.write(decodeHtml(code1201));
+				window.frames["iframe1201"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1201"]).load(function(){
+					$("#iframe1201").height($("#iframe1201").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1201").height($("#iframe1201").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1201 = code1201;
+				$("#rendering1201").hide();
+				$("#rendered1201").show();				
+			}
+			var tRereshRetry2DemoPanel1201 = setInterval(rereshRetry2DemoPanel1201,1000);
+			var binded1201 = false;
+			$("textarea#stepcodeTextarea1201").keyup(function(){
+	    		
+	    			if(!binded1201){
+						$(window).bind('beforeunload',function(){
+							binded1201 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1201 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1201!=newCode){
+// 					window.frames["iframe1201"].document.write("<html><body>");
+// 					window.frames["iframe1201"].document.write(decodeHtml($("textarea#stepcodeTextarea1201").val()));
+// 					window.frames["iframe1201"].document.close();
+// 					$(window.frames["iframe1201"]).load(function(){
+// 						$("#iframe1201").height($("#iframe1201").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1201 = newCode;
+// 				}
+			});
+
+			$(".tryButton1201").click(function(){
+				$("#tryDiv1201").show();
+				$("#stepcodeTextarea1201").focus();
+				$("#stepcodeTextarea1201").height(200);
+
+				$("#iframe1201").height(0);
+
+				window.frames["iframe1201"].document.write("<html><body>");
+				window.frames["iframe1201"].document.write(decodeHtml($("textarea#stepcodeTextarea1201").val()));
+				window.frames["iframe1201"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1201"]).load(function(){
+					$("#iframe1201").height($("#iframe1201").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1201").height($("#iframe1201").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1201.focus();
+				editor1201.setSize(null, "250");
+				
+				$("#rendering1201").hide();
+				$("#rendered1201").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1201 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1201"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1201.on("change",function(doc){
+				
+	    			if(!binded1201){
+						$(window).bind('beforeunload',function(){
+							binded1201 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1201 = newCode;
+    			$("textarea#stepcodeTextarea1201").val(newCode);
+    			
+				if(alreadyWriteCode1201!=code1201){
+					lastModifedTime1201 = new Date().getTime();
+					$("#rendering1201").show();
+					$("#rendered1201").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1201 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1201.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1201").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1201 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1201">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1201"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="24" style="width:100%" id="stepcodeTextarea1201">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+   
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   return true;
+ 
+  }
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1201" class="label label-warning">渲染中</span>
+						<span id="rendered1201" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1201" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1201" name="iframe1201" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2921">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">6</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-提交数据，验证长度 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2921" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2921" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2921">查看答案</button>
+				<a sid="2921" href="http://how2j.cn/frontloginPage?step.id=2921" style="display:none"  sid="2921" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1202">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">7</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-提交数据，验证年龄是否为数字 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1202">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1202" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1202" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1202">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1202"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1202" >
+					比如注册的时候，需要提交年龄信息，用户输入的年龄信息必须是数字的。
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1202] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1202] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1202").height(0);
+			window.frames["iframe_show1202"].document.write("<html><body>");
+			window.frames["iframe_show1202"].document.write(decodeHtml($("textarea#stepcodeTextarea1202").val()));
+			window.frames["iframe_show1202"].document.close();
+			
+			$(window.frames["iframe_show1202"]).load(function(){
+				$("#iframe_show1202").height($("#iframe_show1202").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1202").height($("#iframe_show1202").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1202").height($("#iframe_show1202").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1202").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1202").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1202" id="iframe_show1202">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1202  stepCode1202_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1202_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1202_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1202_0" >&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+   return true;
+  
+  }
+&lt;/script&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="1202" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="1202" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1202_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+   return true;
+  
+  }
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1202']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1202").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1202,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1202";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1202= "";
+			var alreadyWriteCode1202 = "";
+			var lastModifedTime1202 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1202(){
+				if(alreadyWriteCode1202==code1202){
+					return;
+				}
+				
+				currentTime1202 = new Date().getTime();
+				if(currentTime1202- lastModifedTime1202<1000)
+					return;
+				
+				$("#iframe1202").height(0);
+				window.frames["iframe1202"].document.write("<html><body>");
+				window.frames["iframe1202"].document.write(decodeHtml(code1202));
+				window.frames["iframe1202"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1202"]).load(function(){
+					$("#iframe1202").height($("#iframe1202").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1202").height($("#iframe1202").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1202 = code1202;
+				$("#rendering1202").hide();
+				$("#rendered1202").show();				
+			}
+			var tRereshRetry2DemoPanel1202 = setInterval(rereshRetry2DemoPanel1202,1000);
+			var binded1202 = false;
+			$("textarea#stepcodeTextarea1202").keyup(function(){
+	    		
+	    			if(!binded1202){
+						$(window).bind('beforeunload',function(){
+							binded1202 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1202 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1202!=newCode){
+// 					window.frames["iframe1202"].document.write("<html><body>");
+// 					window.frames["iframe1202"].document.write(decodeHtml($("textarea#stepcodeTextarea1202").val()));
+// 					window.frames["iframe1202"].document.close();
+// 					$(window.frames["iframe1202"]).load(function(){
+// 						$("#iframe1202").height($("#iframe1202").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1202 = newCode;
+// 				}
+			});
+
+			$(".tryButton1202").click(function(){
+				$("#tryDiv1202").show();
+				$("#stepcodeTextarea1202").focus();
+				$("#stepcodeTextarea1202").height(200);
+
+				$("#iframe1202").height(0);
+
+				window.frames["iframe1202"].document.write("<html><body>");
+				window.frames["iframe1202"].document.write(decodeHtml($("textarea#stepcodeTextarea1202").val()));
+				window.frames["iframe1202"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1202"]).load(function(){
+					$("#iframe1202").height($("#iframe1202").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1202").height($("#iframe1202").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1202.focus();
+				editor1202.setSize(null, "250");
+				
+				$("#rendering1202").hide();
+				$("#rendered1202").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1202 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1202"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1202.on("change",function(doc){
+				
+	    			if(!binded1202){
+						$(window).bind('beforeunload',function(){
+							binded1202 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1202 = newCode;
+    			$("textarea#stepcodeTextarea1202").val(newCode);
+    			
+				if(alreadyWriteCode1202!=code1202){
+					lastModifedTime1202 = new Date().getTime();
+					$("#rendering1202").show();
+					$("#rendered1202").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1202 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1202.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1202").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1202 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1202">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1202"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="34" style="width:100%" id="stepcodeTextarea1202">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+   return true;
+  
+  }
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1202" class="label label-warning">渲染中</span>
+						<span id="rendered1202" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1202" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1202" name="iframe1202" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2923">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">8</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-提交数据，验证年龄是否为数字 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2923" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2923" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2923">查看答案</button>
+				<a sid="2923" href="http://how2j.cn/frontloginPage?step.id=2923" style="display:none"  sid="2923" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step3099">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">9</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-提交数据，验证年龄是否为整数 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="3099">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="3099" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="3099" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="3099">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="3099"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="3099" >
+					上一个练习有个缺陷，即当年龄输入是小数的时候，也能够通过判断。 <br>那么接下来就要求，年龄只能输入整数，小数也不行
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=3099] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=3099] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show3099").height(0);
+			window.frames["iframe_show3099"].document.write("<html><body>");
+			window.frames["iframe_show3099"].document.write(decodeHtml($("textarea#stepcodeTextarea3099").val()));
+			window.frames["iframe_show3099"].document.close();
+			
+			$(window.frames["iframe_show3099"]).load(function(){
+				$("#iframe_show3099").height($("#iframe_show3099").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show3099").height($("#iframe_show3099").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show3099").height($("#iframe_show3099").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show3099").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea3099").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show3099" id="iframe_show3099">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode3099  stepCode3099_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code3099_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code3099_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code3099_0" >&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+ 
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+     
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   var age = document.getElementById(&quot;age&quot;);
+   if(parseInt(age.value)!=age.value){
+     alert(&quot;年龄必须是整数&quot;);
+     return false;
+   }
+   return true;
+  }
+&lt;/script&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="3099" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="3099" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code3099_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+ 
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+     
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   var age = document.getElementById(&quot;age&quot;);
+   if(parseInt(age.value)!=age.value){
+     alert(&quot;年龄必须是整数&quot;);
+     return false;
+   }
+   return true;
+  }
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='3099']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea3099").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":3099,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step3099";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code3099= "";
+			var alreadyWriteCode3099 = "";
+			var lastModifedTime3099 = new Date().getTime();
+
+			function rereshRetry2DemoPanel3099(){
+				if(alreadyWriteCode3099==code3099){
+					return;
+				}
+				
+				currentTime3099 = new Date().getTime();
+				if(currentTime3099- lastModifedTime3099<1000)
+					return;
+				
+				$("#iframe3099").height(0);
+				window.frames["iframe3099"].document.write("<html><body>");
+				window.frames["iframe3099"].document.write(decodeHtml(code3099));
+				window.frames["iframe3099"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe3099"]).load(function(){
+					$("#iframe3099").height($("#iframe3099").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe3099").height($("#iframe3099").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode3099 = code3099;
+				$("#rendering3099").hide();
+				$("#rendered3099").show();				
+			}
+			var tRereshRetry2DemoPanel3099 = setInterval(rereshRetry2DemoPanel3099,1000);
+			var binded3099 = false;
+			$("textarea#stepcodeTextarea3099").keyup(function(){
+	    		
+	    			if(!binded3099){
+						$(window).bind('beforeunload',function(){
+							binded3099 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code3099 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code3099!=newCode){
+// 					window.frames["iframe3099"].document.write("<html><body>");
+// 					window.frames["iframe3099"].document.write(decodeHtml($("textarea#stepcodeTextarea3099").val()));
+// 					window.frames["iframe3099"].document.close();
+// 					$(window.frames["iframe3099"]).load(function(){
+// 						$("#iframe3099").height($("#iframe3099").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code3099 = newCode;
+// 				}
+			});
+
+			$(".tryButton3099").click(function(){
+				$("#tryDiv3099").show();
+				$("#stepcodeTextarea3099").focus();
+				$("#stepcodeTextarea3099").height(200);
+
+				$("#iframe3099").height(0);
+
+				window.frames["iframe3099"].document.write("<html><body>");
+				window.frames["iframe3099"].document.write(decodeHtml($("textarea#stepcodeTextarea3099").val()));
+				window.frames["iframe3099"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe3099"]).load(function(){
+					$("#iframe3099").height($("#iframe3099").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe3099").height($("#iframe3099").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor3099.focus();
+				editor3099.setSize(null, "250");
+				
+				$("#rendering3099").hide();
+				$("#rendered3099").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor3099 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea3099"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor3099.on("change",function(doc){
+				
+	    			if(!binded3099){
+						$(window).bind('beforeunload',function(){
+							binded3099 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code3099 = newCode;
+    			$("textarea#stepcodeTextarea3099").val(newCode);
+    			
+				if(alreadyWriteCode3099!=code3099){
+					lastModifedTime3099 = new Date().getTime();
+					$("#rendering3099").show();
+					$("#rendered3099").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor3099 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor3099.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv3099").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton3099 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv3099">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="3099"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="31" style="width:100%" id="stepcodeTextarea3099">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+ 
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+     
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+ 
+   var age = document.getElementById(&quot;age&quot;);
+   if(parseInt(age.value)!=age.value){
+     alert(&quot;年龄必须是整数&quot;);
+     return false;
+   }
+   return true;
+  }
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering3099" class="label label-warning">渲染中</span>
+						<span id="rendered3099" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv3099" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe3099" name="iframe3099" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step3100">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">10</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-提交数据，验证年龄是否为整数 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="3100" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="3100" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="3100">查看答案</button>
+				<a sid="3100" href="http://how2j.cn/frontloginPage?step.id=3100" style="display:none"  sid="3100" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1203">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">11</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-提交数据，验证email格式是否正确 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1203">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1203" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1203" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1203">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1203"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1203" >
+					比如注册的时候，需要提交email信息，用户输入的email信息必须是电子邮箱格式的。
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1203] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1203] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1203").height(0);
+			window.frames["iframe_show1203"].document.write("<html><body>");
+			window.frames["iframe_show1203"].document.write(decodeHtml($("textarea#stepcodeTextarea1203").val()));
+			window.frames["iframe_show1203"].document.close();
+			
+			$(window.frames["iframe_show1203"]).load(function(){
+				$("#iframe_show1203").height($("#iframe_show1203").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1203").height($("#iframe_show1203").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1203").height($("#iframe_show1203").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1203").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1203").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1203" id="iframe_show1203">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1203  stepCode1203_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1203_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1203_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1203_0" >&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+EMail：&lt;input id=&quot;email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+  var email = document.getElementById(&quot;email&quot;);
+       
+  if(0==email.value.length){
+     alert(&quot;email不能为空&quot;);
+    return false;
+  }
+    
+  var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;       
+    
+  if (!Regex.test(email.value)){                
+       alert(&quot;email格式不正确&quot;);
+       return false;
+  }            
+   return true;
+  }
+&lt;/script&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="1203" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="1203" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1203_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+EMail：&lt;input id=&quot;email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+  var email = document.getElementById(&quot;email&quot;);
+       
+  if(0==email.value.length){
+     alert(&quot;email不能为空&quot;);
+    return false;
+  }
+    
+  var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;       
+    
+  if (!Regex.test(email.value)){                
+       alert(&quot;email格式不正确&quot;);
+       return false;
+  }            
+   return true;
+  }
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1203']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1203").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1203,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1203";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1203= "";
+			var alreadyWriteCode1203 = "";
+			var lastModifedTime1203 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1203(){
+				if(alreadyWriteCode1203==code1203){
+					return;
+				}
+				
+				currentTime1203 = new Date().getTime();
+				if(currentTime1203- lastModifedTime1203<1000)
+					return;
+				
+				$("#iframe1203").height(0);
+				window.frames["iframe1203"].document.write("<html><body>");
+				window.frames["iframe1203"].document.write(decodeHtml(code1203));
+				window.frames["iframe1203"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1203"]).load(function(){
+					$("#iframe1203").height($("#iframe1203").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1203").height($("#iframe1203").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1203 = code1203;
+				$("#rendering1203").hide();
+				$("#rendered1203").show();				
+			}
+			var tRereshRetry2DemoPanel1203 = setInterval(rereshRetry2DemoPanel1203,1000);
+			var binded1203 = false;
+			$("textarea#stepcodeTextarea1203").keyup(function(){
+	    		
+	    			if(!binded1203){
+						$(window).bind('beforeunload',function(){
+							binded1203 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1203 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1203!=newCode){
+// 					window.frames["iframe1203"].document.write("<html><body>");
+// 					window.frames["iframe1203"].document.write(decodeHtml($("textarea#stepcodeTextarea1203").val()));
+// 					window.frames["iframe1203"].document.close();
+// 					$(window.frames["iframe1203"]).load(function(){
+// 						$("#iframe1203").height($("#iframe1203").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1203 = newCode;
+// 				}
+			});
+
+			$(".tryButton1203").click(function(){
+				$("#tryDiv1203").show();
+				$("#stepcodeTextarea1203").focus();
+				$("#stepcodeTextarea1203").height(200);
+
+				$("#iframe1203").height(0);
+
+				window.frames["iframe1203"].document.write("<html><body>");
+				window.frames["iframe1203"].document.write(decodeHtml($("textarea#stepcodeTextarea1203").val()));
+				window.frames["iframe1203"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1203"]).load(function(){
+					$("#iframe1203").height($("#iframe1203").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1203").height($("#iframe1203").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1203.focus();
+				editor1203.setSize(null, "250");
+				
+				$("#rendering1203").hide();
+				$("#rendered1203").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1203 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1203"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1203.on("change",function(doc){
+				
+	    			if(!binded1203){
+						$(window).bind('beforeunload',function(){
+							binded1203 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1203 = newCode;
+    			$("textarea#stepcodeTextarea1203").val(newCode);
+    			
+				if(alreadyWriteCode1203!=code1203){
+					lastModifedTime1203 = new Date().getTime();
+					$("#rendering1203").show();
+					$("#rendered1203").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1203 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1203.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1203").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1203 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1203">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1203"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="50" style="width:100%" id="stepcodeTextarea1203">&lt;form method=&quot;post&quot; action=&quot;/study/register.jsp&quot; onsubmit=&quot;return register()&quot;&gt;
+账号：&lt;input id=&quot;name&quot; type=&quot;text&quot; name=&quot;name&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+
+年龄：&lt;input id=&quot;age&quot; type=&quot;text&quot; name=&quot;age&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+EMail：&lt;input id=&quot;email&quot; type=&quot;text&quot; name=&quot;email&quot;&gt; 
+&lt;br&gt;&lt;br&gt;
+  
+&lt;input type=&quot;submit&quot; value=&quot;注册&quot;&gt;
+&lt;br&gt;
+&lt;/form&gt;
+    
+&lt;script&gt;
+  function register(){
+   var name = document.getElementById(&quot;name&quot;);
+   if(name.value.length&lt;3){
+     alert(&quot;用户名至少需要3位长度&quot;);
+     return false;
+   }
+
+   var age = document.getElementById(&quot;age&quot;);
+
+   if(isNaN(age.value)){
+     alert(&quot;年龄必须是数字&quot;);
+     return false;
+   }
+  
+  var email = document.getElementById(&quot;email&quot;);
+       
+  if(0==email.value.length){
+     alert(&quot;email不能为空&quot;);
+    return false;
+  }
+    
+  var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;       
+    
+  if (!Regex.test(email.value)){                
+       alert(&quot;email格式不正确&quot;);
+       return false;
+  }            
+   return true;
+  }
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1203" class="label label-warning">渲染中</span>
+						<span id="rendered1203" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1203" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1203" name="iframe1203" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2924">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">12</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-提交数据，验证email格式是否正确 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2924" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2924" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2924">查看答案</button>
+				<a sid="2924" href="http://how2j.cn/frontloginPage?step.id=2924" style="display:none"  sid="2924" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step1208">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">13</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>练习-隐藏和显示 
+		 </h2>
+		
+		
+			
+				<span class="glyphicon glyphicon glyphicon-star"></span>
+			
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+			
+				<span class="glyphicon glyphicon-star-empty"></span>
+						
+		
+
+					
+		
+			练习难度
+			
+			<select name="bean.degree" id="bean_degree" class="degree4stepFront" stepid="1208">
+    <option value="0">0</option>
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="1208" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+		
+			<span class="practisePosture pull-right">
+									 <img src="../../../img/site/badposture.png"> Or
+									 <img src="../../../img/site/goodposture.png"> 
+									 &nbsp;姿势不对,事倍功半! 
+									 	<a href="#nowhere" class="practisePostureLink">点击查看做练习的正确姿势</a>
+									 </span>
+			</span>	
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="1208" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="1208">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="1208"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="1208" >
+					首先通过document.getElementById 拿到div对应的节点<br>然后通过修改节点的<span class="strong">style.display</span>的值进行隐藏和显示
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(true){
+		var showDiv = $("div.stepbody[stepid=1208] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=1208] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+
+<script>
+    	$(function() {
+//     		$("#iframe_show1208").height(0);
+			window.frames["iframe_show1208"].document.write("<html><body>");
+			window.frames["iframe_show1208"].document.write(decodeHtml($("textarea#stepcodeTextarea1208").val()));
+			window.frames["iframe_show1208"].document.close();
+			
+			$(window.frames["iframe_show1208"]).load(function(){
+				$("#iframe_show1208").height($("#iframe_show1208").contents().find("body").height()+showittryitheight);
+			});
+			$("#iframe_show1208").height($("#iframe_show1208").contents().find("body").height()+showittryitheight);
+			setTimeout(function(){
+<!--				$("#iframe_show1208").height($("#iframe_show1208").contents().find("body").height()+10);			-->
+			},500);
+
+			
+			
+
+			<!--			$("#iframe_show1208").contents().find("body").html(decodeHtml($("textarea#stepcodeTextarea1208").val()));-->
+
+    	});			
+</script>	
+	
+
+
+				
+
+	<div class="showDiv" >
+		
+		  	<iframe style="width:100%" scrolling="auto" frameborder="0" name="iframe_show1208" id="iframe_show1208">
+		  	</iframe>
+		 								
+	</div>
+
+
+
+	
+			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode1208  stepCode1208_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code1208_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code1208_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code1208_0" >&lt;button onclick=&quot;hide()&quot;&gt;隐藏div&lt;/button&gt;
+
+&lt;button onclick=&quot;show()&quot;&gt;显示div&lt;/button&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div id=&quot;d&quot;&gt;
+
+这是一个div
+
+&lt;/div&gt;
+
+&lt;script&gt;
+function hide(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;none&quot;;
+}
+
+function show(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;block&quot;;
+}
+
+&lt;/script&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="1208" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="1208" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code1208_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;button onclick=&quot;hide()&quot;&gt;隐藏div&lt;/button&gt;
+
+&lt;button onclick=&quot;show()&quot;&gt;显示div&lt;/button&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div id=&quot;d&quot;&gt;
+
+这是一个div
+
+&lt;/div&gt;
+
+&lt;script&gt;
+function hide(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;none&quot;;
+}
+
+function show(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;block&quot;;
+}
+
+&lt;/script&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+
+<script>
+    	$(function() {
+    		
+    		
+	    		$("a.syncButton[stepid='1208']").click(function(){
+	    			$(window).unbind('beforeunload');
+	    			var name = prompt("输入update进行修改确认");
+	    			if("update"!=name)
+	    				return;
+
+	    			var v = $("textarea#stepcodeTextarea1208").val();
+      			    var page = "/frontupdateStepCode";
+    		        $.ajax({
+    		            url: page,
+    		            method:"post",
+    		            data:{"step.id":1208,"step.code":v},
+    		            success: function(result){
+    		              if("success"==result)
+    		            	var url =  location.pathname+"#step1208";
+    		            	location.assign(url);
+    		            	location.reload();
+    		            }
+    		        });
+	    		});    
+	    		
+	    		
+    		
+
+        	var code1208= "";
+			var alreadyWriteCode1208 = "";
+			var lastModifedTime1208 = new Date().getTime();
+
+			function rereshRetry2DemoPanel1208(){
+				if(alreadyWriteCode1208==code1208){
+					return;
+				}
+				
+				currentTime1208 = new Date().getTime();
+				if(currentTime1208- lastModifedTime1208<1000)
+					return;
+				
+				$("#iframe1208").height(0);
+				window.frames["iframe1208"].document.write("<html><body>");
+				window.frames["iframe1208"].document.write(decodeHtml(code1208));
+				window.frames["iframe1208"].document.close();
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1208"]).load(function(){
+					$("#iframe1208").height($("#iframe1208").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1208").height($("#iframe1208").contents().find("body").height()+showittryitheight);
+				
+				alreadyWriteCode1208 = code1208;
+				$("#rendering1208").hide();
+				$("#rendered1208").show();				
+			}
+			var tRereshRetry2DemoPanel1208 = setInterval(rereshRetry2DemoPanel1208,1000);
+			var binded1208 = false;
+			$("textarea#stepcodeTextarea1208").keyup(function(){
+	    		
+	    			if(!binded1208){
+						$(window).bind('beforeunload',function(){
+							binded1208 = true;
+							return "xxxx";
+						});	    		
+	    			}
+	    		
+				var newCode = $(this).val()
+				code1208 = newCode;
+				/*below code is replaced by function rereshRetry2DemoPanel()*/
+// 				if(code1208!=newCode){
+// 					window.frames["iframe1208"].document.write("<html><body>");
+// 					window.frames["iframe1208"].document.write(decodeHtml($("textarea#stepcodeTextarea1208").val()));
+// 					window.frames["iframe1208"].document.close();
+// 					$(window.frames["iframe1208"]).load(function(){
+// 						$("#iframe1208").height($("#iframe1208").contents().find("body").height()+showittryitheight);
+// 					});
+					
+// 					code1208 = newCode;
+// 				}
+			});
+
+			$(".tryButton1208").click(function(){
+				$("#tryDiv1208").show();
+				$("#stepcodeTextarea1208").focus();
+				$("#stepcodeTextarea1208").height(200);
+
+				$("#iframe1208").height(0);
+
+				window.frames["iframe1208"].document.write("<html><body>");
+				window.frames["iframe1208"].document.write(decodeHtml($("textarea#stepcodeTextarea1208").val()));
+				window.frames["iframe1208"].document.close();
+				
+				//load和下面的非load必需并存，因为如果代码用到了jquery就必须使用load的方式
+				$(window.frames["iframe1208"]).load(function(){
+					$("#iframe1208").height($("#iframe1208").contents().find("body").height()+showittryitheight);
+				});
+				$("#iframe1208").height($("#iframe1208").contents().find("body").height()+showittryitheight);
+				
+				this.scrollIntoView(true);		
+				editor1208.focus();
+				editor1208.setSize(null, "250");
+				
+				$("#rendering1208").hide();
+				$("#rendered1208").hide();				
+			});
+
+			var mixedMode = {
+			        name: "htmlmixed",
+	     			scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+	                       mode: null},
+	                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+	                       mode: "vbscript"}]
+	      	};
+		  	var editor1208 = CodeMirror.fromTextArea(document.getElementById("stepcodeTextarea1208"), {
+			    lineNumbers: true,
+			    styleActiveLine: true,
+			    matchBrackets: true,
+			    mode:"text/html",
+			    theme:"eclipse",
+			    selectionPointer: true,
+			    lineWrapping: true,
+			    extraKeys: {
+			    	"Alt-/": "autocomplete",
+			    	"Ctrl-F": "findPersistent",
+			    	"F8": function(cm) {
+			            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+			        },
+			        "Esc": function(cm) {
+			        	if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+			        }		    	
+			    }
+			  });	  
+		  	
+		  	editor1208.on("change",function(doc){
+				
+	    			if(!binded1208){
+						$(window).bind('beforeunload',function(){
+							binded1208 = true;
+							return "xxxx";
+						});	    		
+	    			}
+    			
+    			var newCode = doc.getValue();
+				code1208 = newCode;
+    			$("textarea#stepcodeTextarea1208").val(newCode);
+    			
+				if(alreadyWriteCode1208!=code1208){
+					lastModifedTime1208 = new Date().getTime();
+					$("#rendering1208").show();
+					$("#rendered1208").hide();
+				}
+// 	    		alert(doc.getValue());
+	    	});		  	
+	 
+		 	$(".CodeMirror").addClass("form-control");			
+		        
+// 	    	var editor1208 = CodeMirror.fromTextArea(, {
+// 	    	    lineNumbers: true,
+// 	    	    styleActiveLine: true,
+// 	    	    matchBrackets: true,
+// 	    		theme:"eclipse",
+// 	    	});
+	    	
+	       
+	    	editor1208.on("change",function(doc){
+// 	    		alert(doc.getValue());
+	    	});
+	    	
+			$("#tryDiv1208").hide();
+    	});
+    	
+		$("div.codemirrorTips span").addClass("glyphicon glyphicon-asterisk");
+    	
+</script>	
+	
+	<div>
+	<button class="tryButton1208 btn btn-info btn-xs">试一下 </button>
+	</div>
+	<br/>
+	<br/>
+	<div id="tryDiv1208">
+		<table width="100%" align="center">
+			<tr valign="top">
+				<td width="49%">
+					<div class="panel panel-info">
+					  <div class="panel-heading">源代码
+					  <span class="glyphicon glyphicon-pencil"></span>
+						
+							<a href="#nowhere" class="syncButton" stepid="1208"><span class="glyphicon glyphicon-upload"></span></a>
+						
+					  </div>
+					  
+					  <div class="panel-body">
+					  <div class="codemirrorTips">
+						  <span>
+						  		1. 双击选中单词
+						  </span>
+						  <span>
+						  		2. 三击选中整行
+						  </span>
+						  <span>
+						  		3. CTRL+F 查找
+						  </span>
+						  <span>
+						  		4. F8  全屏编辑，再次点击恢复
+						  </span>
+					  </div>					  
+					   <textarea class="form-control" rows="30" style="width:100%" id="stepcodeTextarea1208">&lt;button onclick=&quot;hide()&quot;&gt;隐藏div&lt;/button&gt;
+
+&lt;button onclick=&quot;show()&quot;&gt;显示div&lt;/button&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div id=&quot;d&quot;&gt;
+
+这是一个div
+
+&lt;/div&gt;
+
+&lt;script&gt;
+function hide(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;none&quot;;
+}
+
+function show(){
+ var d = document.getElementById(&quot;d&quot;);
+ d.style.display=&quot;block&quot;;
+}
+
+&lt;/script&gt;
+</textarea>
+					  </div>
+					</div>								
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin-bottom:20px">
+						<span  id="rendering1208" class="label label-warning">渲染中</span>
+						<span id="rendered1208" class="label label-success">渲染完成</span>
+					</div>
+					
+					
+					<div class="panel panel-success">
+					  <div class="panel-heading">效果</div> 
+					  <div style="padding:10px"  class="tryit" id="stepcodeDiv1208" class="panel-body">
+						  
+							  	<iframe style="width:100%" scrolling="auto" frameborder="0" id="iframe1208" name="iframe1208" >
+							  	</iframe>
+						  
+					  </div>
+					</div>								
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step2922">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		 
+		
+			示例
+		 
+		<span style="font-weight: bold">14</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>答案-隐藏和显示 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="2922" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="2922" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+				
+	<div>
+		
+		
+		
+			
+				<button class="answerButton btn btn-warning btn-xs" sid="2922">查看答案</button>
+				<a sid="2922" href="http://how2j.cn/frontloginPage?step.id=2922" style="display:none"  sid="2922" class="smallword ask2login" >
+					请先登录
+				</a>						
+				<span class="text-muted text-xs" style="font-size:12px;margin-left:20px">在查看答案前，尽量先自己完成，碰到问题再来查看答案，收获会更多</span>
+			
+		
+			
+		
+	</div>
+
+			
+			
+			</span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+</div>
+
+
+	
+
+			
+			<!-- codediffer modal-->
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+
+<div>
+		<div class="modal " id="codeDifferInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">文件内容比较器</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>把你的代码复制到下面区域。 如果在线比较不好用，请使用客户端比较软件： <a href="../../../k/1583">diffmerge 下载和使用教程</a></p>
+					<div id="codeDifferOriginal"></div>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal " id="codeCopyInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">复制代码</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>代码高亮插件双击即可选中，不过部分同学反应，通过代码高亮插件复制的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢</p>
+					<textarea style="width:80%;height:300px;display:block;margin:0px auto" id="codeCopySource"></textarea>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal fade" id="practiseModal"  data-backdrop="static1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:500px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">做练习的正确姿势</h4>
+		          </div>
+		          <div class="modal-body">
+					<div class="practisePostureHeading">1. 自行完成练习</div>
+						<div  class="practisePostureDesc">根据练习目标尽量自己实现代码效果，期间会碰到疑问，难题，和自己不懂的地方，这些都是必要的过程</div>
+					<div class="practisePostureHeading">2. 带着疑问查看答案</div>
+						<div  class="practisePostureDesc">完成过程中，碰到无法解决的问题，带着疑问，查看答案，分析答案的解决思路</div>
+					<div class="practisePostureHeading">3. 查看答案讲解视频</div>
+						<div  class="practisePostureDesc">依然有不明白的地方，点开视频讲解，带着疑问，听视频讲解有问题的部分</div>
+					<div class="practisePostureHeading">4. 再做一遍</div>
+						<div  class="practisePostureDesc">理解后，再从头做一遍，把有疑问的地方都捋清楚</div>
+					<div class="practisePostureHeading">5. 总结</div>
+						<div  class="practisePostureDesc">最后再总结一遍，总结思路，总结解决办法，以后遇到类似的问题，怎么处理</div>	
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	var codeNoteComment= "";
+	var alreadyWriteCodeNoteComment = "";
+	var lastModifedTimeNoteComment = new Date().getTime();
+	var tNoteCommentSavingCount;
+	var tRereshRetry2DemoPanelNoteComment;
+	
+	function rereshRetry2DemoPanelNoteComment(){
+		if(alreadyWriteCodeNoteComment==codeNoteComment)
+			return;
+		
+		
+		currentTimeNoteComment = new Date().getTime();
+		if(currentTimeNoteComment- lastModifedTimeNoteComment<5000)
+			return;
+		
+		var page = "frontnoteComment";
+		
+		var noteCommentid = $("#noteCommentid").val();
+		var noteCommentKnowledgeId = $("#noteCommentKnowledgeId").val();
+		var noteCommentDesc = $("#noteCommentDesc").val();
+		var noteCommentCode = $("#noteCommentCode").val();
+		var page="/frontnoteComment";
+		alreadyWriteCodeNoteComment = codeNoteComment;
+		$.ajax({
+			   url: page,
+			   type:"post",
+			   data:{"noteComment.id":noteCommentid,
+				   "noteComment.code":noteCommentCode,
+				   "noteComment.desc":noteCommentDesc,
+				   "noteComment.knowledge.id":noteCommentKnowledgeId
+				   },
+			   success: function(result){
+			     	if("success"==result){
+			     		
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").show();			
+			     	}
+			     	else{
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").hide();	
+			    		$("#failNoteComment").show();	
+			    		
+			     	}
+			     	
+			   }
+		});
+		
+				
+	}
+	$("textarea.noteCommentCodeDesc").keyup(function(){
+		var newDesc = $("textarea#noteCommentDesc").val();
+		var newCode = $("textarea#noteCommentCode").val();
+		codeNoteComment = newDesc+"@"+newCode;
+		if(alreadyWriteCodeNoteComment!=codeNoteComment){
+			lastModifedTimeNoteComment = new Date().getTime();
+			$("#renderingNoteComment").show();
+			$("#renderedNoteComment").hide();
+		}	
+		if(null!=tNoteCommentSavingCount){
+			clearInterval(tNoteCommentSavingCount);
+		}
+		$(".noteCommentSavingCount").html("5");
+		tNoteCommentSavingCount = setInterval(noteCommentSavingCount,1000);
+	
+		if(null==tRereshRetry2DemoPanelNoteComment){
+			tRereshRetry2DemoPanelNoteComment = setInterval(rereshRetry2DemoPanelNoteComment,1000);
+		}	
+		
+	});
+	
+	function noteCommentSavingCount(){
+		var times =	$(".noteCommentSavingCount").html();
+		console.log(times);
+		times = parseInt(times);
+		if(isNaN(times)){
+			times =6;
+		}
+		times = times-1;
+		$(".noteCommentSavingCount").html(times);		
+		if(1==times){
+			clearInterval(tNoteCommentSavingCount);
+		}
+	
+	}
+
+	$("#renderingNoteComment").hide();
+	$("#renderedNoteComment").hide();
+	$("#failNoteComment").hide();
+	var newDesc = $("textarea#noteCommentDesc").val();
+	var newCode = $("textarea#noteCommentCode").val();
+	codeNoteComment = newDesc+newCode;
+});
+</script>
+
+
+<div>
+		<div class="modal fade" id="nodeCommentModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:960px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">HTML DOM 常用场景-总结笔记</h4>
+		          </div>
+		          <div class="modal-body">
+		          		<div class="text-muted">
+		          			把这时的想法，思路，研究都记录下来，等全部学完了，再回过头来巩固和理解，学习效果就会很好，知识点掌握得也牢固. 
+		          			<br>
+		          			<a href="../../../frontshowMyNotes">点击查看我的笔记</a>
+		          		</div>
+		          		<br>
+						<ul class="nav nav-tabs" id="commentTabs">
+						  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >总结</a></li>
+						  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+						</ul>			
+						<br>
+						<div class="tabDiv" tabName="desc"  >
+								<textarea style="height:300px;" id="noteCommentDesc"   class="noteCommentCodeDesc form-control" placeholder="就把这时的想法，思路，研究都记录下来。 全部学完了，再回过头来巩固和理解，学习效果就会非常好了，知识点掌握得也牢固"  ></textarea>
+						</div>		
+						<div class="tabDiv"  tabName="code" >
+								<textarea style="height:300px;" id="noteCommentCode"  class="noteCommentCodeDesc form-control" placeholder="记录关键代码，将来复习的时候，提醒用"  ></textarea>
+						</div>	
+						<input type="hidden" id= "noteCommentid" value="">	
+						<input type="hidden" id= "noteCommentKnowledgeId" value="525">	
+		          </div>
+		          <div class="modal-footer">
+		          	<div style="margin-bottom:20px">
+						<span  id="renderingNoteComment" class="label label-warning">保存中预计需要<span class="noteCommentSavingCount"></span>秒</span>
+						<span id="renderedNoteComment" class="label label-success">保存完成</span>
+						<span id="failNoteComment" class="label label-danger">保存失败，请联系站长</span>
+						 <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+					</div>				
+		          
+		          
+		           
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addFavoriteButton").click(function(){
+		var desc =$("textarea.favoriteInputText").val();
+		if(desc.length>=100){
+			alert("（请控制在100个字以内）");
+			return false;
+		}
+		$("textarea.favoriteInputText").val("");
+		var knowledgeid = 525;
+		 var page = "/frontaddFavorite";
+		 alert("已经成功提交");
+		 $.post(
+		            page,
+		            {
+		            	"favorite.knowledge.id":knowledgeid,
+		            	"favorite.desc":desc,
+		            },
+		            function(){
+// 		            	alert(1);
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addCorrectButton").click(function(){
+		var oldText =$("textarea.oldText").val();
+		if(oldText.length>=100){
+			alert("请把原文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(oldText.length==0){
+			alert("原文字不能为空");
+			return false;
+		}
+
+		var correctedText =$("textarea.correctedText").val();
+		if(correctedText.length>=100){
+			alert("请把纠错文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(correctedText.length==0){
+			alert("纠错文字不能为空");
+			return false;
+		}
+		
+		
+		
+		$("textarea.correctInputText").val("");
+		var knowledgeid = 525;
+		var stepid = $("#stepid4correct").val();
+		 var page = "/frontcorrect";
+		 alert("已经提交，谢谢");
+		 $.post(
+		            page,
+		            {
+		            	"correct.knowledge.id":knowledgeid,
+		            	"correct.step.id":stepid,
+		            	"correct.oldText":oldText,
+		            	"correct.correctedText":correctedText,
+		            },
+		            function(){
+//  		            	alert("已经提交，谢谢");
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+			
+		
+		
+			
+			<br>
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/dom/dom-insert/463.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 插入节点
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/dom/dom-tablesort/769.html">
+					表格排序
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			<br>
+			
+			
+			
+		<div align="center">
+
+			
+			<div class="text-muted strong">
+				HOW2J公众号，关注后实时获知布最新的教程和优惠活动，谢谢。
+			</div>
+			<img src="../../../img/site/344.jpg">
+			
+			
+			
+			
+			
+		</div>
+		
+
+			
+			
+			
+
+
+
+<script>
+$(function(){
+
+
+	
+	$(".tabDiv").hide();
+	$(".tabDiv[tabName=desc]").show();
+
+	$("input#commentFile").change(function(){
+		$("#commentFilePath").html( $(this).val());
+	});
+
+	$("ul#commentTabs li a").click(function(){
+		var tabName = $(this).attr("tabName");
+		
+		$("ul#commentTabs li").removeClass("active");
+		$(this).parent().addClass("active");
+		
+
+		$("div.tabDiv").hide();
+
+		$("div.tabDiv[tabName="+tabName+"]").show(0);
+		$("div.tabDiv[tabName="+tabName+"]")[0].focus();
+
+		
+	});
+
+	$(".jump2commentLink").click(function(){
+		var stepName = $(this).attr("stepName");
+		$("#commentInfoStepName").html("-"+stepName);
+		var sid = $(this).attr("sid");
+		$("#commentStepId").val(sid);
+
+		if(!!logon){
+			$("#commentDiv").show();
+			$("input.logcommentButton").hide();
+			location.href="#commentDiv";
+		}
+		else{
+			$("span.jump2commentWord[sid="+sid+"]").hide();
+			$("a.jump2commentlogin[sid="+sid+"]").show();
+		}
+		
+	});
+
+// 	var tinyEditor= new TINY.editor.edit('editor',{
+// 		id:'commentdesc',
+// 		height:'161px',
+// 		cssclass:'te',
+// 		controlclass:'tecontrol',
+// 		rowclass:'teheader',
+// 		dividerclass:'tedivider',
+// 		controls:['bold','italic','underline','strikethrough','|',
+// 				  'orderedlist','unorderedlist','|','unformat','undo','redo','link','unlink'],
+// 		footer:false,
+
+// 		xhtml:true,
+// 		cssfile:'../../../css/tinyeditor/tinyeditor.css',
+// 		bodyid:'editor',
+// 		footerclass:'tefooter',
+// <!--		toggle:{text:'源代码',activetext:'可视化',cssclass:'toggle'},-->
+// 		resize:{cssclass:'resize'}
+// 	});
+
+	$("#commentForm").submit(function(){
+// 		tinyEditor.post();
+
+		var commentdesc = $("#commentdesc").val();
+		if(0==commentdesc.length){
+			alert("问题描述信息不可为空");
+			return false;
+		}
+		return true;	
+	});
+
+	$("#commentDiv").hide();
+
+	$("input.notlogcommentButton hidden").click(function(){
+		//需要登陆后作答
+		location.href="http://how2j.cn/frontloginPage";
+	});
+	$("input.logcommentButton").click(function(){
+		$("#commentDiv").show();
+		$(this).hide();
+	});
+
+	
+	
+});
+</script>
+
+
+<style>
+
+/*a  upload */
+.a-upload {
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #D0EEFF;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #78c3f3;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+
+
+</style>
+
+<br>
+<br>
+
+	
+	
+			<input id="commentButton" type="button" value="提问" class="btn btn-primary btn notlogcommentButton hidden" >
+			
+			<span class="text-muted hidden">提问之前请<a href="http://how2j.cn/frontloginPage">登陆</a>
+			</span>
+	
+
+
+<form method="post" id="commentForm" action="/frontcomment" enctype="multipart/form-data">
+<div id="commentDiv">
+		
+		
+		
+		<div class="text-muted">关于
+		<span style="font-style:italic;font-weight:bold"> 
+		前端部分-HTML DOM-常用场景 <span id="commentInfoStepName"></span>
+		</span>
+		 的提问</div>
+		
+
+		<input value="" style="margin-top:20px;"  id="commentTitle" name="comment.title"  class="form-control" placeholder="标题： 简要说明问题概况" required >
+		
+		<br/>
+		<div class="text-muted">尽量提供<span class="strong">截图</span>、<span class="strong">代码</span>和<span class="strong">异常信息</span>，有助于分析和解决问题。
+		
+		
+		
+		
+			也可进本站QQ群交流: 620943819
+			<div class="text-muted">
+<!-- 				站长会在每个工作日早上尽量回答提问（如果有漏掉没有回答的，请进群提醒一下） <br> -->
+				提问尽量提供完整的代码，环境描述，越是有利于问题的重现，您的问题越能更快得到解答。<br>
+				对教程中代码有疑问，请提供是哪个步骤，哪一行有疑问，这样便于快速定位问题，提高问题得到解答的速度 <br>
+				在已经存在的几千个提问里，有相当大的比例，是因为使用了和站长<span class="strong">不同版本的开发环境</span>导致的,比如 jdk, eclpise, idea, mysql,tomcat 等等软件的版本不一致。<br>
+				请使用和站长一样的版本，可以节约自己大量的学习时间。 站长把教学中用的软件版本整理了，都统一放在了这里， 方便大家下载：
+				<a href="http://how2j.cn/k/helloworld/helloworld-version/1718.html">http://how2j.cn/k/helloworld/helloworld-version/1718.html
+				</a> 
+				
+				
+				
+				 
+<!-- 				站长是玻璃心，提问的时候请语气温柔些  kiss~<br> -->
+<!-- 				截止2017-5-19日累计提问 1638个，站长回答了 1546个<br> -->
+<!-- 				截止2017-8-15日累计提问 2788个，站长回答了 2544个<br> -->
+			</div>
+		 
+		
+		
+		
+		</div>
+		<br/>
+		<table>
+			<tr valign="top">
+				<td style="padding-right:50px">
+					<a href="#nowhere" class="a-upload">
+						<input id="commentFile" type="file" name="doc" id=""  accept="image/*">上传截图
+					</a>				
+				</td>
+				<td style="padding-top:5px">
+					<span id="commentFilePath"  class="text-muted"></span>
+				</td>
+			</tr>
+		
+		</table>
+		
+		<br/>
+		<br/>
+		
+
+			<ul class="nav nav-tabs" id="commentTabs">
+			  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >描述</a></li>
+			  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+			  <li role="presentation"  test="test"  ><a href="#nowhere" tabName="exception" >异常</a></li>
+			</ul>			
+			<br>
+			<div class="tabDiv" tabName="desc"  >
+					<textarea style="height:200px;" id="commentdesc" name="comment.desc"  class="form-control" placeholder="描述：描述问题发生的环境，本来期望的结果，实际得到的结果"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="code" >
+					<textarea style="height:200px;"  name="comment.code"  class="form-control" placeholder="粘贴代码,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="exception" >
+					<textarea style="height:200px;"  name="comment.exception"  class="form-control" placeholder="粘贴异常,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>
+			
+			<br/>
+		<div>
+			<input type="hidden" name="comment.knowledge.id" value="525" >
+			
+			<input type="hidden" id="commentStepId" name="comment.step.id" value="" >
+			
+			<input type="submit" id="commentSubmitButton" value="提交问题" class="btn btn-success btn-lg pull-left" >
+		</div>
+				
+	</div>
+</form>	
+			
+		<br/>
+		<br/>
+
+	
+
+
+
+
+
+
+
+				
+					<div style="position:fixed;bottom:60px;right:10px">
+						<a href="#" class="addNoteCommentLink">
+							<span  style="font-size:20px" title="笔记" class="glyphicon glyphicon-pencil"></span>
+						</a>				
+					</div>
+				
+			
+				<div style="position:fixed;bottom:20px;right:10px">
+					<a href="#">
+						<span  style="font-size:20px" title="跳到顶部" class="glyphicon glyphicon-upload"></span>
+					</a>				
+				</div>
+				
+		</td>
+	</tr>
+</table>
+
+ 
+
+</body>
+
+
+
+
+
+	
+	
+	
+		
+
+
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+
+
+	<footer class="footer" id="footer">
+		    
+	     		© 2015-2018 <a href="http://how2j.cn">how2j.cn</a> — All Rights Reserved. 蜀ICP备15000533号
+	     		
+<!-- 	     			<a href="../../../frontshowFriendLinks">友情链接</a> -->
+	     		
+	     		
+	     		
+	     		<a href="http://how2j.cn/frontshowJavaPractises">JAVA练习题</a>
+	     			| <a href="http://how2j.cn/frontabout">关于本站</a>  
+					     		
+	     		
+<!-- 	     		本站QQ群: 620943819 -->
+
+				<div style="display:none">
+<!-- 					<script type="text/javascript">//var cnzz_protocol  = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258013751'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1258013751%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+				</div>
+				
+				  <script>
+				    $(function () {
+				      // 延迟CNZZ统计, 以免影响页面载入
+					  //原来是2000，但是有可能影响ip和pv的统计，所以改成2				      
+				      setTimeout(function(){
+				    	  
+					      var cz = document.createElement("script");
+					      cz.src = "//s11.cnzz.com/z_stat.php?id=1258013751&web_id=1258013751";
+					      document.getElementsByTagName('body')[0].appendChild(cz);
+				    	  
+				      },002);
+
+				    });
+ 				 </script>
+	     		
+					
+	</footer>
+	
+
+
+	
+
+<script type="text/javascript">
+function syntaxCallback(){
+	$('div.syntaxhighlighter').each(function(){
+		
+// 		console.log("allContent width:"+ $("#allContent").width());
+		var width = ($("div#allContent").width()-255)*0.95;
+		
+		var commentHighLight = $(this).parent().parent().parent().attr("commentHighLight");
+
+		
+		var commentWidth = $(".eachCommentDiv:visible").width();
+		commentWidth-=150;
+
+		
+		if("true"== commentHighLight){
+			$(this).css("width",commentWidth+"px");
+			console.log(commentWidth);
+		}
+			
+		else{
+			$(this).css("width",width+"px");
+		}
+
+		$(".eachCommentDescDiv").css("width",commentWidth+"px");
+			
+	});
+
+	
+}
+
+$(function () {
+
+	var count = SyntaxHighlighter.findElements().length,
+    now = 0;
+	SyntaxHighlighter.complete = function(callback){
+	    (function wait() {
+	        setTimeout(function () {
+	            now = $('div.syntaxhighlighter');
+	            if (now.length < count) {
+	                wait();
+	            } else {
+	            	syntaxCallback();
+	            }
+	        }, 200);
+	    })();
+	};
+	
+	$(document).ready(function(){
+	    $(".stepCode").on("dblclick", ".syntaxhighlighter", function(){
+	        var textarea = $(this).find('textarea');
+	        textarea.val(textarea.val().replace(new RegExp(String.fromCharCode(160), 'g'), " "));
+	        textarea.trigger("select");
+	    });
+	    SyntaxHighlighter.all();
+	})
+	
+	SyntaxHighlighter.all();
+	SyntaxHighlighter.complete(syntaxCallback);
+
+	// Line wrap back
+	var shLineWrap = function() {
+		$('.syntaxhighlighter').each(function() {
+		// Fetch
+		var $sh = $(this),
+		$gutter = $sh.find('td.gutter'),
+		$code = $sh.find('td.code');
+		// Cycle through lines
+		$gutter.children('.line').each(function(i) {
+			console.log(new Date());
+		// Fetch
+		var $gutterLine = $(this),
+		$codeLine = $code.find('.line:nth-child(' + (i + 1) + ')');
+		//alert($gutterLine);
+		// Fetch height
+		var height = $codeLine.height() || 0;
+		if (!height) {
+		height = 'auto';
+		} else {
+		height = height += 'px';
+		//alert(height);
+		}
+		// Copy height over
+		$gutterLine.attr('style', 'height: ' + height + ' !important'); // fix by Edi, for JQuery 1.7+ under Firefox 15.0
+	// 	console.debug($gutterLine.height(), height, $gutterLine.text(), $codeLine);
+		});
+		});
+	};
+	 
+	 
+	// Line wrap back when syntax highlighter has done it's stuff
+// 	var shLineWrapWhenReady = function() {
+// 	if ($('.syntaxhighlighter').length === 0) {
+// 	setTimeout(shLineWrapWhenReady, 10);
+// 	} else {
+// 		//不能加载这个，否则当代码一多，就会超级卡顿
+// // 	shLineWrap();
+// 	}
+// 	};  // Fire
+// 	shLineWrapWhenReady();	
+	
+});
+</script>
+</div> <!-- start from siteframe.jsp -->
+
+</body>
+
+
+
+
+
+<script>
+
+function getQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+$(function(){
+	var tid = getQueryString("tid");
+	if(null!=tid ){
+		var page = "/frontaddTrackEntry";
+	    $.ajax({
+	        url: page,
+	        data:{"track.id":tid},
+	        success: function(result){
+	        	
+	        }
+	    });	
+	}	
+	
+	var pid = getQueryString("p");
+	if(null!=pid){
+		var page = "/frontshareByPID";
+		var referer = getReferrer();
+	    $.ajax({
+	    	type:"post",
+	        url: page,
+	        data:{"user.id":pid,"shareReferer":referer},
+	        success: function(result){
+	        }
+	    });	
+	}
+	
+	$(document).keydown(function (event) {
+	    //判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+	    //判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+<!--	    console.log(event.keyCode);-->
+<!--	    if (event.keyCode == 37) {-->
+<!--	    	history.back(-1);-->
+<!--	    }-->
+<!--	    if (event.keyCode == 39) {-->
+<!--	    	history.forward(1);-->
+<!--	    }-->
+	});
+	
+});
+//获取键盘ascII码;
+//$(document).keydown(function (event) {
+//    alert(console.log(event.keyCode));
+//    alert(event.keyCode);
+//});
+
+
+
+</script>
+
+<script>
+$(function(){
+	var hash = window.location.hash; 
+	hash = hash.replace("#",""); 
+	
+	commentid = hash.replace("comment","");
+	function go2Archor(){
+		if(!go2ArchorFlag){
+			setTimeout(go2Archor,1000);
+			return;
+		}
+		if(hash.length!=0){
+			var pos = document.getElementById(hash);
+			if(null!=pos)
+				pos.scrollIntoView(true);			
+			$("div.commentBody[cid="+commentid+"]").show();
+		}
+	}
+	setTimeout(go2Archor,1000);
+	
+	setTimeout(function(){
+		$("div.stepAnswer").hide();
+	},500);	
+		
+	//4offline
+		$("a").click(function(e){
+			var href= $(this).attr("href");
+			if(-1!=href.indexOf("how2j.cn")){
+				e.preventDefault();
+				if(-1!=href.indexOf("?")){
+					var newLocation = href+"&tid="+56+"&p="+pid;
+					location=newLocation;
+				}
+				else{
+					var newLocation = href+"?tid="+56+"&p="+pid;
+					location=newLocation;				
+				}
+
+			}
+		});		
+	
+
+});
+
+
+</script> 
+
+
+
+
+
+
+
+<div class="modal fade" id="popAdModal" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="popAdModalLabel">
+<div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">优惠活动</h4>
+            
+          </div>
+          <div class="modal-body" style="text-align:center">
+          
+          
+          <p class="text-danger" style="font-size:40px">全场五折</p>
+          
+          <p >欢庆八一建军节，全场五折，优惠码：<span class="text-danger" style="font-weight:bold;text-decoration: underline1;margin-left:10px" >81V5</span> <p>
+          <p class="text-danger"  style="font-weight:bold;text-decoration: underline1;margin-left:10px">可用于全站通</p>
+          
+    	  <p>有效期7.30-8.1</p>      
+          <p><a style="font-size:20px;text-decoration: underline;" class="text-info" target="_blank" href="http://how2j.cn/frontproductList?promoteCode.code=81V5&tid=136">点击查看</a></p>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>
+	
+	
+	

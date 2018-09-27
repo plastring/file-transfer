@@ -1,0 +1,4077 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/tmall_ssm/tmall_ssm-1482/1482.html" />	
+	
+
+	
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+
+<!--taglib	-->
+
+ 
+ 
+
+
+	
+	<!--self -->
+	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" />
+<!-- 	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" /> -->
+	<link rel="shortcut icon" href="../../../img/site/favicon.ico" />
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/tmall_ssm/tmall_ssm-1482/1482.html" />
+	
+		
+	<script src="../../../js/how2j/code.js"></script>
+
+<script src="../../../js/how2j/pid.js"></script>
+<!-- <link href="../../../css/all.css" rel="stylesheet"> -->
+
+<link href="../../../css/all.css" rel="stylesheet">
+<!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com../../../css/all.css" rel="stylesheet"> -->
+
+
+
+<!-- <script src="../../../js/all.js"></script> -->
+<script src="../../../js/all.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+
+<!-- code hightlight -->
+
+
+<script>
+function jumpwww(){
+	if(-1!=location.hostname.indexOf("www.")){
+		var x = new String(location);
+		var newLocation = x.replace("www.","");
+		location = newLocation;
+		return;
+	}
+	
+}
+
+jumpwww();
+
+function formatMoney(num){
+	num = num.toString().replace(/\$|\,/g,'');  
+	if(isNaN(num))  
+	    num = "0";  
+	sign = (num == (num = Math.abs(num)));  
+	num = Math.floor(num*100+0.50000000001);  
+	cents = num%100;  
+	num = Math.floor(num/100).toString();  
+	if(cents<10)  
+	cents = "0" + cents;  
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)  
+	num = num.substring(0,num.length-(4*i+3))+','+  
+	num.substring(num.length-(4*i+3));  
+	return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+function insertSpecalDiv(div, className){
+	var li = document.createElement("div");
+	var classAttr = document.createAttribute("class");
+	var text = document.createTextNode(" ");
+	li.appendChild(text);
+	classAttr.nodeValue = className;
+	li.setAttributeNode(classAttr);
+	div.appendChild(li);
+}
+
+<!--code mirror-->
+var yourcode, siteCode, divDiffer, highlight = true, connect = null, collapse = false;
+function betterTab(cm) {
+	var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+    cm.replaceSelection(spaces);
+}
+function initUI() {
+	  var target = document.getElementById("codeDifferOriginal");
+	  target.innerHTML = "";
+	  divDiffer = CodeMirror.MergeView(target, {
+	    value: yourcode,
+	    origRight: null,
+	    orig: siteCode,
+	    lineNumbers: true,
+	    extraKeys: { Tab: betterTab },
+	    mode: "text/html",
+	    highlightDifferences: highlight,
+	    connect: connect,
+	    collapseIdentical: collapse
+	  });
+	}
+
+	function changeDivCode2CodeStyle(mask4spider){
+		var selector = "";
+		if(mask4spider)
+			selector = "div.stephighlightDescOnly.mask4spider-true div.code";
+		else
+			selector = "div.code";
+// 		console.log("selector:"+selector);
+		$(selector).each(function() {
+			var div = this;
+			var html = $(this).html();
+			html = $.trim(html);
+			html = html.replace(/^<br>(.*)<br>$/, "\$1");
+			html = html.replace();
+			var lines = html.split("<br>");
+			$(this).html("");
+
+			insertSpecalDiv(div,"codeeven codefirst");
+			
+			var count = 0;
+			$.each(lines, function(i, n) {
+				count++;
+				var li = document.createElement("div");
+				var text = document.createTextNode(decodeHtml(n));
+				li.appendChild(text);
+
+				var classAttr = document.createAttribute("class");
+				if (0 == i % 2)
+					classAttr.nodeValue = "codeodd";
+				if (1 == i % 2)
+					classAttr.nodeValue = "codeeven";
+				li.setAttributeNode(classAttr);
+
+				div.appendChild(li);
+			})
+			
+			if(0!=count%2)
+				insertSpecalDiv(div,"codeeven codelast");
+			else
+				insertSpecalDiv(div,"codeodd codelast");
+		});		
+	}
+
+	$(function() {
+		<!--把div.code中的文本转换为代码表现风格-->
+		changeDivCode2CodeStyle(false);
+		
+		<!--每个stage的享字所具备的弹出模态窗口效果-->
+	    		
+		
+    	<!--练习姿势-->
+    	 $("a.practisePostureLink").click(function(){
+				$("div#practiseModal").modal('show');
+		 });    
+    	 
+    	
+    	<!--视频加载成功后的处理-->
+    	$("div.4safari video").attr("poster","");
+//     	$("div.4safari video").each(function(){
+//     		var videoSrc=$(this).attr("thefile");
+//     		$(this).attr("src",videoSrc);
+//     	});
+//     	$("div.4safari video").attr("preload","meta");
+//     	$("div.4safari video").on("canplaythrough",function(){
+//             $(this).attr("poster","");
+//         });	    	
+
+	});
+</script>
+
+
+<script>
+//当bootstrap toc 加载完毕后，才进行跳转
+var go2ArchorFlag = true;
+//当show it ,try it, toc 的额外高度
+var showittryitheight=30;
+
+
+var l = function(msg){return console.log(msg)};
+$(function () {
+	$("[data-toggle='tooltip']").tooltip({animation:true,html:true,delay:{ show: 1000, hide: 000 }});
+	
+	
+	if(!logon)
+		$("a.module span.progressBar").hide();
+	
+	
+
+	$('.progress-bar').each(function(){
+		var progress = $(this).attr("aria-valuenow");
+	 	$(this).css({'width':progress+"%"});
+// 	    $(this).animate({width:progress+'%'},progress*100/2);
+	});
+	
+
+	
+});
+
+<!--是否登陆的全局变量-->
+var logon;
+
+
+
+
+
+	logon = false;
+
+
+</script>
+
+<style>
+<!--pre{-->
+<!--	width:500px;-->
+<!--}-->
+</style>
+
+
+<title>天猫整站SSM 后台-其他管理 产品图片管理 | 基于实例代码分步讲解 一站式学习Java | how2j.cn</title>
+	
+	<meta name="keywords" content="产品图片管理,可运行项目,页面截图,ProductImageServlet类,web.xml,listProductImage.jsp,查询功能讲解,增加功能讲解,删除功能讲解,编辑和修改,天猫整站J2EE">
+	<meta name="description" content=";可运行项目,下载右侧的tmall.rar，并解压到e:/project/tmall,,即是提供了产品图片管理的web,app。;页面截图,重启tomcat,通过访问地址http://127.0.0.1:8080/tmall/admin_productImage_list?pid=4可以看到产品图片...">
+
+	
+	
+	
+<script type="text/javascript">
+// JavaScript Document
+function urlredirect() {
+	
+}	
+ 
+
+	
+		urlredirect();
+	
+	
+	
+</script>
+</head>
+<body id="body">
+
+
+	
+
+	
+	
+		
+<script>
+
+	
+   	$(function() {
+		var categorySelected=0;
+                   	
+       	if(categorySelected==1){
+			$("#homepageNavLink").removeClass("active");
+       	}
+       	
+
+      	
+
+//       	$("#qqqunspan").html("官方QQ群: 620943819");
+      	
+
+
+		$(".advertiseLink#ad15").mouseenter(function(e){
+				$("#qrcodeImg4Ad").show();
+				
+				var e = e||window.event;  
+		        var scrollx = window.scrollX|| document.documentElement.scrollLeft;  
+		        var scrolly = window.scrollY|| document.documentElement.scrollTop;  
+		        var x = parseFloat(e.clientX) + parseFloat(scrollx) ;  
+		        var y = parseFloat(e.clientY) + parseFloat(scrolly);  
+
+		        $("#qrcodeImg4Ad").css({'left':x,'top':y,'display':'block'});  
+				
+		});
+		$(".advertiseLink#ad15").mouseleave(function(){
+				$("#qrcodeImg4Ad").hide();
+		});
+   	});
+      	
+</script>
+<div id="allContent">
+	<!-- end with footer -->
+
+	
+
+	<div>
+		<br />
+
+		<table width="100%">
+			<tr height="50px">
+				<td width="200px">
+						<a href="http://how2j.cn"><img title="how2j.cn" alt="how2j.cn"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAAtCAYAAAC6RRfMAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKN0lEQVR4Xu2dT2gXRxTHNxUU7L+IrdpSMWKgoC2JtpeKYHIytyiWQg9t9OCpBw09eCoqnjxFD548mLSHQqlobvGUCNKeqimtQsGSiEVUWkxrKVgorZ8tUzabnfdmdnY3+6szsMRkZ97MvHnfeW/eezt2/f2kJLFEDkQOtIoDz7RqNHEwkQORAykHIjCjIEQOtJADEZgtXJQ4pMiBCMwoA5EDLeRABGYLFyUOKXIgAjPKQORACznQ1enhkpmZmYTn9u3byfz8/CIW9/f3J5s2bUoGBgYS/h3L/5cDvz/+K7l662Fy79c/k29/evTfRJ9btSLZ8vLqpHfd6qR/4/MJv3dCEYGJwA8ODlrn4RoCPX78eHLixIlCOoBmenrai1cAEHqXLl1KFhYWnNr29PQkIyMjyZEjR5Lu7m61zcGDB5Px8fHguY+OjianT59eQodxjI2NqeOgwubNm5dsOqbhgQMHkvPnzy+ic/XWQiqctx78kQrqvd8eLxJUhJRnz9a16c+qSldXl5UUa8xaV11m7zxKLly7/wSUbnKwq7c72b9jfQrSbBn94ocEWkUFHo2997oXqKEFTVuZ/vhtkRUdZcoCQgCDoAIaV1DCAQNm2rJRaGV4eFiswqblUtg8iort7/m6s7OzVlBSd/fu3UvII6hffnM/FbQsKKmIZuHvvD/02c3k/XPfWQXSZX7LVYd5Ifg8rqBkrNS1AdA2Fza4s9N3Gp1qxwATAd2+fbuoxVw4B5jRtlgCErD37t0rkpucnFS7k0DFRsF7rWgA1sap0TcCfnamWcHTxiW9B1yHPr3pDbCQPqdu/JxuZk2VjgAmAgyQ8mfIECYZM70sOF00pgYq7T3zkzYAQOlilrvwCaHrBHACkE8mb6Wav+kCf9CeTZTWA9OA0sdsdWWcRlsyZ2mrjUnTqtp76EtaVTO3Xflg6gFOH7PQl35ofUB5amo+lExQe0znJjaF1gOTM6UGgBBOI/iSY0qiLWlNF1NVOz9qGjXUjC2aW9NnKde1W45zXtHYACUau+7SamDipHE5h2HOGe8k3j8ePJ6ugovXtAhkeHKlMIuk8TRQmYWVwC3Rx8NpM2PxIn40sDH1JOL9Mw+/D217SZQpzpxNmWs+wn3q8ryTpsLbaubOfE8O9ybvvrU+2fDCKp/uxLo4j8a/ulsZvSJCrQUmWvLMmTPq5Ak7zM3NpSEDwInA8vD3ixcvpu9cAFpGa0qgmpiYUMeunSEl+pIZi2AijPmQAL8fHepJzn2wVXT9+3otnSYaUAkTVtssTEgDMJq5M1/CI/Dj80Nvpj+rKhNf363V7G8tMF1ilIARzSg5QNB6ABTQamZpkXYm9mkrmKtFDikXM9bQtM0TUJZ1TGnChxCPvPOqtVoTZyhtjNn3F649EKsbUOY3onwjAKttSj7jOjU1tyQc5dNeqttaYGqOEQCpgS07cUCsac4iLYcpKwG/yGR1NWMlc1aaP2NiwwkpQ2/IJm0I7SrbaqY1mTw+wX9ADECrKP+eN390MrF9+wsCpkmH036SLudT0BSScCOUmKq+Rcu0sfUpAfrKlStLhuFqxpqGRSCUzFhJi7vyREpN2/DiSlcytdfTzGqyeJYzza4up1QQMIktujxSalvRymoOn8OHD5cSCAAtaVlbnFQ6z+UBJJmxNs2b3xA0U1jT/C7MkczV3ie5pW0ppBRKpSrtp/UhgZ8zME+VJQiYVQ4kS0sDZkjOZVEKW7bvIk0l9ZePNUqa3rYpQCPbr0SjCjOW+ZLwXVTwXlaZPxsqI9mE9DwtxtqEtnx25YrUuysV4quag8qHF60Epha3DPlSpMzZDE0naakskGxmLGOWNH3WnC0yj82ihmxKWcG4fOOXQjnZs22tj/wsa90mTW4ThpEmXOV5s5XAXNbVtnQuaVoDJMkE5VwoxUWz4JY0ZhXnS1siN9qnCdOwjevrMiZ4Q/jFVnBU4amtonQkMENyZsu2lTSmMUMlQJn2NmCZ0Ivm9AqxFhAYSXiODm1uxDSsQnDTuSjnz6r6ydKBR5Kpz6ZXRfJBEDBNlo320yesARM0c80lgdy2KJKZKPWtZQEBKMmMNSa0ZhJrSeuhwmYzt9AEkjYI7bds+77XFn83maXDJtN0zBWr4uieHnEDI/lA8yZr/AgCpsmy0X5yi4BP0c6BtiwdrQ+0kuQh1vqVNgxAaXNaZbUkfdj6gUadYRLb1xGpsD3RBG0s2jmyyU+xDH/SlMdBOYsIcIaUIGCGdCy1lYSXdgDM5WPnfB/cJiAVTVNL5zsXM9b0bdOaUlI7DqgQM1b6nhCPYxPezTLyomXz8FF401qTeZBzrOUdl5mvadNKYDI4zcmB1vSJj/KVipaRo/WpZQEVLURReEPrp4hOSOxSCoIX5dSGCFTVbbXwDaD0+RQLXlSlZck7riu01FpgutzNA9jQnFJ4Be26b98+FcTGHNcEyxcgRSAsE4ss++0lgmv7MkPLmZV44bMpajzV3u/fsU6sAtikO3tMY3OdSpUa9uTwllqsjdYCE9PNJcMHzck9PpipaESTHsinXOZ+IE1TsnDHjh3T5CN9ryUo5InYgKyZzVk6WhxVGjjue1vgm8u4eIejoujJ3xdk+oGv8Du7IWo8DrlpAZNR00wGnADU3HfEnPCScrbmbqM6bmhAo2vJB06ClavU+lvyuOdHywQqM/FsG58b6xDGNWvWOHWJZrx+/XphXQQZTe5Sim7Cc2kXel0In0plv2Nk7ozZOKiYn9nQ2CBt6wQoHz4szjRymQd1DPCq0HZ8WXNg5+KvaySNW1Q/P25CJD4On46/JY+vQkJ2W23hs8Kl1eU9Y3HVdtJZ0ue+njJmbHquDLhgC6dLHpTkRWe9xgARoPJIm6dk/jNObgQAGFK+qYsn1GX96qoD0DVHlU/frTVlzSQADnHSOsBZlrYrULTzqPbe8MC1nqlvHCI+gpCvy1cbpqApAWUZy4V1sx0TMJW5QtNkIpFvKoETkxaHS1sLJm1VNyW0HpgsggGQFmf0WTBz0XQZwLsAxcXB4wJwl77y8w69RQ7hyiYbwKMyfGJcfGpnW7ep75fm69pyeM0cAWdbwzuEnHAGVVE6ApgGnJzXfLOI8kwyO3iIFtbirPTpEhJxMYldwJudI+ZraNbJyM5XlsgWt0C4jDfb0Fz3YhPUouQBF43DpnHuw62Vmo5VgAkamNxVaPWOASaTBlQsNvf4AFCfXRwwYVLRtkxyQn7hNE2mvTfz0epp77PjwiQMjdGx6+/qXercgtdsZvBQ4zsAdtlE80F6QFm0KRSBhrrcXMDjk0pI3SrPgkVjqyL5IP6nQlVtlU8RHXPDBHnH5qMAwNrX15d+HueboYQDiHNxCGCeqv9U6CmStTjVyIFWcaCjTNlWcS4OJnKgRg5EYNbI3Eg6cqAsByIwy3IutoscqJEDEZg1MjeSjhwoy4EIzLKci+0iB2rkQARmjcyNpCMHynIgArMs52K7yIEaOfAP54dRCyBirNkAAAAASUVORK5CYII=" />
+							</a>
+					 </td>
+				<td align="center">
+					
+				</td>
+
+				<td align="right">
+				
+	
+				 </td>
+
+				<td align="right" width="240px">
+					<div>
+						
+							<form action="/frontsearch" method="post">
+								<div class="input-group" style="margin-right: 10px;width: 200px">
+									<input name="outsideSearchKeyword" 
+									class="form-control" placeholder="搜索.." required >
+									<span class="input-group-btn ">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+
+						
+					</div>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<nav>
+
+		<div class="nav bg-primary">
+
+			<span class="pull-left"> <a href="../../../default.html">首页</a>  <!-- 		<a href="../../../c">最新提问</a> --> 
+				 
+
+				
+				
+					<a style="color: #F0AD4E; font-weight: bold"
+						href="../../../stage/39.html">实践项目</a>
+												
+						
+
+<!-- 								<a style="color: #F0AD4E; font-weight: bold" -->
+<!-- 									href="../../../frontproductList">付费内容</a> -->
+
+				
+
+ 
+ 				
+ 				
+				
+
+				
+
+				
+				
+				
+<!-- 					<a href="http://how2j.cn/frontshowJavaPractises">JAVA 练习题</a> -->
+<!-- 					<a href="../../../k/1144">JAVA 书籍</a> -->
+				
+				
+				
+				
+				
+				 
+				 
+				 
+				
+				
+				
+				
+
+				 
+				 
+
+				
+							
+							
+							
+				<a style="position:relative" id="newestLessons" href="../../../k/plan/plan-history/1785.html">
+					最新教程
+					
+					<span style="position:absolute; top:-28px;left:50px" class="strong">new</span>
+					
+				</a>
+				
+				
+								
+				
+				
+				
+				
+
+				
+
+			</span> <span class="pull-right">  
+<!-- 					<span id="qqqunspan" style="width:160px;display:inline-block;margin-right:10px"></span> -->
+
+					
+					<a href="http://how2j.cn/frontqqQun" alt="qq群: 620943819" title="qq群：620943819，如果满了请到 how2j.cn 获取最新的群">加入QQ群</a>
+					
+
+				 
+					<a href="http://how2j.cn/frontloginPage?act=register">注册</a>
+					<a href="http://how2j.cn/frontloginPage?act=login">登录</a>
+					<!--			<a href="#"><img src="../../../img/site/Connect_logo_7.png"/ ></a>-->
+
+
+				
+			</span>
+
+		</div>
+	</nav>
+
+	
+<br/>
+
+<script>
+$(function() {
+	bootstrapButton   = $.fn.button.noConflict();  
+	$.fn.bootstrapBtn = bootstrapButton;  
+
+	
+	var interviewStepids = new Array();
+	
+	$("#k1482 ").removeClass("unread");
+	$("#k1482 ").removeClass("brower");
+	$("#k1482 ").removeClass("finish");
+	$("#k1482 ").addClass("active");
+	
+	
+	
+	$("button.interviewCheckAnswerButton").click(function(){
+		var sid = $(this).attr("sid");
+		$("div.interviewAnswer[sid="+sid+"]").show();		
+	});
+	
+	
+	
+	$("span.interviewStatus").css("color","green");
+	
+	$("textarea.interviewdesc").keyup(function(){
+		var sid = $(this).attr("sid");
+		$("span.interviewStatus[sid="+sid+"]").css("color","red");
+		interviewStepids.push(sid);
+	});
+	
+	timeout=setInterval(sync,1500);
+	function sync(){
+		stepids = $.unique(interviewStepids);
+		var sid = interviewStepids.pop();
+		if(null!=sid){
+			$("span.interviewStatus[sid="+sid+"]").css("color","yellow");
+			$("form.updatInterviewForm[sid="+sid+"]").ajaxSubmit(function(){
+				$("span.interviewStatus[sid="+sid+"]").css("color","green");
+			});
+		}
+	}	
+	
+	
+	$("select.degree4stepFront").change(function(){
+		var sid = $(this).attr("stepid");
+		var page=  "/frontchangeDegreeOfStep";
+		var degree = $(this).val();
+		
+		var select = $(this);
+		select.css("background-color","red");
+			$.post(
+					page,
+					{
+						"step.id":sid,
+						"step.degree":degree,
+					},
+						function(result){
+							if("success"==result){
+								select.css("background-color","yellow");
+							}
+						}
+					); 
+		
+		
+		
+	});
+	
+	//work for step
+	$("ul.codetitle li.codetitle0").addClass("active");
+	$("div.stepCode").hide();
+	$("div.stepCode_index_0").show();
+
+	$("a.codetitleLink").click(function(){
+		var stindex = $(this).attr("stindex");
+		var sid = $(this).attr("sid");
+		$("a.showStepCodeLink[sid="+sid+"]").hide();
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+		$("li.codetitle"+sid).removeClass("active");
+		$("li.codetitle"+sid+"_"+stindex).addClass("active");
+		$("div.stepCode"+sid).hide();
+		$("div.stepCode"+sid+"_"+stindex).show();
+	});	
+	
+	$("a.jump2commentLink").click(function(){
+		$("input#commentTitle")[0].focus();
+	});
+	
+	$("a.stepresize").click(function(){
+		var stepid = $(this).attr("stepid");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-small");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-full");
+		$(".stepbody[stepid="+stepid+"]").toggle();
+	});
+	
+	$("button.answerButton").click(function(){
+		var sid = $(this).attr("sid");
+		if(!logon){
+			$("a.ask2login[sid="+sid+"]").show();
+			$(this).hide();
+			return;
+		}
+		
+		var sid = $(this).attr("sid");
+		$("div.stepAnswer[sid="+sid+"]").show();
+		$(this).parent().hide();
+		var page = "/frontanswerVisited";
+        $.ajax({
+            url: page,
+            data:{"step.id":sid},
+            success: function(result){
+            }
+        });
+        
+        var page ="/frontscoreConsume";
+        $.get(
+     		page,
+     		{"scoreConsume.step.id":sid},
+     		function(result){
+     			
+     		}
+        );   
+        
+        
+        
+	});		
+	
+	
+	$("button.copyButton").click(function(){
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code = decodeHtml(code);
+// 		decode();
+		$("#codeCopySource").val(code);
+		$("#codeCopyInModal").modal('show');
+	});
+	
+	$("button.differButton").click(function(){
+		highlight = true;
+		connect = null;
+		collapse = false;
+		$("#codeDifferOriginal").show();
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code =$.trim(code);
+		code = decodeHtml(code);
+		yourcode = "";
+		siteCode = code;
+		var charIndex = 6;
+		$("#codeDifferInModal").modal('show');
+		
+		initUI();
+
+// 	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+// 		var outSide= $("#codeDifferOriginalOutSide")[0];
+// 		var inSide= $("#codeDifferOriginalInSide")[0];
+// 		outSide.removeChild(codeDifferOriginal);
+// 		inSide.appendChild(codeDifferOriginal);
+	});
+	
+    $("#codeDifferInModal").on("hidden.bs.modal",function(){
+	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+		var outSide= $("#codeDifferOriginalOutSide")[0];
+		var inSide= $("#codeDifferOriginalInSide")[0];
+		inSide.removeChild(codeDifferOriginal);
+		outSide.appendChild(codeDifferOriginal);
+		$("#codeDifferOriginal").hide();
+		
+    });	
+
+
+
+
+    	
+
+	
+
+	<!--当超过20行，隐藏代码，下面用于显示代码-->
+	$("a.showStepCodeLink").click(function(){
+		$(this).hide();
+		var sid = $(this).attr("sid");
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+	});
+
+	
+	var page = "/frontnormalPageVisited";
+    $.ajax({
+        url: page,
+        data:{"knowledge.id":1482},
+        success: function(result){
+        }
+    });
+
+    <!--折叠左侧菜单-->
+    
+    
+		    	
+   	
+    	$("a.leftKnowledgeMenuItem").hide();
+    	
+    	$("a.leftKnowledgeMenuItem[gid=157]").show();
+    	$("a.leftKnowledgeMenuHeader").click(function(){
+    		console.log(1);
+//     		$("a.leftKnowledgeMenuItem").hide();
+    		var gid=$(this).attr("gid");
+    		var clicked=$(this).attr("clicked");
+			
+    		if(clicked=="true")
+	    		$("a.leftKnowledgeMenuItem[gid="+gid+"]").hide();
+    		else
+    			$("a.leftKnowledgeMenuItem[gid="+gid+"]").show();
+    		
+ 
+    		
+    		$(this).attr("clicked","true"==clicked?"false":"true");
+    	});
+    	
+    	$("a.leftKnowledgeMenuWholeTitle").click(function(){
+    		var clicked=$(this).attr("clicked");
+    		if(clicked=="true")
+	    		$("a.leftKnowledgeMenuItem").hide();
+    		else
+    			$("a.leftKnowledgeMenuItem").show();
+    		$(this).attr("clicked","true"==clicked?"false":"true");   
+    		$("a.leftKnowledgeMenuWholeTitle span.resizable").toggleClass("glyphicon-resize-small");
+    		$("a.leftKnowledgeMenuWholeTitle span.resizable").toggleClass("glyphicon-resize-full");
+    	});
+
+    	
+    
+    
+    <!--增加积分,做笔记，收藏等的模态窗口-->
+    
+    
+    
+
+    <!--视频div-->
+    
+    
+    $("div.4safari video").css("width",(window.innerWidth-400)+"px");
+
+	<!--tooltips-->
+// 	 $("[data-toggle='tooltip']").tooltip();
+	 
+	$("label.speed").click(function(){
+		var speed = $(this).attr("speed");
+		$(this).parents("div.4safari").children("video")[0].playbackRate = speed;
+		$(this).parents("div.4safari").children("video")[0].play();
+	});
+	
+	$("button.videoGoBackButton").click(function(){
+		$(this).parents("div.4safari").children("video")[0].currentTime -= 10;
+	});	 
+	
+
+	
+	
+	
+
+
+});
+
+
+
+</script>
+
+<table width="100%" class="allTable showTable1">
+
+	<tr valign="top">
+		<td width="145px" style="padding-left:20px" >
+			
+	
+
+<style>
+
+.list-group-item.unread {
+  background-color: #fefefe;
+}
+.list-group-item.unread:hover{
+  background-color: #d9edf7;
+}
+.list-group-item.brower {
+  background-color: #d9edf7;
+}
+.list-group-item.brower:hover{
+  background-color: #dff0d8;
+}
+
+
+.list-group-item.finish {
+  background-color: #dff0d8;
+}
+.list-group-item.finish:hover {
+  background-color: #c1e2b3;
+}
+
+</style>
+
+<script>
+
+
+
+
+$(function() {
+	if(logon){
+		$("a.leftKnowledgeMenuItem.finish_ready").addClass("finish");		
+		$("a.leftKnowledgeMenuItem.unread_ready").addClass("unread");	
+		$("a.leftKnowledgeMenuItem.active").removeClass("finish");	
+	}
+
+	
+});
+</script>
+<nav>
+<div style="margin-left:00px;width:170px">
+					  <a href="#nowhere" clicked="true" class="list-group-item success_bg leftKnowledgeMenuWholeTitle">
+					  		<h2>天猫整站SSM</h2>
+					  		 
+	  					    	<span class="resizable pull-right glyphicon glyphicon-resize-full"></span>
+	  					     
+					  </a>	  
+					  
+					  
+					  
+					  
+					  
+							  	
+						
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="149" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;基础
+						    </a>
+							
+								<a id="k1399" href="../../../k/tmall_ssm/tmall_ssm-1399/1399.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>项目简介</span> </a>
+							
+								<a id="k1400" href="../../../k/tmall_ssm/tmall_ssm-1400/1400.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>功能一览-前台</span> </a>
+							
+								<a id="k1401" href="../../../k/tmall_ssm/tmall_ssm-1401/1401.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>功能一览-后台</span> </a>
+							
+								<a id="k1404" href="../../../k/tmall_ssm/tmall_ssm-1404/1404.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>本地演示</span> </a>
+							
+								<a id="k1403" href="../../../k/tmall_ssm/tmall_ssm-1403/1403.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>下载并配置运行</span> </a>
+							
+								<a id="k1402" href="../../../k/tmall_ssm/tmall_ssm-1402/1402.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>开发流程</span> </a>
+							
+								<a id="k1554" href="../../../k/tmall_ssm/tmall_ssm-1554/1554.html" kid="1482" gid="149" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>各个版本区别</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="150" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;需求分析-展示
+						    </a>
+							
+								<a id="k1406" href="../../../k/tmall_ssm/tmall_ssm-1406/1406.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>概述</span> </a>
+							
+								<a id="k1407" href="../../../k/tmall_ssm/tmall_ssm-1407/1407.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>首页</span> </a>
+							
+								<a id="k1410" href="../../../k/tmall_ssm/tmall_ssm-1410/1410.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品页</span> </a>
+							
+								<a id="k1408" href="../../../k/tmall_ssm/tmall_ssm-1408/1408.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类页</span> </a>
+							
+								<a id="k1409" href="../../../k/tmall_ssm/tmall_ssm-1409/1409.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>搜索结果页</span> </a>
+							
+								<a id="k1411" href="../../../k/tmall_ssm/tmall_ssm-1411/1411.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>购物车查看页</span> </a>
+							
+								<a id="k1412" href="../../../k/tmall_ssm/tmall_ssm-1412/1412.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>结算页</span> </a>
+							
+								<a id="k1413" href="../../../k/tmall_ssm/tmall_ssm-1413/1413.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>确认支付页</span> </a>
+							
+								<a id="k1414" href="../../../k/tmall_ssm/tmall_ssm-1414/1414.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>支付成功页</span> </a>
+							
+								<a id="k1415" href="../../../k/tmall_ssm/tmall_ssm-1415/1415.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>我的订单页</span> </a>
+							
+								<a id="k1416" href="../../../k/tmall_ssm/tmall_ssm-1416/1416.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>确认收货页</span> </a>
+							
+								<a id="k1417" href="../../../k/tmall_ssm/tmall_ssm-1417/1417.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>评价页</span> </a>
+							
+								<a id="k1418" href="../../../k/tmall_ssm/tmall_ssm-1418/1418.html" kid="1482" gid="150" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>页头信息展示</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="161" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;需求分析-交互
+						    </a>
+							
+								<a id="k1511" href="../../../k/tmall_ssm/tmall_ssm-1511/1511.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1496" href="../../../k/tmall_ssm/tmall_ssm-1496/1496.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类页排序</span> </a>
+							
+								<a id="k1497" href="../../../k/tmall_ssm/tmall_ssm-1497/1497.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>立即购买</span> </a>
+							
+								<a id="k1498" href="../../../k/tmall_ssm/tmall_ssm-1498/1498.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>加入购物车</span> </a>
+							
+								<a id="k1499" href="../../../k/tmall_ssm/tmall_ssm-1499/1499.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>调整订单项数量</span> </a>
+							
+								<a id="k1500" href="../../../k/tmall_ssm/tmall_ssm-1500/1500.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>删除订单项</span> </a>
+							
+								<a id="k1501" href="../../../k/tmall_ssm/tmall_ssm-1501/1501.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>生成订单</span> </a>
+							
+								<a id="k1502" href="../../../k/tmall_ssm/tmall_ssm-1502/1502.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>订单页功能</span> </a>
+							
+								<a id="k1509" href="../../../k/tmall_ssm/tmall_ssm-1509/1509.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>确认付款</span> </a>
+							
+								<a id="k1510" href="../../../k/tmall_ssm/tmall_ssm-1510/1510.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>确认收货</span> </a>
+							
+								<a id="k1503" href="../../../k/tmall_ssm/tmall_ssm-1503/1503.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>提交评价信息</span> </a>
+							
+								<a id="k1504" href="../../../k/tmall_ssm/tmall_ssm-1504/1504.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>登录</span> </a>
+							
+								<a id="k1505" href="../../../k/tmall_ssm/tmall_ssm-1505/1505.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>注册</span> </a>
+							
+								<a id="k1507" href="../../../k/tmall_ssm/tmall_ssm-1507/1507.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>退出</span> </a>
+							
+								<a id="k1506" href="../../../k/tmall_ssm/tmall_ssm-1506/1506.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>搜索</span> </a>
+							
+								<a id="k1508" href="../../../k/tmall_ssm/tmall_ssm-1508/1508.html" kid="1482" gid="161" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>前台需求列表</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="151" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;需求分析-后台
+						    </a>
+							
+								<a id="k1427" href="../../../k/tmall_ssm/tmall_ssm-1427/1427.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1419" href="../../../k/tmall_ssm/tmall_ssm-1419/1419.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类管理</span> </a>
+							
+								<a id="k1420" href="../../../k/tmall_ssm/tmall_ssm-1420/1420.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>属性管理</span> </a>
+							
+								<a id="k1421" href="../../../k/tmall_ssm/tmall_ssm-1421/1421.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品管理</span> </a>
+							
+								<a id="k1422" href="../../../k/tmall_ssm/tmall_ssm-1422/1422.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品图片管理</span> </a>
+							
+								<a id="k1423" href="../../../k/tmall_ssm/tmall_ssm-1423/1423.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品属性设置</span> </a>
+							
+								<a id="k1424" href="../../../k/tmall_ssm/tmall_ssm-1424/1424.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>用户管理</span> </a>
+							
+								<a id="k1425" href="../../../k/tmall_ssm/tmall_ssm-1425/1425.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>订单管理</span> </a>
+							
+								<a id="k1426" href="../../../k/tmall_ssm/tmall_ssm-1426/1426.html" kid="1482" gid="151" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>后台需求列表</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="152" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;表结构设计
+						    </a>
+							
+								<a id="k1428" href="../../../k/tmall_ssm/tmall_ssm-1428/1428.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>概述</span> </a>
+							
+								<a id="k1429" href="../../../k/tmall_ssm/tmall_ssm-1429/1429.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>数据库</span> </a>
+							
+								<a id="k1430" href="../../../k/tmall_ssm/tmall_ssm-1430/1430.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>表与表关系</span> </a>
+							
+								<a id="k1431" href="../../../k/tmall_ssm/tmall_ssm-1431/1431.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>建表SQL语句</span> </a>
+							
+								<a id="k1433" href="../../../k/tmall_ssm/tmall_ssm-1433/1433.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>表与页面</span> </a>
+							
+								<a id="k1432" href="../../../k/tmall_ssm/tmall_ssm-1432/1432.html" kid="1482" gid="152" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>整理在一起</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="154" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;原型-后端
+						    </a>
+							
+								<a id="k1455" href="../../../k/tmall_ssm/tmall_ssm-1455/1455.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>概述</span> </a>
+							
+								<a id="k1448" href="../../../k/tmall_ssm/tmall_ssm-1448/1448.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类管理</span> </a>
+							
+								<a id="k1449" href="../../../k/tmall_ssm/tmall_ssm-1449/1449.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>属性管理</span> </a>
+							
+								<a id="k1450" href="../../../k/tmall_ssm/tmall_ssm-1450/1450.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品管理</span> </a>
+							
+								<a id="k1451" href="../../../k/tmall_ssm/tmall_ssm-1451/1451.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品图片管理</span> </a>
+							
+								<a id="k1452" href="../../../k/tmall_ssm/tmall_ssm-1452/1452.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品属性设置</span> </a>
+							
+								<a id="k1453" href="../../../k/tmall_ssm/tmall_ssm-1453/1453.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>用户管理</span> </a>
+							
+								<a id="k1454" href="../../../k/tmall_ssm/tmall_ssm-1454/1454.html" kid="1482" gid="154" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>订单管理</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="163" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;后台-分类管理
+						    </a>
+							
+								<a id="k1513" href="../../../k/tmall_ssm/tmall_ssm-1513/1513.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1514" href="../../../k/tmall_ssm/tmall_ssm-1514/1514.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>可运行的项目</span> </a>
+							
+								<a id="k1524" href="../../../k/tmall_ssm/tmall_ssm-1524/1524.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>静态资源</span> </a>
+							
+								<a id="k1523" href="../../../k/tmall_ssm/tmall_ssm-1523/1523.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>JSP包含关系</span> </a>
+							
+								<a id="k1516" href="../../../k/tmall_ssm/tmall_ssm-1516/1516.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>查询</span> </a>
+							
+								<a id="k1517" href="../../../k/tmall_ssm/tmall_ssm-1517/1517.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>分页</span> </a>
+							
+								<a id="k1518" href="../../../k/tmall_ssm/tmall_ssm-1518/1518.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>增加</span> </a>
+							
+								<a id="k1519" href="../../../k/tmall_ssm/tmall_ssm-1519/1519.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>删除</span> </a>
+							
+								<a id="k1520" href="../../../k/tmall_ssm/tmall_ssm-1520/1520.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>编辑</span> </a>
+							
+								<a id="k1521" href="../../../k/tmall_ssm/tmall_ssm-1521/1521.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>修改</span> </a>
+							
+								<a id="k1522" href="../../../k/tmall_ssm/tmall_ssm-1522/1522.html" kid="1482" gid="163" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>做一遍</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="167" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;重构
+						    </a>
+							
+								<a id="k1546" href="../../../k/tmall_ssm/tmall_ssm-1546/1546.html" kid="1482" gid="167" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1545" href="../../../k/tmall_ssm/tmall_ssm-1545/1545.html" kid="1482" gid="167" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>分页方式</span> </a>
+							
+								<a id="k1547" href="../../../k/tmall_ssm/tmall_ssm-1547/1547.html" kid="1482" gid="167" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>分类逆向工程</span> </a>
+							
+								<a id="k1548" href="../../../k/tmall_ssm/tmall_ssm-1548/1548.html" kid="1482" gid="167" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+									<span style="margin-left:-12px;font-size:10px" class="glyphicon glyphicon-facetime-video"></span>
+								
+								<span>所有逆向工程</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="true" class="list-group-item leftKnowledgeMenuHeader" gid="157" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;后台-其他管理
+						    </a>
+							
+								<a id="k1479" href="../../../k/tmall_ssm/tmall_ssm-1479/1479.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>后台其他页面</span> </a>
+							
+								<a id="k1480" href="../../../k/tmall_ssm/tmall_ssm-1480/1480.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>属性管理</span> </a>
+							
+								<a id="k1481" href="../../../k/tmall_ssm/tmall_ssm-1481/1481.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品管理</span> </a>
+							
+								<a id="k1482" href="../../../k/tmall_ssm/tmall_ssm-1482/1482.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品图片管理</span> </a>
+							
+								<a id="k1483" href="../../../k/tmall_ssm/tmall_ssm-1483/1483.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品属性值设置</span> </a>
+							
+								<a id="k1484" href="../../../k/tmall_ssm/tmall_ssm-1484/1484.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>用户管理</span> </a>
+							
+								<a id="k1485" href="../../../k/tmall_ssm/tmall_ssm-1485/1485.html" kid="1482" gid="157" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>订单管理</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="153" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;原型-前端
+						    </a>
+							
+								<a id="k1434" href="../../../k/tmall_ssm/tmall_ssm-1434/1434.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1435" href="../../../k/tmall_ssm/tmall_ssm-1435/1435.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>首页</span> </a>
+							
+								<a id="k1447" href="../../../k/tmall_ssm/tmall_ssm-1447/1447.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类页</span> </a>
+							
+								<a id="k1436" href="../../../k/tmall_ssm/tmall_ssm-1436/1436.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品页面</span> </a>
+							
+								<a id="k1437" href="../../../k/tmall_ssm/tmall_ssm-1437/1437.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>购物车页面</span> </a>
+							
+								<a id="k1438" href="../../../k/tmall_ssm/tmall_ssm-1438/1438.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>我的订单页面</span> </a>
+							
+								<a id="k1439" href="../../../k/tmall_ssm/tmall_ssm-1439/1439.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>结算页面</span> </a>
+							
+								<a id="k1440" href="../../../k/tmall_ssm/tmall_ssm-1440/1440.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>查询结果页</span> </a>
+							
+								<a id="k1441" href="../../../k/tmall_ssm/tmall_ssm-1441/1441.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>支付页面</span> </a>
+							
+								<a id="k1442" href="../../../k/tmall_ssm/tmall_ssm-1442/1442.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>支付成功页面</span> </a>
+							
+								<a id="k1443" href="../../../k/tmall_ssm/tmall_ssm-1443/1443.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>确认收货页面</span> </a>
+							
+								<a id="k1444" href="../../../k/tmall_ssm/tmall_ssm-1444/1444.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>收货成功页面</span> </a>
+							
+								<a id="k1445" href="../../../k/tmall_ssm/tmall_ssm-1445/1445.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>评价页面</span> </a>
+							
+								<a id="k1446" href="../../../k/tmall_ssm/tmall_ssm-1446/1446.html" kid="1482" gid="153" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>登录页面</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="158" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;前台-首页
+						    </a>
+							
+								<a id="k1486" href="../../../k/tmall_ssm/tmall_ssm-1486/1486.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1487" href="../../../k/tmall_ssm/tmall_ssm-1487/1487.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>可运行项目</span> </a>
+							
+								<a id="k1488" href="../../../k/tmall_ssm/tmall_ssm-1488/1488.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>静态资源</span> </a>
+							
+								<a id="k1549" href="../../../k/tmall_ssm/tmall_ssm-1549/1549.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>ForeController</span> </a>
+							
+								<a id="k1491" href="../../../k/tmall_ssm/tmall_ssm-1491/1491.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>home方法</span> </a>
+							
+								<a id="k1490" href="../../../k/tmall_ssm/tmall_ssm-1490/1490.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>home.jsp</span> </a>
+							
+								<a id="k1492" href="../../../k/tmall_ssm/tmall_ssm-1492/1492.html" kid="1482" gid="158" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>homePage.jsp</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="164" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;前台-无需登录
+						    </a>
+							
+								<a id="k1525" href="../../../k/tmall_ssm/tmall_ssm-1525/1525.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>概述</span> </a>
+							
+								<a id="k1527" href="../../../k/tmall_ssm/tmall_ssm-1527/1527.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>注册</span> </a>
+							
+								<a id="k1526" href="../../../k/tmall_ssm/tmall_ssm-1526/1526.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>登录</span> </a>
+							
+								<a id="k1531" href="../../../k/tmall_ssm/tmall_ssm-1531/1531.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>退出</span> </a>
+							
+								<a id="k1528" href="../../../k/tmall_ssm/tmall_ssm-1528/1528.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>产品页</span> </a>
+							
+								<a id="k1532" href="../../../k/tmall_ssm/tmall_ssm-1532/1532.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>模态登录</span> </a>
+							
+								<a id="k1529" href="../../../k/tmall_ssm/tmall_ssm-1529/1529.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>分类页</span> </a>
+							
+								<a id="k1530" href="../../../k/tmall_ssm/tmall_ssm-1530/1530.html" kid="1482" gid="164" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>搜索</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="165" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;前台-需要登录
+						    </a>
+							
+								<a id="k1533" href="../../../k/tmall_ssm/tmall_ssm-1533/1533.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>购物流程</span> </a>
+							
+								<a id="k1534" href="../../../k/tmall_ssm/tmall_ssm-1534/1534.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>立即购买</span> </a>
+							
+								<a id="k1540" href="../../../k/tmall_ssm/tmall_ssm-1540/1540.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>结算页面</span> </a>
+							
+								<a id="k1535" href="../../../k/tmall_ssm/tmall_ssm-1535/1535.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>加入购物车</span> </a>
+							
+								<a id="k1541" href="../../../k/tmall_ssm/tmall_ssm-1541/1541.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>查看购物车页面</span> </a>
+							
+								<a id="k1539" href="../../../k/tmall_ssm/tmall_ssm-1539/1539.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>登录状态拦截器</span> </a>
+							
+								<a id="k1550" href="../../../k/tmall_ssm/tmall_ssm-1550/1550.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>其他拦截器</span> </a>
+							
+								<a id="k1536" href="../../../k/tmall_ssm/tmall_ssm-1536/1536.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>购物车页面操作</span> </a>
+							
+								<a id="k1544" href="../../../k/tmall_ssm/tmall_ssm-1544/1544.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>订单状态图</span> </a>
+							
+								<a id="k1537" href="../../../k/tmall_ssm/tmall_ssm-1537/1537.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>生成订单</span> </a>
+							
+								<a id="k1538" href="../../../k/tmall_ssm/tmall_ssm-1538/1538.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>我的订单页</span> </a>
+							
+								<a id="k1542" href="../../../k/tmall_ssm/tmall_ssm-1542/1542.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>我的订单页操作</span> </a>
+							
+								<a id="k1543" href="../../../k/tmall_ssm/tmall_ssm-1543/1543.html" kid="1482" gid="165" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>评价产品</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="159" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;总结
+						    </a>
+							
+								<a id="k1494" href="../../../k/tmall_ssm/tmall_ssm-1494/1494.html" kid="1482" gid="159" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>项目总结</span> </a>
+							
+								<a id="k1493" href="../../../k/tmall_ssm/tmall_ssm-1493/1493.html" kid="1482" gid="159" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>改进练习</span> </a>
+							  	
+							    
+					    
+							<a href="#nowhere" clicked="" class="list-group-item leftKnowledgeMenuHeader" gid="160" style="text-align:left;background-color:lightgray">
+													    <span class="glyphicon glyphicon-tags"></span>
+							
+						    	&nbsp;下载
+						    </a>
+							
+								<a id="k1495" href="../../../k/tmall_ssm/tmall_ssm-1495/1495.html" kid="1482" gid="160" class="leftKnowledgeMenuItem knowledgeBar list-group-item _ready"> 
+								
+								<span>完整项目下载</span> </a>
+							  	
+							    
+					    
+					  
+					  
+
+</div>		    
+</nav>
+		    
+		    
+			    
+		</td>
+		
+		<td align="left"  style="padding-left:60px;padding-right:40px" >
+			
+	
+	
+<nav>
+<div class="panel panel-success">
+  <div class="panel-heading">
+<div class="text-uppercase">
+
+
+						  <a href="../../../stage/39.html">实践项目</a>
+						  /
+						  
+						  <a href="../../../module/134.html">天猫整站SSM</a>
+						  /
+ 						  
+ 						  	<span class="text-muted">天猫整站SSM 后台-其他管理 产品图片管理</span>
+ 						  
+ 						  
+ 						  
+
+									
+						  
+						  
+						  
+ 		  
+						
+						
+						
+		
+						
+
+						
+	
+
+
+
+
+
+
+
+	
+
+			
+			
+					  
+						</div>  
+  </div>
+
+
+</div>
+</nav>
+	
+						  
+						
+						
+						
+
+	
+<div class="bg-info" style="width:100%" align="left">
+						
+				
+		
+							
+</div>
+			
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/tmall_ssm/tmall_ssm-1481/1481.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 产品管理
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/tmall_ssm/tmall_ssm-1483/1483.html">
+					产品属性值设置
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			
+						<!-- JiaThis Button BEGIN -->
+	
+						
+			
+			
+		
+			
+
+
+<script>
+$(function () {
+
+    $("#login2downloadAlertDiv").hide();
+
+	$(".login2download").click(function(){
+		$("#login2downloadAlertDiv").show();	
+	});;
+	
+});
+
+</script>	
+	
+	
+<div>
+
+	<div id="DescAndDownloadRightPart" style="float:right;margin:0px 0px 20px 20px">
+			
+		
+		
+			<!-- knowledge.module.downloadable && -->
+			
+	
+				<table style="width:400px" class="table table-striped4 table-hover table-bordered2">
+					<thead>
+			          <tr class="bg-info4">
+			            <th  style="text-align:center" colspan="2">相关下载
+			            </th>
+			          </tr>
+			        </thead>
+			        <tbody>
+						<tr>
+							<td>文件名</td>
+							<td >文件大小</td>
+						</tr>																			
+						
+							<tr>
+								<td>
+									
+										
+											<span style="margin-left:0px">
+												<a href="http://how2j.cn/frontloginPage?act=login">请先登录</a>
+											</span>
+										
+													
+									
+																			
+								</td>
+								<td> 1m </td>
+							</tr>
+						
+						
+						<tr >
+				            <td  style="text-align:center" colspan="2">
+				            	
+				            		<a class="strong1" href="../../../k/1381">使用站长秘制下载工具</a>
+				            	
+				            </td>
+			          </tr>
+							
+			        </tbody>							
+	
+				</table>
+			
+			
+				<div id="login2downloadAlertDiv" class="alert alert-warning" style="display:none;text-align:center;width:300px">
+	
+							<a href="http://how2j.cn/frontloginPage?act=login">登录</a>后可下载
+				</div>		
+	</div>		
+	
+	<div id="DescAndDownloadLeftPart">
+					<br>
+					
+						<a style="margin-left:20px" href="../../../k/helloworld/helloworld-version/1718.html" class="label label-warning">工具版本兼容问题</a>					
+					
+					<br>
+	
+				
+				<br/>
+					
+					
+					
+					<div>
+					
+					
+					</div>	
+	</div>	
+	
+	<div style="clear:both"></div>
+
+<!-- 	<table width="100%"> -->
+<!-- 		<tr valign="top"> -->
+<!-- 			<td> -->
+
+					
+<!-- 			</td> -->
+<!-- 			<td align="right" style="padding-right:50px;padding-left:50px"> -->
+									
+																				
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table>					 -->
+</div>
+			
+			
+			
+			
+			
+			
+
+
+
+		
+			<a href="#step6165" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">1</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					先运行，看到效果，再学习 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6882" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">2</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					模仿和排错 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6166" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">3</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					页面截图 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6530" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">4</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductImage 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6531" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">5</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductImageService 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6532" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">6</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductImageServiceImpl 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6167" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">7</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductImageController 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6169" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">8</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					listProductImage.jsp 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6170" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">9</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					查询功能讲解 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6171" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">10</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					增加功能讲解 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6172" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">11</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					删除功能讲解 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6173" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">12</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					编辑和修改 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6533" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">13</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					Product 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6534" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">14</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductService 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6535" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">15</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					ProductServiceImpl 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6536" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">16</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					listProduct.jsp 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step6537" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">17</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					产品缩略图效果 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+
+
+<br>
+			
+			
+				
+
+<script>
+$(function () {
+
+	$("#practiseDiv").hide();
+	$("#answerDiv").hide();
+    $("#practiseButton").click(function(){
+    	$("#practiseDiv").show(200);
+    });
+    $("#answerButton").click(function(){
+        
+			location.href="http://how2j.cn/frontloginPage?act=login";
+        
+                
+    });
+
+	
+});
+
+</script>
+
+
+	
+
+			
+
+			
+
+<!--这个是      前台         的step.jsp-->
+<script>
+$(function(){
+
+});
+
+</script>
+<div>
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6165">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">1</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>先运行，看到效果，再学习 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6165" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6882">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">2</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>模仿和排错 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6882" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6166">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">3</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>页面截图 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6166" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6530">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">4</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductImage 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6530" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6531">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">5</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductImageService 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6531" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6532">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">6</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductImageServiceImpl 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6532" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6167">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">7</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductImageController 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6167" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6169">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">8</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>listProductImage.jsp 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6169" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6170">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">9</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>查询功能讲解 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6170" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6171">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">10</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>增加功能讲解 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6171" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6172">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">11</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>删除功能讲解 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6172" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6173">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">12</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>编辑和修改 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6173" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6533">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">13</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>Product 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6533" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6534">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">14</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductService 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6534" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6535">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">15</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>ProductServiceImpl 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6535" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6536">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">16</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>listProduct.jsp 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6536" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step6537">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">17</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>产品缩略图效果 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="6537" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+			
+				<span style="margin-left:20px">
+					<a href="http://how2j.cn/frontloginPage?act=login">增值内容，请先登录</a>
+				</span>
+			
+						
+		
+		
+
+
+</div>
+
+
+	
+
+			
+			<!-- codediffer modal-->
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+
+<div>
+		<div class="modal " id="codeDifferInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">文件内容比较器</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>把你的代码复制到下面区域。 如果在线比较不好用，请使用客户端比较软件： <a href="../../../k/1583">diffmerge 下载和使用教程</a></p>
+					<div id="codeDifferOriginal"></div>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal " id="codeCopyInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">复制代码</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>代码高亮插件双击即可选中，不过部分同学反应，通过代码高亮插件复制的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢</p>
+					<textarea style="width:80%;height:300px;display:block;margin:0px auto" id="codeCopySource"></textarea>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal fade" id="practiseModal"  data-backdrop="static1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:500px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">做练习的正确姿势</h4>
+		          </div>
+		          <div class="modal-body">
+					<div class="practisePostureHeading">1. 自行完成练习</div>
+						<div  class="practisePostureDesc">根据练习目标尽量自己实现代码效果，期间会碰到疑问，难题，和自己不懂的地方，这些都是必要的过程</div>
+					<div class="practisePostureHeading">2. 带着疑问查看答案</div>
+						<div  class="practisePostureDesc">完成过程中，碰到无法解决的问题，带着疑问，查看答案，分析答案的解决思路</div>
+					<div class="practisePostureHeading">3. 查看答案讲解视频</div>
+						<div  class="practisePostureDesc">依然有不明白的地方，点开视频讲解，带着疑问，听视频讲解有问题的部分</div>
+					<div class="practisePostureHeading">4. 再做一遍</div>
+						<div  class="practisePostureDesc">理解后，再从头做一遍，把有疑问的地方都捋清楚</div>
+					<div class="practisePostureHeading">5. 总结</div>
+						<div  class="practisePostureDesc">最后再总结一遍，总结思路，总结解决办法，以后遇到类似的问题，怎么处理</div>	
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	var codeNoteComment= "";
+	var alreadyWriteCodeNoteComment = "";
+	var lastModifedTimeNoteComment = new Date().getTime();
+	var tNoteCommentSavingCount;
+	var tRereshRetry2DemoPanelNoteComment;
+	
+	function rereshRetry2DemoPanelNoteComment(){
+		if(alreadyWriteCodeNoteComment==codeNoteComment)
+			return;
+		
+		
+		currentTimeNoteComment = new Date().getTime();
+		if(currentTimeNoteComment- lastModifedTimeNoteComment<5000)
+			return;
+		
+		var page = "frontnoteComment";
+		
+		var noteCommentid = $("#noteCommentid").val();
+		var noteCommentKnowledgeId = $("#noteCommentKnowledgeId").val();
+		var noteCommentDesc = $("#noteCommentDesc").val();
+		var noteCommentCode = $("#noteCommentCode").val();
+		var page="/frontnoteComment";
+		alreadyWriteCodeNoteComment = codeNoteComment;
+		$.ajax({
+			   url: page,
+			   type:"post",
+			   data:{"noteComment.id":noteCommentid,
+				   "noteComment.code":noteCommentCode,
+				   "noteComment.desc":noteCommentDesc,
+				   "noteComment.knowledge.id":noteCommentKnowledgeId
+				   },
+			   success: function(result){
+			     	if("success"==result){
+			     		
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").show();			
+			     	}
+			     	else{
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").hide();	
+			    		$("#failNoteComment").show();	
+			    		
+			     	}
+			     	
+			   }
+		});
+		
+				
+	}
+	$("textarea.noteCommentCodeDesc").keyup(function(){
+		var newDesc = $("textarea#noteCommentDesc").val();
+		var newCode = $("textarea#noteCommentCode").val();
+		codeNoteComment = newDesc+"@"+newCode;
+		if(alreadyWriteCodeNoteComment!=codeNoteComment){
+			lastModifedTimeNoteComment = new Date().getTime();
+			$("#renderingNoteComment").show();
+			$("#renderedNoteComment").hide();
+		}	
+		if(null!=tNoteCommentSavingCount){
+			clearInterval(tNoteCommentSavingCount);
+		}
+		$(".noteCommentSavingCount").html("5");
+		tNoteCommentSavingCount = setInterval(noteCommentSavingCount,1000);
+	
+		if(null==tRereshRetry2DemoPanelNoteComment){
+			tRereshRetry2DemoPanelNoteComment = setInterval(rereshRetry2DemoPanelNoteComment,1000);
+		}	
+		
+	});
+	
+	function noteCommentSavingCount(){
+		var times =	$(".noteCommentSavingCount").html();
+		console.log(times);
+		times = parseInt(times);
+		if(isNaN(times)){
+			times =6;
+		}
+		times = times-1;
+		$(".noteCommentSavingCount").html(times);		
+		if(1==times){
+			clearInterval(tNoteCommentSavingCount);
+		}
+	
+	}
+
+	$("#renderingNoteComment").hide();
+	$("#renderedNoteComment").hide();
+	$("#failNoteComment").hide();
+	var newDesc = $("textarea#noteCommentDesc").val();
+	var newCode = $("textarea#noteCommentCode").val();
+	codeNoteComment = newDesc+newCode;
+});
+</script>
+
+
+<div>
+		<div class="modal fade" id="nodeCommentModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:960px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">天猫整站SSM 后台-其他管理 产品图片管理-总结笔记</h4>
+		          </div>
+		          <div class="modal-body">
+		          		<div class="text-muted">
+		          			把这时的想法，思路，研究都记录下来，等全部学完了，再回过头来巩固和理解，学习效果就会很好，知识点掌握得也牢固. 
+		          			<br>
+		          			<a href="../../../frontshowMyNotes">点击查看我的笔记</a>
+		          		</div>
+		          		<br>
+						<ul class="nav nav-tabs" id="commentTabs">
+						  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >总结</a></li>
+						  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+						</ul>			
+						<br>
+						<div class="tabDiv" tabName="desc"  >
+								<textarea style="height:300px;" id="noteCommentDesc"   class="noteCommentCodeDesc form-control" placeholder="就把这时的想法，思路，研究都记录下来。 全部学完了，再回过头来巩固和理解，学习效果就会非常好了，知识点掌握得也牢固"  ></textarea>
+						</div>		
+						<div class="tabDiv"  tabName="code" >
+								<textarea style="height:300px;" id="noteCommentCode"  class="noteCommentCodeDesc form-control" placeholder="记录关键代码，将来复习的时候，提醒用"  ></textarea>
+						</div>	
+						<input type="hidden" id= "noteCommentid" value="">	
+						<input type="hidden" id= "noteCommentKnowledgeId" value="1482">	
+		          </div>
+		          <div class="modal-footer">
+		          	<div style="margin-bottom:20px">
+						<span  id="renderingNoteComment" class="label label-warning">保存中预计需要<span class="noteCommentSavingCount"></span>秒</span>
+						<span id="renderedNoteComment" class="label label-success">保存完成</span>
+						<span id="failNoteComment" class="label label-danger">保存失败，请联系站长</span>
+						 <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+					</div>				
+		          
+		          
+		           
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addFavoriteButton").click(function(){
+		var desc =$("textarea.favoriteInputText").val();
+		if(desc.length>=100){
+			alert("（请控制在100个字以内）");
+			return false;
+		}
+		$("textarea.favoriteInputText").val("");
+		var knowledgeid = 1482;
+		 var page = "/frontaddFavorite";
+		 alert("已经成功提交");
+		 $.post(
+		            page,
+		            {
+		            	"favorite.knowledge.id":knowledgeid,
+		            	"favorite.desc":desc,
+		            },
+		            function(){
+// 		            	alert(1);
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addCorrectButton").click(function(){
+		var oldText =$("textarea.oldText").val();
+		if(oldText.length>=100){
+			alert("请把原文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(oldText.length==0){
+			alert("原文字不能为空");
+			return false;
+		}
+
+		var correctedText =$("textarea.correctedText").val();
+		if(correctedText.length>=100){
+			alert("请把纠错文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(correctedText.length==0){
+			alert("纠错文字不能为空");
+			return false;
+		}
+		
+		
+		
+		$("textarea.correctInputText").val("");
+		var knowledgeid = 1482;
+		var stepid = $("#stepid4correct").val();
+		 var page = "/frontcorrect";
+		 alert("已经提交，谢谢");
+		 $.post(
+		            page,
+		            {
+		            	"correct.knowledge.id":knowledgeid,
+		            	"correct.step.id":stepid,
+		            	"correct.oldText":oldText,
+		            	"correct.correctedText":correctedText,
+		            },
+		            function(){
+//  		            	alert("已经提交，谢谢");
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+			
+		
+		
+			
+			<br>
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/tmall_ssm/tmall_ssm-1481/1481.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 产品管理
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/tmall_ssm/tmall_ssm-1483/1483.html">
+					产品属性值设置
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			<br>
+			
+			
+			
+		<div align="center">
+
+			
+			<div class="text-muted strong">
+				HOW2J公众号，关注后实时获知布最新的教程和优惠活动，谢谢。
+			</div>
+			<img src="../../../img/site/344.jpg">
+			
+			
+			
+			
+			
+		</div>
+		
+
+			
+			
+			
+
+
+
+<script>
+$(function(){
+
+
+	
+	$(".tabDiv").hide();
+	$(".tabDiv[tabName=desc]").show();
+
+	$("input#commentFile").change(function(){
+		$("#commentFilePath").html( $(this).val());
+	});
+
+	$("ul#commentTabs li a").click(function(){
+		var tabName = $(this).attr("tabName");
+		
+		$("ul#commentTabs li").removeClass("active");
+		$(this).parent().addClass("active");
+		
+
+		$("div.tabDiv").hide();
+
+		$("div.tabDiv[tabName="+tabName+"]").show(0);
+		$("div.tabDiv[tabName="+tabName+"]")[0].focus();
+
+		
+	});
+
+	$(".jump2commentLink").click(function(){
+		var stepName = $(this).attr("stepName");
+		$("#commentInfoStepName").html("-"+stepName);
+		var sid = $(this).attr("sid");
+		$("#commentStepId").val(sid);
+
+		if(!!logon){
+			$("#commentDiv").show();
+			$("input.logcommentButton").hide();
+			location.href="#commentDiv";
+		}
+		else{
+			$("span.jump2commentWord[sid="+sid+"]").hide();
+			$("a.jump2commentlogin[sid="+sid+"]").show();
+		}
+		
+	});
+
+// 	var tinyEditor= new TINY.editor.edit('editor',{
+// 		id:'commentdesc',
+// 		height:'161px',
+// 		cssclass:'te',
+// 		controlclass:'tecontrol',
+// 		rowclass:'teheader',
+// 		dividerclass:'tedivider',
+// 		controls:['bold','italic','underline','strikethrough','|',
+// 				  'orderedlist','unorderedlist','|','unformat','undo','redo','link','unlink'],
+// 		footer:false,
+
+// 		xhtml:true,
+// 		cssfile:'../../../css/tinyeditor/tinyeditor.css',
+// 		bodyid:'editor',
+// 		footerclass:'tefooter',
+// <!--		toggle:{text:'源代码',activetext:'可视化',cssclass:'toggle'},-->
+// 		resize:{cssclass:'resize'}
+// 	});
+
+	$("#commentForm").submit(function(){
+// 		tinyEditor.post();
+
+		var commentdesc = $("#commentdesc").val();
+		if(0==commentdesc.length){
+			alert("问题描述信息不可为空");
+			return false;
+		}
+		return true;	
+	});
+
+	$("#commentDiv").hide();
+
+	$("input.notlogcommentButton hidden").click(function(){
+		//需要登陆后作答
+		location.href="http://how2j.cn/frontloginPage";
+	});
+	$("input.logcommentButton").click(function(){
+		$("#commentDiv").show();
+		$(this).hide();
+	});
+
+	
+	
+});
+</script>
+
+
+<style>
+
+/*a  upload */
+.a-upload {
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #D0EEFF;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #78c3f3;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+
+
+</style>
+
+<br>
+<br>
+
+	
+	
+			<input id="commentButton" type="button" value="提问" class="btn btn-primary btn notlogcommentButton hidden" >
+			
+			<span class="text-muted hidden">提问之前请<a href="http://how2j.cn/frontloginPage">登陆</a>
+			</span>
+	
+
+
+<form method="post" id="commentForm" action="/frontcomment" enctype="multipart/form-data">
+<div id="commentDiv">
+		
+		
+		
+		<div class="text-muted">关于
+		<span style="font-style:italic;font-weight:bold"> 
+		实践项目-天猫整站SSM-产品图片管理 <span id="commentInfoStepName"></span>
+		</span>
+		 的提问</div>
+		
+
+		<input value="" style="margin-top:20px;"  id="commentTitle" name="comment.title"  class="form-control" placeholder="标题： 简要说明问题概况" required >
+		
+		<br/>
+		<div class="text-muted">尽量提供<span class="strong">截图</span>、<span class="strong">代码</span>和<span class="strong">异常信息</span>，有助于分析和解决问题。
+		
+		
+		
+		
+			也可进本站QQ群交流: 620943819
+			<div class="text-muted">
+<!-- 				站长会在每个工作日早上尽量回答提问（如果有漏掉没有回答的，请进群提醒一下） <br> -->
+				提问尽量提供完整的代码，环境描述，越是有利于问题的重现，您的问题越能更快得到解答。<br>
+				对教程中代码有疑问，请提供是哪个步骤，哪一行有疑问，这样便于快速定位问题，提高问题得到解答的速度 <br>
+				在已经存在的几千个提问里，有相当大的比例，是因为使用了和站长<span class="strong">不同版本的开发环境</span>导致的,比如 jdk, eclpise, idea, mysql,tomcat 等等软件的版本不一致。<br>
+				请使用和站长一样的版本，可以节约自己大量的学习时间。 站长把教学中用的软件版本整理了，都统一放在了这里， 方便大家下载：
+				<a href="http://how2j.cn/k/helloworld/helloworld-version/1718.html">http://how2j.cn/k/helloworld/helloworld-version/1718.html
+				</a> 
+				
+				
+				
+				 
+<!-- 				站长是玻璃心，提问的时候请语气温柔些  kiss~<br> -->
+<!-- 				截止2017-5-19日累计提问 1638个，站长回答了 1546个<br> -->
+<!-- 				截止2017-8-15日累计提问 2788个，站长回答了 2544个<br> -->
+			</div>
+		 
+		
+		
+		
+		</div>
+		<br/>
+		<table>
+			<tr valign="top">
+				<td style="padding-right:50px">
+					<a href="#nowhere" class="a-upload">
+						<input id="commentFile" type="file" name="doc" id=""  accept="image/*">上传截图
+					</a>				
+				</td>
+				<td style="padding-top:5px">
+					<span id="commentFilePath"  class="text-muted"></span>
+				</td>
+			</tr>
+		
+		</table>
+		
+		<br/>
+		<br/>
+		
+
+			<ul class="nav nav-tabs" id="commentTabs">
+			  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >描述</a></li>
+			  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+			  <li role="presentation"  test="test"  ><a href="#nowhere" tabName="exception" >异常</a></li>
+			</ul>			
+			<br>
+			<div class="tabDiv" tabName="desc"  >
+					<textarea style="height:200px;" id="commentdesc" name="comment.desc"  class="form-control" placeholder="描述：描述问题发生的环境，本来期望的结果，实际得到的结果"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="code" >
+					<textarea style="height:200px;"  name="comment.code"  class="form-control" placeholder="粘贴代码,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="exception" >
+					<textarea style="height:200px;"  name="comment.exception"  class="form-control" placeholder="粘贴异常,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>
+			
+			<br/>
+		<div>
+			<input type="hidden" name="comment.knowledge.id" value="1482" >
+			
+			<input type="hidden" id="commentStepId" name="comment.step.id" value="" >
+			
+			<input type="submit" id="commentSubmitButton" value="提交问题" class="btn btn-success btn-lg pull-left" >
+		</div>
+				
+	</div>
+</form>	
+			
+		<br/>
+		<br/>
+
+	
+
+
+
+
+
+
+
+				
+					<div style="position:fixed;bottom:60px;right:10px">
+						<a href="#" class="addNoteCommentLink">
+							<span  style="font-size:20px" title="笔记" class="glyphicon glyphicon-pencil"></span>
+						</a>				
+					</div>
+				
+			
+				<div style="position:fixed;bottom:20px;right:10px">
+					<a href="#">
+						<span  style="font-size:20px" title="跳到顶部" class="glyphicon glyphicon-upload"></span>
+					</a>				
+				</div>
+				
+		</td>
+	</tr>
+</table>
+
+ 
+
+</body>
+
+
+
+
+
+	
+	
+	
+		
+
+
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+
+
+	<footer class="footer" id="footer">
+		    
+	     		© 2015-2018 <a href="http://how2j.cn">how2j.cn</a> — All Rights Reserved. 蜀ICP备15000533号
+	     		
+<!-- 	     			<a href="../../../frontshowFriendLinks">友情链接</a> -->
+	     		
+	     		
+	     		
+	     		<a href="http://how2j.cn/frontshowJavaPractises">JAVA练习题</a>
+	     			| <a href="http://how2j.cn/frontabout">关于本站</a>  
+					     		
+	     		
+<!-- 	     		本站QQ群: 620943819 -->
+
+				<div style="display:none">
+<!-- 					<script type="text/javascript">//var cnzz_protocol  = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258013751'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1258013751%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+				</div>
+				
+				  <script>
+				    $(function () {
+				      // 延迟CNZZ统计, 以免影响页面载入
+					  //原来是2000，但是有可能影响ip和pv的统计，所以改成2				      
+				      setTimeout(function(){
+				    	  
+					      var cz = document.createElement("script");
+					      cz.src = "//s11.cnzz.com/z_stat.php?id=1258013751&web_id=1258013751";
+					      document.getElementsByTagName('body')[0].appendChild(cz);
+				    	  
+				      },002);
+
+				    });
+ 				 </script>
+	     		
+					
+	</footer>
+	
+
+
+	
+
+<script type="text/javascript">
+function syntaxCallback(){
+	$('div.syntaxhighlighter').each(function(){
+		
+// 		console.log("allContent width:"+ $("#allContent").width());
+		var width = ($("div#allContent").width()-255)*0.95;
+		
+		var commentHighLight = $(this).parent().parent().parent().attr("commentHighLight");
+
+		
+		var commentWidth = $(".eachCommentDiv:visible").width();
+		commentWidth-=150;
+
+		
+		if("true"== commentHighLight){
+			$(this).css("width",commentWidth+"px");
+			console.log(commentWidth);
+		}
+			
+		else{
+			$(this).css("width",width+"px");
+		}
+
+		$(".eachCommentDescDiv").css("width",commentWidth+"px");
+			
+	});
+
+	
+}
+
+$(function () {
+
+	var count = SyntaxHighlighter.findElements().length,
+    now = 0;
+	SyntaxHighlighter.complete = function(callback){
+	    (function wait() {
+	        setTimeout(function () {
+	            now = $('div.syntaxhighlighter');
+	            if (now.length < count) {
+	                wait();
+	            } else {
+	            	syntaxCallback();
+	            }
+	        }, 200);
+	    })();
+	};
+	
+	$(document).ready(function(){
+	    $(".stepCode").on("dblclick", ".syntaxhighlighter", function(){
+	        var textarea = $(this).find('textarea');
+	        textarea.val(textarea.val().replace(new RegExp(String.fromCharCode(160), 'g'), " "));
+	        textarea.trigger("select");
+	    });
+	    SyntaxHighlighter.all();
+	})
+	
+	SyntaxHighlighter.all();
+	SyntaxHighlighter.complete(syntaxCallback);
+
+	// Line wrap back
+	var shLineWrap = function() {
+		$('.syntaxhighlighter').each(function() {
+		// Fetch
+		var $sh = $(this),
+		$gutter = $sh.find('td.gutter'),
+		$code = $sh.find('td.code');
+		// Cycle through lines
+		$gutter.children('.line').each(function(i) {
+			console.log(new Date());
+		// Fetch
+		var $gutterLine = $(this),
+		$codeLine = $code.find('.line:nth-child(' + (i + 1) + ')');
+		//alert($gutterLine);
+		// Fetch height
+		var height = $codeLine.height() || 0;
+		if (!height) {
+		height = 'auto';
+		} else {
+		height = height += 'px';
+		//alert(height);
+		}
+		// Copy height over
+		$gutterLine.attr('style', 'height: ' + height + ' !important'); // fix by Edi, for JQuery 1.7+ under Firefox 15.0
+	// 	console.debug($gutterLine.height(), height, $gutterLine.text(), $codeLine);
+		});
+		});
+	};
+	 
+	 
+	// Line wrap back when syntax highlighter has done it's stuff
+// 	var shLineWrapWhenReady = function() {
+// 	if ($('.syntaxhighlighter').length === 0) {
+// 	setTimeout(shLineWrapWhenReady, 10);
+// 	} else {
+// 		//不能加载这个，否则当代码一多，就会超级卡顿
+// // 	shLineWrap();
+// 	}
+// 	};  // Fire
+// 	shLineWrapWhenReady();	
+	
+});
+</script>
+</div> <!-- start from siteframe.jsp -->
+
+</body>
+
+
+
+
+
+<script>
+
+function getQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+$(function(){
+	var tid = getQueryString("tid");
+	if(null!=tid ){
+		var page = "/frontaddTrackEntry";
+	    $.ajax({
+	        url: page,
+	        data:{"track.id":tid},
+	        success: function(result){
+	        	
+	        }
+	    });	
+	}	
+	
+	var pid = getQueryString("p");
+	if(null!=pid){
+		var page = "/frontshareByPID";
+		var referer = getReferrer();
+	    $.ajax({
+	    	type:"post",
+	        url: page,
+	        data:{"user.id":pid,"shareReferer":referer},
+	        success: function(result){
+	        }
+	    });	
+	}
+	
+	$(document).keydown(function (event) {
+	    //判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+	    //判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+<!--	    console.log(event.keyCode);-->
+<!--	    if (event.keyCode == 37) {-->
+<!--	    	history.back(-1);-->
+<!--	    }-->
+<!--	    if (event.keyCode == 39) {-->
+<!--	    	history.forward(1);-->
+<!--	    }-->
+	});
+	
+});
+//获取键盘ascII码;
+//$(document).keydown(function (event) {
+//    alert(console.log(event.keyCode));
+//    alert(event.keyCode);
+//});
+
+
+
+</script>
+
+<script>
+$(function(){
+	var hash = window.location.hash; 
+	hash = hash.replace("#",""); 
+	
+	commentid = hash.replace("comment","");
+	function go2Archor(){
+		if(!go2ArchorFlag){
+			setTimeout(go2Archor,1000);
+			return;
+		}
+		if(hash.length!=0){
+			var pos = document.getElementById(hash);
+			if(null!=pos)
+				pos.scrollIntoView(true);			
+			$("div.commentBody[cid="+commentid+"]").show();
+		}
+	}
+	setTimeout(go2Archor,1000);
+	
+	setTimeout(function(){
+		$("div.stepAnswer").hide();
+	},500);	
+		
+	//4offline
+		$("a").click(function(e){
+			var href= $(this).attr("href");
+			if(-1!=href.indexOf("how2j.cn")){
+				e.preventDefault();
+				if(-1!=href.indexOf("?")){
+					var newLocation = href+"&tid="+56+"&p="+pid;
+					location=newLocation;
+				}
+				else{
+					var newLocation = href+"?tid="+56+"&p="+pid;
+					location=newLocation;				
+				}
+
+			}
+		});		
+	
+
+});
+
+
+</script> 
+
+
+
+
+
+
+
+<div class="modal fade" id="popAdModal" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="popAdModalLabel">
+<div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">优惠活动</h4>
+            
+          </div>
+          <div class="modal-body" style="text-align:center">
+          
+          
+          <p class="text-danger" style="font-size:40px">全场五折</p>
+          
+          <p >欢庆八一建军节，全场五折，优惠码：<span class="text-danger" style="font-weight:bold;text-decoration: underline1;margin-left:10px" >81V5</span> <p>
+          <p class="text-danger"  style="font-weight:bold;text-decoration: underline1;margin-left:10px">可用于全站通</p>
+          
+    	  <p>有效期7.30-8.1</p>      
+          <p><a style="font-size:20px;text-decoration: underline;" class="text-info" target="_blank" href="http://how2j.cn/frontproductList?promoteCode.code=81V5&tid=136">点击查看</a></p>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>
+	
+	
+	

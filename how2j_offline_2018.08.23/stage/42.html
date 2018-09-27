@@ -1,0 +1,924 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+
+
+
+<html lang="zh-CN">
+<head>
+	
+	
+<script type="text/javascript">
+// JavaScript Document
+function urlredirect() {
+	
+}	
+ 
+
+	
+		urlredirect();
+	
+	
+	
+</script>
+	
+	<meta property="qc:admins" content="1536376677221616375" />
+	<meta name="keywords" content="java,java教程,j2se初级,j2se中级,HTML,CSS,DOM,JavaScript,jQuery,AJAX,MySQL,SQL,jquery,bootstrap">
+	<meta name="description" content="Java教程 how2j.cn 一站式系统学习Java。提供最全面系统的的Java学习教程。 内容涵盖J2SE、WEB前端、J2EE 服务端、框架技术等全面的Java内容。 基于实例代码和视频讲解的学习方式为您的Java职业生涯打下坚实的基础">
+		
+
+<!--taglib	-->
+
+ 
+ 
+
+
+	
+	<!--self -->
+	<link rel="stylesheet" type="text/css" href="../css/front/style.css" />
+<!-- 	<link rel="stylesheet" type="text/css" href="../css/front/style.css" /> -->
+	<link rel="shortcut icon" href="../img/site/favicon.ico" />
+
+
+	
+		
+	<script src="../js/how2j/code.js"></script>
+
+<script src="../js/how2j/pid.js"></script>
+<!-- <link href="../css/all.css" rel="stylesheet"> -->
+
+<link href="../css/all.css" rel="stylesheet">
+<!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com../css/all.css" rel="stylesheet"> -->
+
+
+
+<!-- <script src="../js/all.js"></script> -->
+<script src="../js/all.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+
+<!-- code hightlight -->
+
+
+<script>
+function jumpwww(){
+	if(-1!=location.hostname.indexOf("www.")){
+		var x = new String(location);
+		var newLocation = x.replace("www.","");
+		location = newLocation;
+		return;
+	}
+	
+}
+
+jumpwww();
+
+function formatMoney(num){
+	num = num.toString().replace(/\$|\,/g,'');  
+	if(isNaN(num))  
+	    num = "0";  
+	sign = (num == (num = Math.abs(num)));  
+	num = Math.floor(num*100+0.50000000001);  
+	cents = num%100;  
+	num = Math.floor(num/100).toString();  
+	if(cents<10)  
+	cents = "0" + cents;  
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)  
+	num = num.substring(0,num.length-(4*i+3))+','+  
+	num.substring(num.length-(4*i+3));  
+	return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+function insertSpecalDiv(div, className){
+	var li = document.createElement("div");
+	var classAttr = document.createAttribute("class");
+	var text = document.createTextNode(" ");
+	li.appendChild(text);
+	classAttr.nodeValue = className;
+	li.setAttributeNode(classAttr);
+	div.appendChild(li);
+}
+
+<!--code mirror-->
+var yourcode, siteCode, divDiffer, highlight = true, connect = null, collapse = false;
+function betterTab(cm) {
+	var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+    cm.replaceSelection(spaces);
+}
+function initUI() {
+	  var target = document.getElementById("codeDifferOriginal");
+	  target.innerHTML = "";
+	  divDiffer = CodeMirror.MergeView(target, {
+	    value: yourcode,
+	    origRight: null,
+	    orig: siteCode,
+	    lineNumbers: true,
+	    extraKeys: { Tab: betterTab },
+	    mode: "text/html",
+	    highlightDifferences: highlight,
+	    connect: connect,
+	    collapseIdentical: collapse
+	  });
+	}
+
+	function changeDivCode2CodeStyle(mask4spider){
+		var selector = "";
+		if(mask4spider)
+			selector = "div.stephighlightDescOnly.mask4spider-true div.code";
+		else
+			selector = "div.code";
+// 		console.log("selector:"+selector);
+		$(selector).each(function() {
+			var div = this;
+			var html = $(this).html();
+			html = $.trim(html);
+			html = html.replace(/^<br>(.*)<br>$/, "\$1");
+			html = html.replace();
+			var lines = html.split("<br>");
+			$(this).html("");
+
+			insertSpecalDiv(div,"codeeven codefirst");
+			
+			var count = 0;
+			$.each(lines, function(i, n) {
+				count++;
+				var li = document.createElement("div");
+				var text = document.createTextNode(decodeHtml(n));
+				li.appendChild(text);
+
+				var classAttr = document.createAttribute("class");
+				if (0 == i % 2)
+					classAttr.nodeValue = "codeodd";
+				if (1 == i % 2)
+					classAttr.nodeValue = "codeeven";
+				li.setAttributeNode(classAttr);
+
+				div.appendChild(li);
+			})
+			
+			if(0!=count%2)
+				insertSpecalDiv(div,"codeeven codelast");
+			else
+				insertSpecalDiv(div,"codeodd codelast");
+		});		
+	}
+
+	$(function() {
+		<!--把div.code中的文本转换为代码表现风格-->
+		changeDivCode2CodeStyle(false);
+		
+		<!--每个stage的享字所具备的弹出模态窗口效果-->
+	    		
+		
+    	<!--练习姿势-->
+    	 $("a.practisePostureLink").click(function(){
+				$("div#practiseModal").modal('show');
+		 });    
+    	 
+    	
+    	<!--视频加载成功后的处理-->
+    	$("div.4safari video").attr("poster","");
+//     	$("div.4safari video").each(function(){
+//     		var videoSrc=$(this).attr("thefile");
+//     		$(this).attr("src",videoSrc);
+//     	});
+//     	$("div.4safari video").attr("preload","meta");
+//     	$("div.4safari video").on("canplaythrough",function(){
+//             $(this).attr("poster","");
+//         });	    	
+
+	});
+</script>
+
+
+<script>
+//当bootstrap toc 加载完毕后，才进行跳转
+var go2ArchorFlag = true;
+//当show it ,try it, toc 的额外高度
+var showittryitheight=30;
+
+
+var l = function(msg){return console.log(msg)};
+$(function () {
+	$("[data-toggle='tooltip']").tooltip({animation:true,html:true,delay:{ show: 1000, hide: 000 }});
+	
+	
+	if(!logon)
+		$("a.module span.progressBar").hide();
+	
+	
+
+	$('.progress-bar').each(function(){
+		var progress = $(this).attr("aria-valuenow");
+	 	$(this).css({'width':progress+"%"});
+// 	    $(this).animate({width:progress+'%'},progress*100/2);
+	});
+	
+
+	
+});
+
+<!--是否登陆的全局变量-->
+var logon;
+
+
+
+
+
+	logon = false;
+
+
+</script>
+
+<style>
+<!--pre{-->
+<!--	width:500px;-->
+<!--}-->
+</style>
+
+
+<title>JAVA 应用 |Java全栈工程师  | 以实例驱动学习 | how2j.cn</title>
+		
+</head>
+<body>
+
+
+	
+
+	
+	
+		
+<script>
+
+	
+   	$(function() {
+		var categorySelected=0;
+                   	
+       	if(categorySelected==1){
+			$("#homepageNavLink").removeClass("active");
+       	}
+       	
+
+      	
+
+//       	$("#qqqunspan").html("官方QQ群: 620943819");
+      	
+
+
+		$(".advertiseLink#ad15").mouseenter(function(e){
+				$("#qrcodeImg4Ad").show();
+				
+				var e = e||window.event;  
+		        var scrollx = window.scrollX|| document.documentElement.scrollLeft;  
+		        var scrolly = window.scrollY|| document.documentElement.scrollTop;  
+		        var x = parseFloat(e.clientX) + parseFloat(scrollx) ;  
+		        var y = parseFloat(e.clientY) + parseFloat(scrolly);  
+
+		        $("#qrcodeImg4Ad").css({'left':x,'top':y,'display':'block'});  
+				
+		});
+		$(".advertiseLink#ad15").mouseleave(function(){
+				$("#qrcodeImg4Ad").hide();
+		});
+   	});
+      	
+</script>
+<div id="allContent">
+	<!-- end with footer -->
+
+	
+
+	<div>
+		<br />
+
+		<table width="100%">
+			<tr height="50px">
+				<td width="200px">
+						<a href="http://how2j.cn"><img title="how2j.cn" alt="how2j.cn"
+							src="data:image/png;base64,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" />
+							</a>
+					 </td>
+				<td align="center">
+					
+						<a href="http://how2j.cn/k/tmall_ssm/tmall_ssm-1399/1399.html" style="height1:30px !important; display:block !important;" class="advertiseLink" id ="ad14">
+							<img src="../img/site/advertise/14.png">
+						</a>
+						
+						<img src="../img/site/430.jpg" style="display:none;position:absolute;z-index: 99" id="qrcodeImg4Ad">
+						
+					
+				</td>
+
+				<td align="right">
+				
+	
+				 </td>
+
+				<td align="right" width="240px">
+					<div>
+						
+							<form action="/frontsearch" method="post">
+								<div class="input-group" style="margin-right: 10px;width: 200px">
+									<input name="outsideSearchKeyword" 
+									class="form-control" placeholder="搜索.." required >
+									<span class="input-group-btn ">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+
+						
+					</div>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<nav>
+
+		<div class="nav bg-primary">
+
+			<span class="pull-left"> <a href="../default.html">首页</a>  <!-- 		<a href="../c">最新提问</a> --> 
+				 
+
+				
+				
+					<a style="color: #F0AD4E; font-weight: bold"
+						href="../stage/39.html">实践项目</a>
+												
+						
+
+<!-- 								<a style="color: #F0AD4E; font-weight: bold" -->
+<!-- 									href="../frontproductList">付费内容</a> -->
+
+				
+
+ 
+ 				
+ 				
+				
+
+				
+
+				
+				
+				
+<!-- 					<a href="http://how2j.cn/frontshowJavaPractises">JAVA 练习题</a> -->
+<!-- 					<a href="../k/1144">JAVA 书籍</a> -->
+				
+				
+				
+				
+				
+				 
+				 
+				 
+				
+				
+				
+				
+
+				 
+				 
+
+				
+							
+							
+							
+				<a style="position:relative" id="newestLessons" href="../k/plan/plan-history/1785.html">
+					最新教程
+					
+					<span style="position:absolute; top:-28px;left:50px" class="strong">new</span>
+					
+				</a>
+				
+				
+								
+				
+				
+				
+				
+
+				
+
+			</span> <span class="pull-right">  
+<!-- 					<span id="qqqunspan" style="width:160px;display:inline-block;margin-right:10px"></span> -->
+
+					
+					<a href="http://how2j.cn/frontqqQun" alt="qq群: 620943819" title="qq群：620943819，如果满了请到 how2j.cn 获取最新的群">加入QQ群</a>
+					
+
+				 
+					<a href="http://how2j.cn/frontloginPage?act=register">注册</a>
+					<a href="http://how2j.cn/frontloginPage?act=login">登录</a>
+					<!--			<a href="#"><img src="../img/site/Connect_logo_7.png"/ ></a>-->
+
+
+				
+			</span>
+
+		</div>
+	</nav>
+
+	
+
+<!-- <a href="http://webscan.360.cn/index/checkwebsite/url/how2j.cn"><img border="0" src="http://img.webscan.360.cn/status/pai/hash/4ee1ca77989b5ffcc684f3d3d3ded173"/></a> -->
+
+
+<br/>
+
+<table width="100%" class="showTable1">
+
+	<tr valign="top">
+		<td width="145px" style="padding-left:20px" >
+		   		   
+	
+	
+
+<script>
+$(function() {
+// 	$(".moduleItemLeft").click(function(){
+// 		var sid= $(this).attr("sid");
+// 		$(".moduleItemRight").hide();
+// 		$("div#s"+sid).show();
+
+// 		$(".moduleItemLeft").removeClass("active");
+// 		$(this).addClass("active");
+// 	});
+
+
+	
+	
+		$(".moduleItemLeft[sid='42']").addClass("active");
+// 		$(".moduleItemRight").hide();
+// 		$("div#s"+42).show();
+	
+});
+</script>
+
+<nav>
+<div style="width:150px">
+					  <a href="#" class="disabled list-group-item">
+					    	阶段
+					  </a>	  
+					  
+						
+							<a href="../stage/12.html" sid="12" class="list-group-item moduleItemLeft"> 
+							<span>JAVA 基础</span> </a>
+						
+							<a href="../stage/25.html" sid="25" class="list-group-item moduleItemLeft"> 
+							<span>JAVA 中级</span> </a>
+						
+							<a href="../stage/33.html" sid="33" class="list-group-item moduleItemLeft"> 
+							<span>JAVA 高级</span> </a>
+						
+							<a href="../stage/42.html" sid="42" class="list-group-item moduleItemLeft"> 
+							<span>JAVA 应用</span> </a>
+						
+							<a href="../stage/27.html" sid="27" class="list-group-item moduleItemLeft"> 
+							<span>前端部分</span> </a>
+						
+							<a href="../stage/13.html" sid="13" class="list-group-item moduleItemLeft"> 
+							<span>J2EE</span> </a>
+						
+							<a href="../stage/14.html" sid="14" class="list-group-item moduleItemLeft"> 
+							<span>JAVA 框架</span> </a>
+						
+							<a href="../stage/43.html" sid="43" class="list-group-item moduleItemLeft"> 
+							<span>工具和中间件</span> </a>
+						
+							<a href="../stage/11.html" sid="11" class="list-group-item moduleItemLeft"> 
+							<span>数据库</span> </a>
+						
+							<a href="../stage/39.html" sid="39" class="list-group-item moduleItemLeft"> 
+							<span>实践项目</span> </a>
+						
+							<a href="../stage/30.html" sid="30" class="list-group-item moduleItemLeft"> 
+							<span>面试题</span> </a>
+						
+							<a href="../stage/41.html" sid="41" class="list-group-item moduleItemLeft"> 
+							<span>关于本站</span> </a>
+						  	
+
+</div>	
+</nav>
+
+		    
+		</td>
+		<td style="padding-left:40px;padding-right:40px" >
+					<div  class="panel panel-default moduleItemRight">
+					  <div class="panel-heading">
+					  <span class="glyphicon glyphicon-list basicColor"></span>
+					  JAVA 应用
+					  
+						
+					
+					
+					  
+					  
+	
+
+					  </div>
+					  <div class="panel-body">
+					  
+					  
+						<!-- JiaThis Button BEGIN -->
+	
+						
+					  
+					  
+
+<style>
+
+a.module{
+  display: block;
+  width:280px;
+  height:150px;
+  margin: 30px;
+  padding:15px;
+  background-color: #d9edf7;
+  float:left;
+  border-radius: 18px;
+  position: relative;
+  
+}
+
+a.module span.moduleNumber{
+  position: absolute;
+  top: 120px;
+  left: 250px;
+  color:#BC8F8F;
+  background-color: #F5F5DC; 
+  border:1px green silver;
+}
+
+a.module span.progressBar{
+  display:inline-block;
+  position: absolute;
+  left: 0px;
+  top: 170px;  
+  width:100%;
+}
+
+a.module:hover{
+  background-color: #dff0d8;
+}
+
+
+</style>
+
+
+
+<a href="../module/120.html" class="module" class="module">
+
+	
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAZCAYAAABQDyyRAAAKM0lEQVR42o2WeWyb9RnHf6tgYyAVNG3TBgI20Ia6MQmBOgErlFIECAZFtFAoK2VtGW1TaGnpTc8kzVHaJmmansRO09xJczjO0dhJk9RHHDs+Et+3HdvxEd/39d2vVENTQdP++Op9/frV+3ye5/k9B4lAQf6jKOQkkNcQV1ZGvDkl8dFnnryEOCAkdgiIITtODPRem+ESU1JAenUNRJ64QVrlFQs0Cc7P9CnuUn16+OhkqokpibeFBMGmrDrCbZnNqRZ4YCABKIkTU8SS5xNnfor+NhHy/wA4MUFmqWFTjk9MEP9Emez/pTpyY3m9uGpj+/TFqx3KapYk2DMvDnUkRbEmiJJ1uJ4sQdXcGpx3bIAhKyrz5o0kCBVxQUqseQFx5aUUwPy/AFTEjxkyn5febcvzXjJkh4+JIg1n+aFmIS/Qop90dEPmHoI+LIQrK4cTEhjTHEzGa8GKHEVddBNKne+gxrsOqmyf2JtSfzCfVxx2QHLEnBsvphH4ZwjWu6jh6f+CkJNgXkuNzyxw5xRbzJnRdkWywyaIM9LCRANkiW6YUwJ4cxq4IYMlOwpppBUsy2k0Gg+hzXkQTZ496IwcxLXsARRqV2FpxUM4Kf8HeDiLodRJXIsdwRX/NjDtO2FJibaQSFpKwritCJUvp1ilTPeJBfFvwU8wIM+0Q58fgQUCaDODECcaMRyuRrevDFfte8Aw7QTbUQpOuAr6HBuybCums5307UrUWNbjj5sXYvWVP6M2uBHnA2vxjest7Jx+FgXixbjuqeGSqHKQzMa4xAoesef59w/Nl6ku+DeiL3kQY6lKjCUrwY4cR2+sEPXuHWCFytAXOo7JRDumkjQNmVbY8+OQJK9AnWHhRvo8hpKn0JXag/rgFiwrfgivnv4dekLHwEvXgBM7jSPyN7FP/xJ6fMUOEpf2EbdjmGip97r8xOIW71eZcvsKMIOfoiG6GZ2JfbgeK4U4Ww9ppgHm3BhkORYk6UbMJK+j319F896O3vkScGPV6I+cwEjqFPqTR9Ge3IW3a/+EV8/8HsoktykOy3NBGFZ2eUuiZc4V1LHSIIlOD5K0boT4Uyp66nWPTiQZnhr/WrRE9+MGLoCfr4M4w6RhbYMs34WpfC+mc70YpPlUJFgYdFdhKtQEYbwBU3EWpPFWTKYZuJmqwTBOYG3jc1i0bSGGrR3X4rCREMx380KM6Qr7GrCDJ4MkPHntzbSc/UzaLaEAWmLDZIXKz4BNUgEP/wz8zhYK0AxxqgFOBxMu3mn4xOfgMzMwl55Ar+scht0XYAwPwmlph8h7CYOR01D4amGdZ2JP/yo8su5eMMeq2hNw00ozvtDnrLCXaFegw1aoJI6La/Pehq+K4jMDJJbUkKhtdK21cDkmj3wIYeU2TH31PAIjFfCx90Ox8ymITn8Bfsl63Ny/As4gD6NzrRjxdMI/VA73vkWwu/sxkemEY7gcseadoE0Kj3/yCxR3b3LPQsS+maqOH1e+iy/lL6DNXiginrN/R5D5WVFCP0qyQe1vfJXv+vSXtkIWGwIv1gqbjAXP5w/DWfAoTPRemR2GNiaEdU4EiYdNe4AB9pkmqA69DN/hZbDP9aI/Xgf3QAnSjC0YtbRh8fbH8NrJJ+mZ+gw1oTU44VqJSvtHtKw7myjAKkTrNhTBwCFZ/fBix6FnMiErDz3Zk6h0vg99chSBI0vgv7QONqggzDAwFD6DsegVNNgPw+oahKZiA2Yl/QhdWA+fZxxa2iO83GKkKADH0oBFm36LJV8/gZ74sYwkVR82ZFkOU+76WQ/Uf6EA7yHK3FiUNw6QrKZzsf3Is5ms34Jx6sUJ+wfona1B8tR7iLXsxkSUjQFa/zcdZ6EePQZXcBxz5z+GteoTZAwchMqWIChlQp0TYO5WChib0e86jxdPPYhKzl55BPrlcegWZjLm+zxZEfFCQ4i3eiXNVUFR3jBE0g7pk9ZDLyZzSg6mY1Kcm92OcXs9EvueQrh8OVTREdxM9sDnHYPt4BIkbRKYTtJeX7IGqtIV8BX8Gubq9TDGxHAMHUeodiMFuIRS+SpwrW3bbEkZnQfTJJnR0XYvIDQCFKDy7WSosWAiOXj8veRI1fuGc5tC5qOvIKLthVl/Gc6u3VDveh66gifgbvkcLnsH5hWX4dnzNDzOEQhDLExFhuB28RAtWwGToReNs9WwDhyF/+In0Pr5aJUehsLLft0YHiWuhJDE0koylxXeBphpKpELDq/Ms3e+rW3bskwmaD51nHfis3LOlhes4l1vRYUn1uU1Oi5mpG2YLFqNqYNvQXbgTSjObAXHXIN1nL9iQ+/fcL73CNT15TDZhyBx1mG+6UvMXd0OW1qOs92bkkJN3TMyUzuRGJqJ2tpHHHScf5eCpE97X8yvuP/ipYp7jh3c+9PBno4FOmE/afqm5O6pG9celvq48xdUe1GsXIdR31VI5rrAd3WCaT6GHTeWYtGuhfjDml9h7YWX6eFswOxUI8zbnofwi+egUXegy1+IIWvtdXNkihjCou+kD00Qa2ryNkAuaCD5uJbU1Z0hpccOEE7vNaIb6yTd5yuJ2ycnMv/QAYZ5Py7YC3B06l0ckC3HduFyfDz4FHYIl6JcvRpM5+dgJeg7lq0YltbCKOLC5hSj3XUc+ydfhDzBKXdBT5caFZ03amLLaYgtqyaOnJYCBHQkH1WROmYVKT26n3BZHUQ70kEG2pkkRlunH4YHBkyMzrqZ/aiz7sAO/it4g/k4Vrc+SY2voaW4Dz3ucggCzRibbYc9qkIIszDTRr6b/xqKRj+108VjkSdvIrOhWWK2zxOTJURM1tv6UQDNdwB1tG1abwEQZ0b5c9YMk1lLPaz0fYiLro20ifRDExqHMaSALaLBXMIKV9yAOSpNlINzygLsZX/kM8en33BH5ojF5iUmfZiYDFSm6Pf6AQCH1U4M451EIOimAGa6NumotHSIGBaMexgDO0aXUc+WYzRIB1RAQLciMaQ03GK7CGNmNhjSEmztfh2HuJ9C5dJfdTqjjxn1wXuNBv8DJmPoHipiMke+1x0A+8hgdztxKiaJzkJrNegiTr+DuPxOMhdwEVfA+zJHyw4WXP4Amy+tQCFrE4r6tqG4fxu+7vgXCupXYnsb3QM5NRApbfmZmWBKKfclVDPegEbljeq0QRMFOEkN3/ejACWHd5OhgRHitCWJzRQjVkPkTu0y6gKQKGbRzO5HZdtlFLeUoLyrDNVdNWga7AWXp4ZA4AH/pgcCHh0/AgekYg9m5H5o1aGo0RS5BXDXDwAYtRWk+psSolR6iNmSIkYKcKcMptg6lcYfnaYfk035IRa7MTkxBzHfAxHfD6Fgnhp1Q8hzQSR0QSbxYkbhTWnVgZtGfeiQ2Rh50GSO/ngKar89Rb49e4YaStM/svSa+YEMVHpj9BGDMVxIw8lSK30Tyul5s3La66JXu2rar6bP+Bqlr1mvCTQa9eEDRmPgabMxvODW4aMA5E6AfwO8YRzmplw8TwAAAABJRU5ErkJggg==" />
+	<span  class="moduleName pull-right">[Log4j]</span>
+	
+	<br/>
+	<br/>
+	<span >可以灵活地把日志信息输出到控制台，日志文件等地方</span>
+	<span  class="badge moduleNumber pull-right">1</span>
+	
+	
+
+</a>
+	
+
+
+
+	
+	
+ 		    
+					  </div>
+					</div>
+		</td>
+	</tr>
+</table>
+
+</body>
+
+
+	
+	
+	
+		
+
+
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+
+
+	<footer class="footer" id="footer">
+		    
+	     		© 2015-2018 <a href="http://how2j.cn">how2j.cn</a> — All Rights Reserved. 蜀ICP备15000533号
+	     		
+<!-- 	     			<a href="../frontshowFriendLinks">友情链接</a> -->
+	     		
+	     		
+	     		
+	     		<a href="http://how2j.cn/frontshowJavaPractises">JAVA练习题</a>
+	     			| <a href="http://how2j.cn/frontabout">关于本站</a>  
+					     		
+	     		
+<!-- 	     		本站QQ群: 620943819 -->
+
+				<div style="display:none">
+<!-- 					<script type="text/javascript">//var cnzz_protocol  = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258013751'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1258013751%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+				</div>
+				
+				  <script>
+				    $(function () {
+				      // 延迟CNZZ统计, 以免影响页面载入
+					  //原来是2000，但是有可能影响ip和pv的统计，所以改成2				      
+				      setTimeout(function(){
+				    	  
+					      var cz = document.createElement("script");
+					      cz.src = "//s11.cnzz.com/z_stat.php?id=1258013751&web_id=1258013751";
+					      document.getElementsByTagName('body')[0].appendChild(cz);
+				    	  
+				      },002);
+
+				    });
+ 				 </script>
+	     		
+					
+	</footer>
+	
+
+
+	
+
+<script type="text/javascript">
+function syntaxCallback(){
+	$('div.syntaxhighlighter').each(function(){
+		
+// 		console.log("allContent width:"+ $("#allContent").width());
+		var width = ($("div#allContent").width()-255)*0.95;
+		
+		var commentHighLight = $(this).parent().parent().parent().attr("commentHighLight");
+
+		
+		var commentWidth = $(".eachCommentDiv:visible").width();
+		commentWidth-=150;
+
+		
+		if("true"== commentHighLight){
+			$(this).css("width",commentWidth+"px");
+			console.log(commentWidth);
+		}
+			
+		else{
+			$(this).css("width",width+"px");
+		}
+
+		$(".eachCommentDescDiv").css("width",commentWidth+"px");
+			
+	});
+
+	
+}
+
+$(function () {
+
+	var count = SyntaxHighlighter.findElements().length,
+    now = 0;
+	SyntaxHighlighter.complete = function(callback){
+	    (function wait() {
+	        setTimeout(function () {
+	            now = $('div.syntaxhighlighter');
+	            if (now.length < count) {
+	                wait();
+	            } else {
+	            	syntaxCallback();
+	            }
+	        }, 200);
+	    })();
+	};
+	
+	$(document).ready(function(){
+	    $(".stepCode").on("dblclick", ".syntaxhighlighter", function(){
+	        var textarea = $(this).find('textarea');
+	        textarea.val(textarea.val().replace(new RegExp(String.fromCharCode(160), 'g'), " "));
+	        textarea.trigger("select");
+	    });
+	    SyntaxHighlighter.all();
+	})
+	
+	SyntaxHighlighter.all();
+	SyntaxHighlighter.complete(syntaxCallback);
+
+	// Line wrap back
+	var shLineWrap = function() {
+		$('.syntaxhighlighter').each(function() {
+		// Fetch
+		var $sh = $(this),
+		$gutter = $sh.find('td.gutter'),
+		$code = $sh.find('td.code');
+		// Cycle through lines
+		$gutter.children('.line').each(function(i) {
+			console.log(new Date());
+		// Fetch
+		var $gutterLine = $(this),
+		$codeLine = $code.find('.line:nth-child(' + (i + 1) + ')');
+		//alert($gutterLine);
+		// Fetch height
+		var height = $codeLine.height() || 0;
+		if (!height) {
+		height = 'auto';
+		} else {
+		height = height += 'px';
+		//alert(height);
+		}
+		// Copy height over
+		$gutterLine.attr('style', 'height: ' + height + ' !important'); // fix by Edi, for JQuery 1.7+ under Firefox 15.0
+	// 	console.debug($gutterLine.height(), height, $gutterLine.text(), $codeLine);
+		});
+		});
+	};
+	 
+	 
+	// Line wrap back when syntax highlighter has done it's stuff
+// 	var shLineWrapWhenReady = function() {
+// 	if ($('.syntaxhighlighter').length === 0) {
+// 	setTimeout(shLineWrapWhenReady, 10);
+// 	} else {
+// 		//不能加载这个，否则当代码一多，就会超级卡顿
+// // 	shLineWrap();
+// 	}
+// 	};  // Fire
+// 	shLineWrapWhenReady();	
+	
+});
+</script>
+</div> <!-- start from siteframe.jsp -->
+
+</body>
+
+
+
+
+
+<script>
+
+function getQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+$(function(){
+	var tid = getQueryString("tid");
+	if(null!=tid ){
+		var page = "/frontaddTrackEntry";
+	    $.ajax({
+	        url: page,
+	        data:{"track.id":tid},
+	        success: function(result){
+	        	
+	        }
+	    });	
+	}	
+	
+	var pid = getQueryString("p");
+	if(null!=pid){
+		var page = "/frontshareByPID";
+		var referer = getReferrer();
+	    $.ajax({
+	    	type:"post",
+	        url: page,
+	        data:{"user.id":pid,"shareReferer":referer},
+	        success: function(result){
+	        }
+	    });	
+	}
+	
+	$(document).keydown(function (event) {
+	    //判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+	    //判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+<!--	    console.log(event.keyCode);-->
+<!--	    if (event.keyCode == 37) {-->
+<!--	    	history.back(-1);-->
+<!--	    }-->
+<!--	    if (event.keyCode == 39) {-->
+<!--	    	history.forward(1);-->
+<!--	    }-->
+	});
+	
+});
+//获取键盘ascII码;
+//$(document).keydown(function (event) {
+//    alert(console.log(event.keyCode));
+//    alert(event.keyCode);
+//});
+
+
+
+</script>
+
+<script>
+$(function(){
+	var hash = window.location.hash; 
+	hash = hash.replace("#",""); 
+	
+	commentid = hash.replace("comment","");
+	function go2Archor(){
+		if(!go2ArchorFlag){
+			setTimeout(go2Archor,1000);
+			return;
+		}
+		if(hash.length!=0){
+			var pos = document.getElementById(hash);
+			if(null!=pos)
+				pos.scrollIntoView(true);			
+			$("div.commentBody[cid="+commentid+"]").show();
+		}
+	}
+	setTimeout(go2Archor,1000);
+	
+	setTimeout(function(){
+		$("div.stepAnswer").hide();
+	},500);	
+		
+	//4offline
+		$("a").click(function(e){
+			var href= $(this).attr("href");
+			if(-1!=href.indexOf("how2j.cn")){
+				e.preventDefault();
+				if(-1!=href.indexOf("?")){
+					var newLocation = href+"&tid="+56+"&p="+pid;
+					location=newLocation;
+				}
+				else{
+					var newLocation = href+"?tid="+56+"&p="+pid;
+					location=newLocation;				
+				}
+
+			}
+		});		
+	
+
+});
+
+
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+	
+	
+	

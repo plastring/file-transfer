@@ -1,0 +1,5355 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/maven/maven-maven-eclpise-ssm-create/1395.html" />	
+	
+
+	
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+
+<!--taglib	-->
+
+ 
+ 
+
+
+	
+	<!--self -->
+	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" />
+<!-- 	<link rel="stylesheet" type="text/css" href="../../../css/front/style.css" /> -->
+	<link rel="shortcut icon" href="../../../img/site/favicon.ico" />
+
+
+	
+		<link rel="canonical" href="http://how2j.cn/k/maven/maven-maven-eclpise-ssm-create/1395.html" />
+	
+		
+	<script src="../../../js/how2j/code.js"></script>
+
+<script src="../../../js/how2j/pid.js"></script>
+<!-- <link href="../../../css/all.css" rel="stylesheet"> -->
+
+<link href="../../../css/all.css" rel="stylesheet">
+<!-- <link href="http://how2j-static.oss-cn-beijing.aliyuncs.com../../../css/all.css" rel="stylesheet"> -->
+
+
+
+<!-- <script src="../../../js/all.js"></script> -->
+<script src="../../../js/all.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+
+<!-- code hightlight -->
+
+
+<script>
+function jumpwww(){
+	if(-1!=location.hostname.indexOf("www.")){
+		var x = new String(location);
+		var newLocation = x.replace("www.","");
+		location = newLocation;
+		return;
+	}
+	
+}
+
+jumpwww();
+
+function formatMoney(num){
+	num = num.toString().replace(/\$|\,/g,'');  
+	if(isNaN(num))  
+	    num = "0";  
+	sign = (num == (num = Math.abs(num)));  
+	num = Math.floor(num*100+0.50000000001);  
+	cents = num%100;  
+	num = Math.floor(num/100).toString();  
+	if(cents<10)  
+	cents = "0" + cents;  
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)  
+	num = num.substring(0,num.length-(4*i+3))+','+  
+	num.substring(num.length-(4*i+3));  
+	return (((sign)?'':'-') + num + '.' + cents);  
+}
+
+function insertSpecalDiv(div, className){
+	var li = document.createElement("div");
+	var classAttr = document.createAttribute("class");
+	var text = document.createTextNode(" ");
+	li.appendChild(text);
+	classAttr.nodeValue = className;
+	li.setAttributeNode(classAttr);
+	div.appendChild(li);
+}
+
+<!--code mirror-->
+var yourcode, siteCode, divDiffer, highlight = true, connect = null, collapse = false;
+function betterTab(cm) {
+	var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+    cm.replaceSelection(spaces);
+}
+function initUI() {
+	  var target = document.getElementById("codeDifferOriginal");
+	  target.innerHTML = "";
+	  divDiffer = CodeMirror.MergeView(target, {
+	    value: yourcode,
+	    origRight: null,
+	    orig: siteCode,
+	    lineNumbers: true,
+	    extraKeys: { Tab: betterTab },
+	    mode: "text/html",
+	    highlightDifferences: highlight,
+	    connect: connect,
+	    collapseIdentical: collapse
+	  });
+	}
+
+	function changeDivCode2CodeStyle(mask4spider){
+		var selector = "";
+		if(mask4spider)
+			selector = "div.stephighlightDescOnly.mask4spider-true div.code";
+		else
+			selector = "div.code";
+// 		console.log("selector:"+selector);
+		$(selector).each(function() {
+			var div = this;
+			var html = $(this).html();
+			html = $.trim(html);
+			html = html.replace(/^<br>(.*)<br>$/, "\$1");
+			html = html.replace();
+			var lines = html.split("<br>");
+			$(this).html("");
+
+			insertSpecalDiv(div,"codeeven codefirst");
+			
+			var count = 0;
+			$.each(lines, function(i, n) {
+				count++;
+				var li = document.createElement("div");
+				var text = document.createTextNode(decodeHtml(n));
+				li.appendChild(text);
+
+				var classAttr = document.createAttribute("class");
+				if (0 == i % 2)
+					classAttr.nodeValue = "codeodd";
+				if (1 == i % 2)
+					classAttr.nodeValue = "codeeven";
+				li.setAttributeNode(classAttr);
+
+				div.appendChild(li);
+			})
+			
+			if(0!=count%2)
+				insertSpecalDiv(div,"codeeven codelast");
+			else
+				insertSpecalDiv(div,"codeodd codelast");
+		});		
+	}
+
+	$(function() {
+		<!--把div.code中的文本转换为代码表现风格-->
+		changeDivCode2CodeStyle(false);
+		
+		<!--每个stage的享字所具备的弹出模态窗口效果-->
+	    		
+		
+    	<!--练习姿势-->
+    	 $("a.practisePostureLink").click(function(){
+				$("div#practiseModal").modal('show');
+		 });    
+    	 
+    	
+    	<!--视频加载成功后的处理-->
+    	$("div.4safari video").attr("poster","");
+//     	$("div.4safari video").each(function(){
+//     		var videoSrc=$(this).attr("thefile");
+//     		$(this).attr("src",videoSrc);
+//     	});
+//     	$("div.4safari video").attr("preload","meta");
+//     	$("div.4safari video").on("canplaythrough",function(){
+//             $(this).attr("poster","");
+//         });	    	
+
+	});
+</script>
+
+
+<script>
+//当bootstrap toc 加载完毕后，才进行跳转
+var go2ArchorFlag = true;
+//当show it ,try it, toc 的额外高度
+var showittryitheight=30;
+
+
+var l = function(msg){return console.log(msg)};
+$(function () {
+	$("[data-toggle='tooltip']").tooltip({animation:true,html:true,delay:{ show: 1000, hide: 000 }});
+	
+	
+	if(!logon)
+		$("a.module span.progressBar").hide();
+	
+	
+
+	$('.progress-bar').each(function(){
+		var progress = $(this).attr("aria-valuenow");
+	 	$(this).css({'width':progress+"%"});
+// 	    $(this).animate({width:progress+'%'},progress*100/2);
+	});
+	
+
+	
+});
+
+<!--是否登陆的全局变量-->
+var logon;
+
+
+
+
+
+	logon = false;
+
+
+</script>
+
+<style>
+<!--pre{-->
+<!--	width:500px;-->
+<!--}-->
+</style>
+
+
+<title>使用Eclipse创建一个Maven风格的SSM项目 | 基于实例代码分步讲解 一站式学习Java | how2j.cn</title>
+	
+	<meta name="keywords" content="创建 SSM 项目,基于前面的知识点,创建maven web项目,设置项目目录,选择Archetype,设置GroupId和Artifact Id,项目截图,创建java 源代码目录,java源文件目录创建好了,pom.xml,接着复制项目文件,web.xml,jsp 目录,配置文件,java源代码,关于Category.xml,启动Tomcat,访问测试地址,可运行项目,Maven">
+	<meta name="description" content=";基于前面的知识点,本知识点在PageHelper的基础上进行，所以要先到PageHelper去下载可运行的项目，并解压。注:,不要下载到当前知识点的可运行项目了哦;创建maven,web项目,File-&gt;New-&gt;Other-&gt;Maven-&gt;Maven,Project;设置...">
+
+	
+	
+	
+<script type="text/javascript">
+// JavaScript Document
+function urlredirect() {
+	
+}	
+ 
+
+	
+		urlredirect();
+	
+	
+	
+</script>
+</head>
+<body id="body">
+
+
+	
+
+	
+	
+		
+<script>
+
+	
+   	$(function() {
+		var categorySelected=0;
+                   	
+       	if(categorySelected==1){
+			$("#homepageNavLink").removeClass("active");
+       	}
+       	
+
+      	
+
+//       	$("#qqqunspan").html("官方QQ群: 620943819");
+      	
+
+
+		$(".advertiseLink#ad15").mouseenter(function(e){
+				$("#qrcodeImg4Ad").show();
+				
+				var e = e||window.event;  
+		        var scrollx = window.scrollX|| document.documentElement.scrollLeft;  
+		        var scrolly = window.scrollY|| document.documentElement.scrollTop;  
+		        var x = parseFloat(e.clientX) + parseFloat(scrollx) ;  
+		        var y = parseFloat(e.clientY) + parseFloat(scrolly);  
+
+		        $("#qrcodeImg4Ad").css({'left':x,'top':y,'display':'block'});  
+				
+		});
+		$(".advertiseLink#ad15").mouseleave(function(){
+				$("#qrcodeImg4Ad").hide();
+		});
+   	});
+      	
+</script>
+<div id="allContent">
+	<!-- end with footer -->
+
+	
+
+	<div>
+		<br />
+
+		<table width="100%">
+			<tr height="50px">
+				<td width="200px">
+						<a href="http://how2j.cn"><img title="how2j.cn" alt="how2j.cn"
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAAtCAYAAAC6RRfMAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKN0lEQVR4Xu2dT2gXRxTHNxUU7L+IrdpSMWKgoC2JtpeKYHIytyiWQg9t9OCpBw09eCoqnjxFD548mLSHQqlobvGUCNKeqimtQsGSiEVUWkxrKVgorZ8tUzabnfdmdnY3+6szsMRkZ97MvHnfeW/eezt2/f2kJLFEDkQOtIoDz7RqNHEwkQORAykHIjCjIEQOtJADEZgtXJQ4pMiBCMwoA5EDLeRABGYLFyUOKXIgAjPKQORACznQ1enhkpmZmYTn9u3byfz8/CIW9/f3J5s2bUoGBgYS/h3L/5cDvz/+K7l662Fy79c/k29/evTfRJ9btSLZ8vLqpHfd6qR/4/MJv3dCEYGJwA8ODlrn4RoCPX78eHLixIlCOoBmenrai1cAEHqXLl1KFhYWnNr29PQkIyMjyZEjR5Lu7m61zcGDB5Px8fHguY+OjianT59eQodxjI2NqeOgwubNm5dsOqbhgQMHkvPnzy+ic/XWQiqctx78kQrqvd8eLxJUhJRnz9a16c+qSldXl5UUa8xaV11m7zxKLly7/wSUbnKwq7c72b9jfQrSbBn94ocEWkUFHo2997oXqKEFTVuZ/vhtkRUdZcoCQgCDoAIaV1DCAQNm2rJRaGV4eFiswqblUtg8iort7/m6s7OzVlBSd/fu3UvII6hffnM/FbQsKKmIZuHvvD/02c3k/XPfWQXSZX7LVYd5Ifg8rqBkrNS1AdA2Fza4s9N3Gp1qxwATAd2+fbuoxVw4B5jRtlgCErD37t0rkpucnFS7k0DFRsF7rWgA1sap0TcCfnamWcHTxiW9B1yHPr3pDbCQPqdu/JxuZk2VjgAmAgyQ8mfIECYZM70sOF00pgYq7T3zkzYAQOlilrvwCaHrBHACkE8mb6Wav+kCf9CeTZTWA9OA0sdsdWWcRlsyZ2mrjUnTqtp76EtaVTO3Xflg6gFOH7PQl35ofUB5amo+lExQe0znJjaF1gOTM6UGgBBOI/iSY0qiLWlNF1NVOz9qGjXUjC2aW9NnKde1W45zXtHYACUau+7SamDipHE5h2HOGe8k3j8ePJ6ugovXtAhkeHKlMIuk8TRQmYWVwC3Rx8NpM2PxIn40sDH1JOL9Mw+/D217SZQpzpxNmWs+wn3q8ryTpsLbaubOfE8O9ybvvrU+2fDCKp/uxLo4j8a/ulsZvSJCrQUmWvLMmTPq5Ak7zM3NpSEDwInA8vD3ixcvpu9cAFpGa0qgmpiYUMeunSEl+pIZi2AijPmQAL8fHepJzn2wVXT9+3otnSYaUAkTVtssTEgDMJq5M1/CI/Dj80Nvpj+rKhNf363V7G8tMF1ilIARzSg5QNB6ABTQamZpkXYm9mkrmKtFDikXM9bQtM0TUJZ1TGnChxCPvPOqtVoTZyhtjNn3F649EKsbUOY3onwjAKttSj7jOjU1tyQc5dNeqttaYGqOEQCpgS07cUCsac4iLYcpKwG/yGR1NWMlc1aaP2NiwwkpQ2/IJm0I7SrbaqY1mTw+wX9ADECrKP+eN390MrF9+wsCpkmH036SLudT0BSScCOUmKq+Rcu0sfUpAfrKlStLhuFqxpqGRSCUzFhJi7vyREpN2/DiSlcytdfTzGqyeJYzza4up1QQMIktujxSalvRymoOn8OHD5cSCAAtaVlbnFQ6z+UBJJmxNs2b3xA0U1jT/C7MkczV3ie5pW0ppBRKpSrtp/UhgZ8zME+VJQiYVQ4kS0sDZkjOZVEKW7bvIk0l9ZePNUqa3rYpQCPbr0SjCjOW+ZLwXVTwXlaZPxsqI9mE9DwtxtqEtnx25YrUuysV4quag8qHF60Epha3DPlSpMzZDE0naakskGxmLGOWNH3WnC0yj82ihmxKWcG4fOOXQjnZs22tj/wsa90mTW4ThpEmXOV5s5XAXNbVtnQuaVoDJMkE5VwoxUWz4JY0ZhXnS1siN9qnCdOwjevrMiZ4Q/jFVnBU4amtonQkMENyZsu2lTSmMUMlQJn2NmCZ0Ivm9AqxFhAYSXiODm1uxDSsQnDTuSjnz6r6ydKBR5Kpz6ZXRfJBEDBNlo320yesARM0c80lgdy2KJKZKPWtZQEBKMmMNSa0ZhJrSeuhwmYzt9AEkjYI7bds+77XFn83maXDJtN0zBWr4uieHnEDI/lA8yZr/AgCpsmy0X5yi4BP0c6BtiwdrQ+0kuQh1vqVNgxAaXNaZbUkfdj6gUadYRLb1xGpsD3RBG0s2jmyyU+xDH/SlMdBOYsIcIaUIGCGdCy1lYSXdgDM5WPnfB/cJiAVTVNL5zsXM9b0bdOaUlI7DqgQM1b6nhCPYxPezTLyomXz8FF401qTeZBzrOUdl5mvadNKYDI4zcmB1vSJj/KVipaRo/WpZQEVLURReEPrp4hOSOxSCoIX5dSGCFTVbbXwDaD0+RQLXlSlZck7riu01FpgutzNA9jQnFJ4Be26b98+FcTGHNcEyxcgRSAsE4ss++0lgmv7MkPLmZV44bMpajzV3u/fsU6sAtikO3tMY3OdSpUa9uTwllqsjdYCE9PNJcMHzck9PpipaESTHsinXOZ+IE1TsnDHjh3T5CN9ryUo5InYgKyZzVk6WhxVGjjue1vgm8u4eIejoujJ3xdk+oGv8Du7IWo8DrlpAZNR00wGnADU3HfEnPCScrbmbqM6bmhAo2vJB06ClavU+lvyuOdHywQqM/FsG58b6xDGNWvWOHWJZrx+/XphXQQZTe5Sim7Cc2kXel0In0plv2Nk7ozZOKiYn9nQ2CBt6wQoHz4szjRymQd1DPCq0HZ8WXNg5+KvaySNW1Q/P25CJD4On46/JY+vQkJ2W23hs8Kl1eU9Y3HVdtJZ0ue+njJmbHquDLhgC6dLHpTkRWe9xgARoPJIm6dk/jNObgQAGFK+qYsn1GX96qoD0DVHlU/frTVlzSQADnHSOsBZlrYrULTzqPbe8MC1nqlvHCI+gpCvy1cbpqApAWUZy4V1sx0TMJW5QtNkIpFvKoETkxaHS1sLJm1VNyW0HpgsggGQFmf0WTBz0XQZwLsAxcXB4wJwl77y8w69RQ7hyiYbwKMyfGJcfGpnW7ep75fm69pyeM0cAWdbwzuEnHAGVVE6ApgGnJzXfLOI8kwyO3iIFtbirPTpEhJxMYldwJudI+ZraNbJyM5XlsgWt0C4jDfb0Fz3YhPUouQBF43DpnHuw62Vmo5VgAkamNxVaPWOASaTBlQsNvf4AFCfXRwwYVLRtkxyQn7hNE2mvTfz0epp77PjwiQMjdGx6+/qXercgtdsZvBQ4zsAdtlE80F6QFm0KRSBhrrcXMDjk0pI3SrPgkVjqyL5IP6nQlVtlU8RHXPDBHnH5qMAwNrX15d+HueboYQDiHNxCGCeqv9U6CmStTjVyIFWcaCjTNlWcS4OJnKgRg5EYNbI3Eg6cqAsByIwy3IutoscqJEDEZg1MjeSjhwoy4EIzLKci+0iB2rkQARmjcyNpCMHynIgArMs52K7yIEaOfAP54dRCyBirNkAAAAASUVORK5CYII=" />
+							</a>
+					 </td>
+				<td align="center">
+					
+						<a href="http://how2j.cn/k/tmall_ssm/tmall_ssm-1399/1399.html" style="height1:30px !important; display:block !important;" class="advertiseLink" id ="ad14">
+							<img src="../../../img/site/advertise/14.png">
+						</a>
+						
+						<img src="../../../img/site/430.jpg" style="display:none;position:absolute;z-index: 99" id="qrcodeImg4Ad">
+						
+					
+				</td>
+
+				<td align="right">
+				
+	
+				 </td>
+
+				<td align="right" width="240px">
+					<div>
+						
+							<form action="/frontsearch" method="post">
+								<div class="input-group" style="margin-right: 10px;width: 200px">
+									<input name="outsideSearchKeyword" 
+									class="form-control" placeholder="搜索.." required >
+									<span class="input-group-btn ">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</form>
+
+
+						
+					</div>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<nav>
+
+		<div class="nav bg-primary">
+
+			<span class="pull-left"> <a href="../../../default.html">首页</a>  <!-- 		<a href="../../../c">最新提问</a> --> 
+				 
+
+				
+				
+					<a style="color: #F0AD4E; font-weight: bold"
+						href="../../../stage/39.html">实践项目</a>
+												
+						
+
+<!-- 								<a style="color: #F0AD4E; font-weight: bold" -->
+<!-- 									href="../../../frontproductList">付费内容</a> -->
+
+				
+
+ 
+ 				
+ 				
+				
+
+				
+
+				
+				
+				
+<!-- 					<a href="http://how2j.cn/frontshowJavaPractises">JAVA 练习题</a> -->
+<!-- 					<a href="../../../k/1144">JAVA 书籍</a> -->
+				
+				
+				
+				
+				
+				 
+				 
+				 
+				
+				
+				
+				
+
+				 
+				 
+
+				
+							
+							
+							
+				<a style="position:relative" id="newestLessons" href="../../../k/plan/plan-history/1785.html">
+					最新教程
+					
+					<span style="position:absolute; top:-28px;left:50px" class="strong">new</span>
+					
+				</a>
+				
+				
+								
+				
+				
+				
+				
+
+				
+
+			</span> <span class="pull-right">  
+<!-- 					<span id="qqqunspan" style="width:160px;display:inline-block;margin-right:10px"></span> -->
+
+					
+					<a href="http://how2j.cn/frontqqQun" alt="qq群: 620943819" title="qq群：620943819，如果满了请到 how2j.cn 获取最新的群">加入QQ群</a>
+					
+
+				 
+					<a href="http://how2j.cn/frontloginPage?act=register">注册</a>
+					<a href="http://how2j.cn/frontloginPage?act=login">登录</a>
+					<!--			<a href="#"><img src="../../../img/site/Connect_logo_7.png"/ ></a>-->
+
+
+				
+			</span>
+
+		</div>
+	</nav>
+
+	
+<br/>
+
+<script>
+$(function() {
+	bootstrapButton   = $.fn.button.noConflict();  
+	$.fn.bootstrapBtn = bootstrapButton;  
+
+	
+	var interviewStepids = new Array();
+	
+	$("#k1395 ").removeClass("unread");
+	$("#k1395 ").removeClass("brower");
+	$("#k1395 ").removeClass("finish");
+	$("#k1395 ").addClass("active");
+	
+	
+	
+	$("button.interviewCheckAnswerButton").click(function(){
+		var sid = $(this).attr("sid");
+		$("div.interviewAnswer[sid="+sid+"]").show();		
+	});
+	
+	
+	
+	$("span.interviewStatus").css("color","green");
+	
+	$("textarea.interviewdesc").keyup(function(){
+		var sid = $(this).attr("sid");
+		$("span.interviewStatus[sid="+sid+"]").css("color","red");
+		interviewStepids.push(sid);
+	});
+	
+	timeout=setInterval(sync,1500);
+	function sync(){
+		stepids = $.unique(interviewStepids);
+		var sid = interviewStepids.pop();
+		if(null!=sid){
+			$("span.interviewStatus[sid="+sid+"]").css("color","yellow");
+			$("form.updatInterviewForm[sid="+sid+"]").ajaxSubmit(function(){
+				$("span.interviewStatus[sid="+sid+"]").css("color","green");
+			});
+		}
+	}	
+	
+	
+	$("select.degree4stepFront").change(function(){
+		var sid = $(this).attr("stepid");
+		var page=  "/frontchangeDegreeOfStep";
+		var degree = $(this).val();
+		
+		var select = $(this);
+		select.css("background-color","red");
+			$.post(
+					page,
+					{
+						"step.id":sid,
+						"step.degree":degree,
+					},
+						function(result){
+							if("success"==result){
+								select.css("background-color","yellow");
+							}
+						}
+					); 
+		
+		
+		
+	});
+	
+	//work for step
+	$("ul.codetitle li.codetitle0").addClass("active");
+	$("div.stepCode").hide();
+	$("div.stepCode_index_0").show();
+
+	$("a.codetitleLink").click(function(){
+		var stindex = $(this).attr("stindex");
+		var sid = $(this).attr("sid");
+		$("a.showStepCodeLink[sid="+sid+"]").hide();
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+		$("li.codetitle"+sid).removeClass("active");
+		$("li.codetitle"+sid+"_"+stindex).addClass("active");
+		$("div.stepCode"+sid).hide();
+		$("div.stepCode"+sid+"_"+stindex).show();
+	});	
+	
+	$("a.jump2commentLink").click(function(){
+		$("input#commentTitle")[0].focus();
+	});
+	
+	$("a.stepresize").click(function(){
+		var stepid = $(this).attr("stepid");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-small");
+		$("a.stepresize span[stepid="+stepid+"]").toggleClass("glyphicon-resize-full");
+		$(".stepbody[stepid="+stepid+"]").toggle();
+	});
+	
+	$("button.answerButton").click(function(){
+		var sid = $(this).attr("sid");
+		if(!logon){
+			$("a.ask2login[sid="+sid+"]").show();
+			$(this).hide();
+			return;
+		}
+		
+		var sid = $(this).attr("sid");
+		$("div.stepAnswer[sid="+sid+"]").show();
+		$(this).parent().hide();
+		var page = "/frontanswerVisited";
+        $.ajax({
+            url: page,
+            data:{"step.id":sid},
+            success: function(result){
+            }
+        });
+        
+        var page ="/frontscoreConsume";
+        $.get(
+     		page,
+     		{"scoreConsume.step.id":sid},
+     		function(result){
+     			
+     		}
+        );   
+        
+        
+        
+	});		
+	
+	
+	$("button.copyButton").click(function(){
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code = decodeHtml(code);
+// 		decode();
+		$("#codeCopySource").val(code);
+		$("#codeCopyInModal").modal('show');
+	});
+	
+	$("button.differButton").click(function(){
+		highlight = true;
+		connect = null;
+		collapse = false;
+		$("#codeDifferOriginal").show();
+		var codeIndex = $(this).attr("codeIndex");
+		var code = $("div[codeIndex="+codeIndex+"]").html();
+		code =$.trim(code);
+		code = decodeHtml(code);
+		yourcode = "";
+		siteCode = code;
+		var charIndex = 6;
+		$("#codeDifferInModal").modal('show');
+		
+		initUI();
+
+// 	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+// 		var outSide= $("#codeDifferOriginalOutSide")[0];
+// 		var inSide= $("#codeDifferOriginalInSide")[0];
+// 		outSide.removeChild(codeDifferOriginal);
+// 		inSide.appendChild(codeDifferOriginal);
+	});
+	
+    $("#codeDifferInModal").on("hidden.bs.modal",function(){
+	 	var codeDifferOriginal = $("#codeDifferOriginal")[0];
+		var outSide= $("#codeDifferOriginalOutSide")[0];
+		var inSide= $("#codeDifferOriginalInSide")[0];
+		inSide.removeChild(codeDifferOriginal);
+		outSide.appendChild(codeDifferOriginal);
+		$("#codeDifferOriginal").hide();
+		
+    });	
+
+
+
+
+    	
+
+	
+
+	<!--当超过20行，隐藏代码，下面用于显示代码-->
+	$("a.showStepCodeLink").click(function(){
+		$(this).hide();
+		var sid = $(this).attr("sid");
+		$("div.stepCodeTipsDiv[sid="+sid+"]").show();
+	});
+
+	
+	var page = "/frontnormalPageVisited";
+    $.ajax({
+        url: page,
+        data:{"knowledge.id":1395},
+        success: function(result){
+        }
+    });
+
+    <!--折叠左侧菜单-->
+    
+    
+    
+    <!--增加积分,做笔记，收藏等的模态窗口-->
+    
+    
+    
+
+    <!--视频div-->
+    
+    
+    $("div.4safari video").css("width",(window.innerWidth-400)+"px");
+
+	<!--tooltips-->
+// 	 $("[data-toggle='tooltip']").tooltip();
+	 
+	$("label.speed").click(function(){
+		var speed = $(this).attr("speed");
+		$(this).parents("div.4safari").children("video")[0].playbackRate = speed;
+		$(this).parents("div.4safari").children("video")[0].play();
+	});
+	
+	$("button.videoGoBackButton").click(function(){
+		$(this).parents("div.4safari").children("video")[0].currentTime -= 10;
+	});	 
+	
+
+	
+	
+	
+
+
+});
+
+
+
+</script>
+
+<table width="100%" class="allTable showTable1">
+
+	<tr valign="top">
+		<td width="145px" style="padding-left:20px" >
+			
+	
+
+<style>
+
+.list-group-item.unread {
+  background-color: #fefefe;
+}
+.list-group-item.unread:hover{
+  background-color: #d9edf7;
+}
+.list-group-item.brower {
+  background-color: #d9edf7;
+}
+.list-group-item.brower:hover{
+  background-color: #dff0d8;
+}
+
+
+.list-group-item.finish {
+  background-color: #dff0d8;
+}
+.list-group-item.finish:hover {
+  background-color: #c1e2b3;
+}
+
+</style>
+
+<script>
+
+
+
+
+$(function() {
+	if(logon){
+		$("a.leftKnowledgeMenuItem.finish_ready").addClass("finish");		
+		$("a.leftKnowledgeMenuItem.unread_ready").addClass("unread");	
+		$("a.leftKnowledgeMenuItem.active").removeClass("finish");	
+	}
+
+	
+});
+</script>
+<nav>
+<div style="margin-left:00px;width:170px">
+					  <a href="#nowhere" clicked="true" class="list-group-item success_bg leftKnowledgeMenuWholeTitle">
+					  		<h2>Maven</h2>
+					  		 
+					  </a>	  
+					  
+					  
+						
+							<a id="k1328" href="../../../k/maven/maven-introduction/1328.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>介绍</span> 
+							</a>
+						
+							<a id="k1329" href="../../../k/maven/maven-download-config/1329.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>下载与配置</span> 
+							</a>
+						
+							<a id="k1330" href="../../../k/maven/maven-repositories/1330.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>仓库</span> 
+							</a>
+						
+							<a id="k1331" href="../../../k/maven/maven-create-maven-project/1331.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>创建Maven项目</span> 
+							</a>
+						
+							<a id="k1335" href="../../../k/maven/maven-eclipse-setting/1335.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>Eclipse 设置</span> 
+							</a>
+						
+							<a id="k1332" href="../../../k/maven/maven-eclipse-maven-project/1332.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>Eclipse Maven 项目</span> 
+							</a>
+						
+							<a id="k1336" href="../../../k/maven/maven-add-jars/1336.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>添加包</span> 
+							</a>
+						
+							<a id="k1333" href="../../../k/maven/maven-web-project/1333.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>创建Web项目</span> 
+							</a>
+						
+							<a id="k1334" href="../../../k/maven/maven-eclipse-web-project/1334.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>Eclipse Web 项目</span> 
+							</a>
+						
+							<a id="k1395" href="../../../k/maven/maven-maven-eclpise-ssm-create/1395.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>创建 SSM 项目</span> 
+							</a>
+						
+							<a id="k1396" href="../../../k/maven/maven-maven-eclpise-ssm-import/1396.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>导入 SSM项目</span> 
+							</a>
+						
+							<a id="k1385" href="../../../k/maven/maven-intellij-idea/1385.html"  class="leftKnowledgeMenuItem list-group-item knowledgeBar _ready">
+								
+								<span>Intellij IDEA</span> 
+							</a>
+						  	
+					  
+					  
+					  
+					  
+					  
+
+</div>		    
+</nav>
+		    
+		    
+			    
+		</td>
+		
+		<td align="left"  style="padding-left:60px;padding-right:40px" >
+			
+	
+	
+<nav>
+<div class="panel panel-success">
+  <div class="panel-heading">
+<div class="text-uppercase">
+
+
+						  <a href="../../../stage/43.html">工具和中间件</a>
+						  /
+						  
+						  <a href="../../../module/129.html">Maven</a>
+						  /
+ 						  
+ 						  	<span class="text-muted">使用Eclipse创建一个Maven风格的SSM项目</span>
+ 						  
+ 						  
+ 						  
+
+									
+						  
+						  
+						  
+ 		  
+						
+						
+						
+		
+						
+
+						
+	
+
+
+
+
+
+
+
+	
+
+			
+			
+					  
+						</div>  
+  </div>
+
+
+</div>
+</nav>
+	
+						  
+						
+						
+						
+
+	
+<div class="bg-info" style="width:100%" align="left">
+						
+				
+		
+							
+</div>
+			
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/maven/maven-eclipse-web-project/1334.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 Eclipse Web 项目
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/maven/maven-maven-eclpise-ssm-import/1396.html">
+					导入 SSM项目
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			
+						<!-- JiaThis Button BEGIN -->
+	
+						
+			
+			
+		
+			
+
+
+<script>
+$(function () {
+
+    $("#login2downloadAlertDiv").hide();
+
+	$(".login2download").click(function(){
+		$("#login2downloadAlertDiv").show();	
+	});;
+	
+});
+
+</script>	
+	
+	
+<div>
+
+	<div id="DescAndDownloadRightPart" style="float:right;margin:0px 0px 20px 20px">
+			
+		
+		
+			<!-- knowledge.module.downloadable && -->
+			
+	
+				<table style="width:400px" class="table table-striped4 table-hover table-bordered2">
+					<thead>
+			          <tr class="bg-info4">
+			            <th  style="text-align:center" colspan="2">相关下载
+			            </th>
+			          </tr>
+			        </thead>
+			        <tbody>
+						<tr>
+							<td>文件名</td>
+							<td >文件大小</td>
+						</tr>																			
+						
+							<tr>
+								<td>
+									
+									
+										<a href="http://how2j.cn/k/maven/maven-maven-eclpise-ssm-create/1395.html?bean.id=1456" title="ssm.rar" >
+											<span class="glyphicon glyphicon-download-alt"></span>
+										ssm.rar</a>
+																			
+								</td>
+								<td> 20k </td>
+							</tr>
+						
+						
+						<tr >
+				            <td  style="text-align:center" colspan="2">
+				            	
+				            </td>
+			          </tr>
+							
+			        </tbody>							
+	
+				</table>
+			
+			
+				<div id="login2downloadAlertDiv" class="alert alert-warning" style="display:none;text-align:center;width:300px">
+	
+							<a href="http://how2j.cn/frontloginPage?act=login">登录</a>后可下载
+				</div>		
+	</div>		
+	
+	<div id="DescAndDownloadLeftPart">
+					<br>
+					
+						<a style="margin-left:20px" href="../../../k/helloworld/helloworld-version/1718.html" class="label label-warning">工具版本兼容问题</a>					
+					
+					<br>
+	
+				
+				<br/>
+					
+					
+					
+					<div>
+					
+					
+					</div>	
+	</div>	
+	
+	<div style="clear:both"></div>
+
+<!-- 	<table width="100%"> -->
+<!-- 		<tr valign="top"> -->
+<!-- 			<td> -->
+
+					
+<!-- 			</td> -->
+<!-- 			<td align="right" style="padding-right:50px;padding-left:50px"> -->
+									
+																				
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table>					 -->
+</div>
+			
+			
+			
+			
+			
+			
+
+
+
+		
+			<a href="#step5913" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">1</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					基于前面的知识点 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5914" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">2</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					创建maven web项目 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5915" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">3</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					设置项目目录 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5916" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">4</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					选择Archetype 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5917" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">5</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					设置GroupId和Artifact Id 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5918" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">6</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					项目截图 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5919" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">7</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					创建java 源代码目录 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5920" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">8</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					java源文件目录创建好了 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5921" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">9</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					pom.xml 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5922" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">10</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					接着复制项目文件 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5923" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">11</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					web.xml 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5924" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">12</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					jsp 目录 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5925" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">13</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					配置文件 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5926" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">14</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					java源代码 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5927" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">15</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					关于Category.xml 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5928" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">16</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					启动Tomcat 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5929" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">17</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					访问测试地址 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+			<a href="#step5930" >
+				
+					步骤
+				 
+				 
+				<span style="font-weight: bold">18</span>
+				:
+				<span style="padding-left: 20px;">
+				
+					
+					可运行项目 
+					 &nbsp;&nbsp;
+					
+					
+											
+				</span>
+				
+				
+			</a>
+			<br/>
+		
+
+
+<br>
+			
+			
+				
+
+<script>
+$(function () {
+
+	$("#practiseDiv").hide();
+	$("#answerDiv").hide();
+    $("#practiseButton").click(function(){
+    	$("#practiseDiv").show(200);
+    });
+    $("#answerButton").click(function(){
+        
+			location.href="http://how2j.cn/frontloginPage?act=login";
+        
+                
+    });
+
+	
+});
+
+</script>
+
+
+	
+
+			
+
+			
+
+<!--这个是      前台         的step.jsp-->
+<script>
+$(function(){
+
+});
+
+</script>
+<div>
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5913">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">1</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>基于前面的知识点 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5913" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5913" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5913">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5913"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5913" >
+					本知识点在<a href="../../../k/ssm/ssm-pagehelper/1373.html">SSM 的PageHelper</a>的基础上进行，所以要先到<a href="../../../k/ssm/ssm-pagehelper/1373.html">SSM 的PageHelper</a>去下载可运行的项目，并解压。<br><br><span class="strong">注:</span> 不要下载到当前知识点的可运行项目了哦，当前的是已经完成了目前的步骤流程后完成的项目
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5913] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5913] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5914">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">2</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>创建maven web项目 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5914" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5914" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5914">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5914"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5914" >
+					File-&gt;New-&gt;Other-&gt;Maven-&gt;Maven Project
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5914] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5914] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5914" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="创建maven web项目" title="创建maven web项目" style="margin:10px" src="../../../img/site/step_offline/5914.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5915">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">3</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>设置项目目录 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5915" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5915" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5915">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5915"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5915" >
+					默认即可
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5915] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5915] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5915" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="设置项目目录" title="设置项目目录" style="margin:10px" src="../../../img/site/step_offline/5915.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5916">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">4</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>选择Archetype 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5916" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5916" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5916">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5916"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5916" >
+					选择 maven-archetype-webapp
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5916] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5916] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5916" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="选择Archetype" title="选择Archetype" style="margin:10px" src="../../../img/site/step_offline/5916.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5917">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">5</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>设置GroupId和Artifact Id 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5917" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5917" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5917">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5917"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5917" >
+					设置GroupId和Artifact Id,分别是<span class="strong">com.how2java</span>和<span class="strong">ssm</span>。<br>后续配置也是用的这个，所以照着做，别自作聪明改其他的，不然后面走不通
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5917] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5917] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5917" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="设置GroupId和Artifact Id" title="设置GroupId和Artifact Id" style="margin:10px" src="../../../img/site/step_offline/5917.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5918">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">6</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>项目截图 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5918" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5918" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5918">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5918"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5918" >
+					此时项目就创建好了，不过还会报错，接着做后续的一系列操作
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5918] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5918] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5918" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="项目截图" title="项目截图" style="margin:10px" src="../../../img/site/step_offline/5918.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5919">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">7</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>创建java 源代码目录 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5919" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5919" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5919">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5919"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5919" >
+					在上一步的截图中可以发现，没有地方存放java源文件，这个时候就需要按照如下步骤做：<br>右键项目-&gt;属性-&gt;Java Build Path-&gt;Libraries-&gt;Edit-&gt;Workspace default <br>JRE(jdk8)-&gt;Finish
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5919] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5919] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5919" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="创建java 源代码目录" title="创建java 源代码目录" style="margin:10px" src="../../../img/site/step_offline/5919.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5920">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">8</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>java源文件目录创建好了 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5920" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5920" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5920">
+				
+
+
+
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5920] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5920] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5920" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="java源文件目录创建好了" title="java源文件目录创建好了" style="margin:10px" src="../../../img/site/step_offline/5920.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5921">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">9</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>pom.xml 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5921" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5921" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5921">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5921"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5921" >
+					接着复制粘贴pom.xml为下面的代码。 粘贴之后，jsp本来的报错就消失了，不过出来一个新的问题，要求通过Maven更新项目。<br><br>右键项目-&gt;Maven-&gt;Update Project，会弹出一个对话框，点击Ok，这个问题就消失了。
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5921] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5921] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5921" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="pom.xml" title="pom.xml" style="margin:10px" src="../../../img/site/step_offline/5921.png"/>	
+								    
+					</fieldset>			
+				
+				
+					<div class="stepcodes mask4spider-false">
+						
+					
+						
+						
+						
+							<div style="margin-top:20px" class="stepCode stepCode_index_0 stepCode5921  stepCode5921_0">
+								<button title="如果你的代码老是出错，可以和网站上的代码进行比较，找出区别" style="margin-top:0px" class="pull-right differButton btn btn-warning btn-xs"  codeindex="code5921_0" type="button" >
+									代码比较
+								</button>
+								<button title="部分同学反应，通过代码高亮插件复制粘贴的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢" style="margin-top:0px;margin-right:20px" class="pull-right copyButton btn btn-info btn-xs"  codeindex="code5921_0" type="button" >
+									复制代码
+								</button>
+
+								
+								<div class="hide" codeIndex="code5921_0" >&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.how2java&lt;/groupId&gt;
+  &lt;artifactId&gt;ssm&lt;/artifactId&gt;
+  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+
+  &lt;properties&gt;
+    &lt;spring.version&gt;4.1.3.RELEASE&lt;/spring.version&gt;
+    &lt;pagehelper.version&gt;5.1.2-beta&lt;/pagehelper.version&gt;
+    &lt;mysql.version&gt;5.1.6&lt;/mysql.version&gt;
+    &lt;mybatis.spring.version&gt;1.2.3&lt;/mybatis.spring.version&gt;
+    &lt;mybatis.version&gt;3.1.1&lt;/mybatis.version&gt;
+    &lt;junit.version&gt;4.12&lt;/junit.version&gt;
+    &lt;jstl.version&gt;1.2&lt;/jstl.version&gt;
+    &lt;jsqlparser.version&gt;1.0&lt;/jsqlparser.version&gt;
+    &lt;jackson.version&gt;1.2.7&lt;/jackson.version&gt;
+    &lt;servlet-api.version&gt;3.1.0&lt;/servlet-api.version&gt;
+    &lt;druid.version&gt;1.0.18&lt;/druid.version&gt;
+    &lt;log4j.version&gt;1.2.16&lt;/log4j.version&gt;
+    &lt;commons-logging.version&gt;1.2&lt;/commons-logging.version&gt;
+    &lt;commons-fileupload.version&gt;1.2.1&lt;/commons-fileupload.version&gt;
+    &lt;commons-io.version&gt;1.3.2&lt;/commons-io.version&gt;
+    &lt;commons-lang.version&gt;2.6&lt;/commons-lang.version&gt;
+    &lt;aopalliance.version&gt;1.0&lt;/aopalliance.version&gt;
+    &lt;mybatis-generator.version&gt;1.3.5&lt;/mybatis-generator.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;${junit.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;${mysql.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+      &lt;artifactId&gt;druid&lt;/artifactId&gt;
+      &lt;version&gt;${druid.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- JSP相关 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;jstl&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;${jstl.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;${servlet-api.version}&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- pageHelper --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+      &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+      &lt;version&gt;${pagehelper.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--jsqlparser--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.github.jsqlparser&lt;/groupId&gt;
+      &lt;artifactId&gt;jsqlparser&lt;/artifactId&gt;
+      &lt;version&gt;${jsqlparser.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;log4j&lt;/groupId&gt;
+      &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+      &lt;version&gt;${log4j.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-logging&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
+      &lt;version&gt;${commons-logging.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+      &lt;version&gt;${commons-fileupload.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-io&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+      &lt;version&gt;${commons-io.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-lang&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-lang&lt;/artifactId&gt;
+      &lt;version&gt;${commons-lang.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;aopalliance&lt;/groupId&gt;
+      &lt;artifactId&gt;aopalliance&lt;/artifactId&gt;
+      &lt;version&gt;${aopalliance.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis-generator.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;finalName&gt;${project.artifactId}&lt;/finalName&gt;
+    &lt;plugins&gt;
+      &lt;!-- 资源文件拷贝插件 --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.7&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;!-- java编译插件 --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.2&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;source&gt;1.8&lt;/source&gt;
+          &lt;target&gt;1.8&lt;/target&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+    &lt;pluginManagement&gt;
+      &lt;plugins&gt;
+        &lt;!-- 配置Tomcat插件 --&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+          &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.2&lt;/version&gt;
+        &lt;/plugin&gt;
+      &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+
+    &lt;resources&gt;
+      &lt;resource&gt;
+        &lt;directory&gt;src/main/resources&lt;/directory&gt;
+        &lt;includes&gt;
+          &lt;include&gt;**/*.properties&lt;/include&gt;
+          &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;include&gt;**/*.tld&lt;/include&gt;
+        &lt;/includes&gt;
+        &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+        &lt;directory&gt;src/main/java&lt;/directory&gt;
+        &lt;includes&gt;
+          &lt;include&gt;**/*.properties&lt;/include&gt;
+          &lt;include&gt;**/*.xml&lt;/include&gt;
+        &lt;/includes&gt;
+        &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+    &lt;/resources&gt;
+
+  &lt;/build&gt;
+
+&lt;/project&gt;
+</div>
+								
+										<div style="margin-top:20px;margin-left:0px">
+											<a href="#nowhere" class="showStepCodeLink"  sid="5921" >
+				 							代码行数较多，请点击查看 <img src="../../../img/site/code.png" />  
+											</a>			
+										</div>
+									
+								<div  sid="5921" class="stepCodeTipsDiv" style="display:none"  data-toggle="tooltip" data-placement="top"
+									title="双击选中所有代码">
+									<pre disabled codeIndex="code5921_0"
+										class="highlight:[];gutter:true;auto-links:false;brush:xml;toolbar:false;">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.how2java&lt;/groupId&gt;
+  &lt;artifactId&gt;ssm&lt;/artifactId&gt;
+  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+
+  &lt;properties&gt;
+    &lt;spring.version&gt;4.1.3.RELEASE&lt;/spring.version&gt;
+    &lt;pagehelper.version&gt;5.1.2-beta&lt;/pagehelper.version&gt;
+    &lt;mysql.version&gt;5.1.6&lt;/mysql.version&gt;
+    &lt;mybatis.spring.version&gt;1.2.3&lt;/mybatis.spring.version&gt;
+    &lt;mybatis.version&gt;3.1.1&lt;/mybatis.version&gt;
+    &lt;junit.version&gt;4.12&lt;/junit.version&gt;
+    &lt;jstl.version&gt;1.2&lt;/jstl.version&gt;
+    &lt;jsqlparser.version&gt;1.0&lt;/jsqlparser.version&gt;
+    &lt;jackson.version&gt;1.2.7&lt;/jackson.version&gt;
+    &lt;servlet-api.version&gt;3.1.0&lt;/servlet-api.version&gt;
+    &lt;druid.version&gt;1.0.18&lt;/druid.version&gt;
+    &lt;log4j.version&gt;1.2.16&lt;/log4j.version&gt;
+    &lt;commons-logging.version&gt;1.2&lt;/commons-logging.version&gt;
+    &lt;commons-fileupload.version&gt;1.2.1&lt;/commons-fileupload.version&gt;
+    &lt;commons-io.version&gt;1.3.2&lt;/commons-io.version&gt;
+    &lt;commons-lang.version&gt;2.6&lt;/commons-lang.version&gt;
+    &lt;aopalliance.version&gt;1.0&lt;/aopalliance.version&gt;
+    &lt;mybatis-generator.version&gt;1.3.5&lt;/mybatis-generator.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;${junit.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;${mysql.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+      &lt;artifactId&gt;druid&lt;/artifactId&gt;
+      &lt;version&gt;${druid.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- JSP相关 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;jstl&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;${jstl.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;${servlet-api.version}&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- pageHelper --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+      &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+      &lt;version&gt;${pagehelper.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--jsqlparser--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.github.jsqlparser&lt;/groupId&gt;
+      &lt;artifactId&gt;jsqlparser&lt;/artifactId&gt;
+      &lt;version&gt;${jsqlparser.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;log4j&lt;/groupId&gt;
+      &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+      &lt;version&gt;${log4j.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-logging&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
+      &lt;version&gt;${commons-logging.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;
+      &lt;version&gt;${commons-fileupload.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-io&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+      &lt;version&gt;${commons-io.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;commons-lang&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-lang&lt;/artifactId&gt;
+      &lt;version&gt;${commons-lang.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;aopalliance&lt;/groupId&gt;
+      &lt;artifactId&gt;aopalliance&lt;/artifactId&gt;
+      &lt;version&gt;${aopalliance.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-generator-core&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis-generator.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;finalName&gt;${project.artifactId}&lt;/finalName&gt;
+    &lt;plugins&gt;
+      &lt;!-- 资源文件拷贝插件 --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.7&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;!-- java编译插件 --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.2&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;source&gt;1.8&lt;/source&gt;
+          &lt;target&gt;1.8&lt;/target&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+    &lt;pluginManagement&gt;
+      &lt;plugins&gt;
+        &lt;!-- 配置Tomcat插件 --&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+          &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.2&lt;/version&gt;
+        &lt;/plugin&gt;
+      &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+
+    &lt;resources&gt;
+      &lt;resource&gt;
+        &lt;directory&gt;src/main/resources&lt;/directory&gt;
+        &lt;includes&gt;
+          &lt;include&gt;**/*.properties&lt;/include&gt;
+          &lt;include&gt;**/*.xml&lt;/include&gt;
+          &lt;include&gt;**/*.tld&lt;/include&gt;
+        &lt;/includes&gt;
+        &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+      &lt;resource&gt;
+        &lt;directory&gt;src/main/java&lt;/directory&gt;
+        &lt;includes&gt;
+          &lt;include&gt;**/*.properties&lt;/include&gt;
+          &lt;include&gt;**/*.xml&lt;/include&gt;
+        &lt;/includes&gt;
+        &lt;filtering&gt;false&lt;/filtering&gt;
+      &lt;/resource&gt;
+    &lt;/resources&gt;
+
+  &lt;/build&gt;
+
+&lt;/project&gt;
+</pre>
+								
+								</div>
+							</div>
+						
+						
+						</div>
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5922">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">10</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>接着复制项目文件 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5922" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5922" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5922">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5922"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5922" >
+					首先从在<a href="../../../k/maven/maven-maven-eclpise-ssm-create/1395.html#step5913">基于前面的知识点</a>里下载的项目里解压出来，然后按照如下顺序复制粘贴。 不要一股脑全粘贴进去，会出现无法解决的错误哦
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5922] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5922] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5923">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">11</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>web.xml 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5923" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5923" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5923">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5923"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5923" >
+					首先覆盖web.xml<br>把下载下来的xxx/ssm/WebContent/WEB-INF/web.xml<br>复制到当前的 ssm/src/main/webapp/web.xml这里
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5923] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5923] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5923" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="web.xml" title="web.xml" style="margin:10px" src="../../../img/site/step_offline/5923.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5924">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">12</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>jsp 目录 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5924" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5924" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5924">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5924"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5924" >
+					接着复制jsp目录。 <br><span class="strong">千万不要复制lib目录</span>
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5924] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5924] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5924" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="jsp 目录" title="jsp 目录" style="margin:10px" src="../../../img/site/step_offline/5924.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5925">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">13</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>配置文件 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5925" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5925" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5925">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5925"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5925" >
+					把三个配置文件复制到 ssm/src/main/resources下面
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5925] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5925] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5925" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="配置文件" title="配置文件" style="margin:10px" src="../../../img/site/step_offline/5925.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5926">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">14</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>java源代码 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5926" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5926" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5926">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5926"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5926" >
+					把java源代码复制到src/main/java下
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5926] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5926] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5926" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="java源代码" title="java源代码" style="margin:10px" src="../../../img/site/step_offline/5926.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5927">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">15</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>关于Category.xml 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5927" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5927" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5927">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5927"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5927" >
+					按照maven ssm项目风格来说，这个文件本应该放在Resource目录的mapper文件夹下，但是这么做还要修改配置信息，为了避免问题复杂化，而且考虑到即使放在当前位置也是可以正常工作的，所以就暂时不修改它的位置了。
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5927] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5927] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5927" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="关于Category.xml" title="关于Category.xml" style="margin:10px" src="../../../img/site/step_offline/5927.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5928">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">16</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>启动Tomcat 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5928" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5928" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5928">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5928"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5928" >
+					右键点击项目，点击Run As -&gt; Run on Server 启动Tomcat<br><br>如果对于Eclipse内置Tomcat配置方式不熟悉，请参考教程：<a href="../../../k/servlet/servlet-dynamic-web-project/1306.html#step5134">通过Eclipse启动Tomcat-Run On Server</a>
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5928] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5928] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5929">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">17</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>访问测试地址 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5929" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5929" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5929">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5929"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5929" >
+					访问如下测试地址：<br><br><div class="code"><br>http://localhost:8080/ssm/listCategory<br></div>
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5929] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5929] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+					<fieldset class="forstep mask4spider-false">
+					
+<!-- 					    <legend class="forstep"><span title="全屏观看截图" style="margin-left:5px;margin-right:5px" class="text-primary glyphicon glyphicon-picture"></span></legend> -->
+					    <legend class="forstep">
+					    	
+					    	<a href="../../../frontstepImage?stepid=5929" title="点击全屏观看" target="_blank">
+						    	<span title="全屏观看截图" style="margin-left:5px;margin-right:5px;margin-top:-12px;font-size:20px" class="text-primary glyphicon glyphicon-fullscreen"></span>
+					    	</a>
+					    </legend>
+					    
+					    
+								    
+						
+
+								<img class="stepImage" alt="访问测试地址" title="访问测试地址" style="margin:10px" src="../../../img/site/step_offline/5929.png"/>	
+								    
+					</fieldset>			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+	<div class="panel panel-info" style="margin-top:65px">
+	<div class="panel-heading " id="step5930">
+		<span class="glyphicon glyphicon-tag basicColor"></span>
+		
+		
+			步骤
+		 
+		 
+		<span style="font-weight: bold">18</span>
+		:
+		<span style="padding-left: 20px"></span>
+		<h2>可运行项目 
+		 </h2>
+		
+		
+
+					
+			
+
+		
+		
+
+		<a href="#">
+			<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">顶</span>
+<!-- 			<span style="margin-right:10px;margin-left:10px" title="跳到顶部" class="pull-right glyphicon glyphicon-upload"></span> -->
+		</a> 
+		
+		<a href="#nowhere" stepid="5930" title="折叠" class="stepresize">
+
+					<span style="border:1px solid LightSlateGray; margin-left:15px;margin-right:15px; adding:2px;font-weight:bold" class="pull-right text-warning bg-warning">折</span>
+		</a>
+		
+		<div class="pull-right">
+		
+		
+		
+		
+
+		</div>			
+		
+			
+				
+	</div>
+	</div>
+	<!-- projectRight -->
+		
+		
+			
+
+<!-- 如果可以下载，那么就需要把desc设置为不空，以便于显示 -->
+
+
+<div stepid="5930" class="stepbody panel-body1" style="width:90%;margin:0 auto">
+	
+		
+	
+		
+		
+		
+		
+								
+			
+			
+			<div class="" sid="5930">
+				
+
+
+
+			
+				<div  class="interviewAnswer stephighlightDesc" sid="5930"  style="background-color:#fff;padding:5px">
+									
+					<div class="stephighlightDescOnly mask4spider-false" sid="5930" >
+					在右上角有本知识点对应的可运行项目下载 ,实在自己搞不出来，就下载解压出来比较一下。<br><br><span class="strong">注:</span>不要和<a href="../../../k/maven/maven-maven-eclpise-ssm-create/1395.html#step5913">基于前面的知识点</a>里的下载搞混了哦
+					</div>
+					
+				</div>
+			
+			
+			
+			
+		    
+	
+<script>
+$(function(){
+	if(false){
+		var showDiv = $("div.stepbody[stepid=5930] div.showDiv");
+		var sibs= showDiv.siblings();
+		sibs.hide();
+		
+		var stephighlightDescDiv = $("div.stepbody[stepid=5930] div.stephighlightDesc");
+		stephighlightDescDiv.show();
+		
+		
+	}	
+});
+</script>	
+	
+			
+				
+				
+				
+				
+	
+	
+		<span class="endofstepanswer"></span>				
+		
+	
+		</div>
+		
+</div>
+					
+					
+					
+				
+		
+
+
+</div>
+
+
+	
+
+			
+			<!-- codediffer modal-->
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+
+<div>
+		<div class="modal " id="codeDifferInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">文件内容比较器</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>把你的代码复制到下面区域。 如果在线比较不好用，请使用客户端比较软件： <a href="../../../k/1583">diffmerge 下载和使用教程</a></p>
+					<div id="codeDifferOriginal"></div>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal " id="codeCopyInModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:1000px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">复制代码</h4>
+		          </div>
+		          <div class="modal-body">
+		            <p>代码高亮插件双击即可选中，不过部分同学反应，通过代码高亮插件复制的代码无法在IDEA里正常显示，这里提供TEXTAREA的方式，方便复制，谢谢</p>
+					<textarea style="width:80%;height:300px;display:block;margin:0px auto" id="codeCopySource"></textarea>
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+		<div class="modal fade" id="practiseModal"  data-backdrop="static1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:500px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">做练习的正确姿势</h4>
+		          </div>
+		          <div class="modal-body">
+					<div class="practisePostureHeading">1. 自行完成练习</div>
+						<div  class="practisePostureDesc">根据练习目标尽量自己实现代码效果，期间会碰到疑问，难题，和自己不懂的地方，这些都是必要的过程</div>
+					<div class="practisePostureHeading">2. 带着疑问查看答案</div>
+						<div  class="practisePostureDesc">完成过程中，碰到无法解决的问题，带着疑问，查看答案，分析答案的解决思路</div>
+					<div class="practisePostureHeading">3. 查看答案讲解视频</div>
+						<div  class="practisePostureDesc">依然有不明白的地方，点开视频讲解，带着疑问，听视频讲解有问题的部分</div>
+					<div class="practisePostureHeading">4. 再做一遍</div>
+						<div  class="practisePostureDesc">理解后，再从头做一遍，把有疑问的地方都捋清楚</div>
+					<div class="practisePostureHeading">5. 总结</div>
+						<div  class="practisePostureDesc">最后再总结一遍，总结思路，总结解决办法，以后遇到类似的问题，怎么处理</div>	
+		          </div>
+		          <div class="modal-footer">
+		            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	var codeNoteComment= "";
+	var alreadyWriteCodeNoteComment = "";
+	var lastModifedTimeNoteComment = new Date().getTime();
+	var tNoteCommentSavingCount;
+	var tRereshRetry2DemoPanelNoteComment;
+	
+	function rereshRetry2DemoPanelNoteComment(){
+		if(alreadyWriteCodeNoteComment==codeNoteComment)
+			return;
+		
+		
+		currentTimeNoteComment = new Date().getTime();
+		if(currentTimeNoteComment- lastModifedTimeNoteComment<5000)
+			return;
+		
+		var page = "frontnoteComment";
+		
+		var noteCommentid = $("#noteCommentid").val();
+		var noteCommentKnowledgeId = $("#noteCommentKnowledgeId").val();
+		var noteCommentDesc = $("#noteCommentDesc").val();
+		var noteCommentCode = $("#noteCommentCode").val();
+		var page="/frontnoteComment";
+		alreadyWriteCodeNoteComment = codeNoteComment;
+		$.ajax({
+			   url: page,
+			   type:"post",
+			   data:{"noteComment.id":noteCommentid,
+				   "noteComment.code":noteCommentCode,
+				   "noteComment.desc":noteCommentDesc,
+				   "noteComment.knowledge.id":noteCommentKnowledgeId
+				   },
+			   success: function(result){
+			     	if("success"==result){
+			     		
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").show();			
+			     	}
+			     	else{
+			    		$("#renderingNoteComment").hide();
+			    		$("#renderedNoteComment").hide();	
+			    		$("#failNoteComment").show();	
+			    		
+			     	}
+			     	
+			   }
+		});
+		
+				
+	}
+	$("textarea.noteCommentCodeDesc").keyup(function(){
+		var newDesc = $("textarea#noteCommentDesc").val();
+		var newCode = $("textarea#noteCommentCode").val();
+		codeNoteComment = newDesc+"@"+newCode;
+		if(alreadyWriteCodeNoteComment!=codeNoteComment){
+			lastModifedTimeNoteComment = new Date().getTime();
+			$("#renderingNoteComment").show();
+			$("#renderedNoteComment").hide();
+		}	
+		if(null!=tNoteCommentSavingCount){
+			clearInterval(tNoteCommentSavingCount);
+		}
+		$(".noteCommentSavingCount").html("5");
+		tNoteCommentSavingCount = setInterval(noteCommentSavingCount,1000);
+	
+		if(null==tRereshRetry2DemoPanelNoteComment){
+			tRereshRetry2DemoPanelNoteComment = setInterval(rereshRetry2DemoPanelNoteComment,1000);
+		}	
+		
+	});
+	
+	function noteCommentSavingCount(){
+		var times =	$(".noteCommentSavingCount").html();
+		console.log(times);
+		times = parseInt(times);
+		if(isNaN(times)){
+			times =6;
+		}
+		times = times-1;
+		$(".noteCommentSavingCount").html(times);		
+		if(1==times){
+			clearInterval(tNoteCommentSavingCount);
+		}
+	
+	}
+
+	$("#renderingNoteComment").hide();
+	$("#renderedNoteComment").hide();
+	$("#failNoteComment").hide();
+	var newDesc = $("textarea#noteCommentDesc").val();
+	var newCode = $("textarea#noteCommentCode").val();
+	codeNoteComment = newDesc+newCode;
+});
+</script>
+
+
+<div>
+		<div class="modal fade" id="nodeCommentModal"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div style="width:960px" class="modal-dialog">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		            <h4 class="modal-title">使用Eclipse创建一个Maven风格的SSM项目-总结笔记</h4>
+		          </div>
+		          <div class="modal-body">
+		          		<div class="text-muted">
+		          			把这时的想法，思路，研究都记录下来，等全部学完了，再回过头来巩固和理解，学习效果就会很好，知识点掌握得也牢固. 
+		          			<br>
+		          			<a href="../../../frontshowMyNotes">点击查看我的笔记</a>
+		          		</div>
+		          		<br>
+						<ul class="nav nav-tabs" id="commentTabs">
+						  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >总结</a></li>
+						  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+						</ul>			
+						<br>
+						<div class="tabDiv" tabName="desc"  >
+								<textarea style="height:300px;" id="noteCommentDesc"   class="noteCommentCodeDesc form-control" placeholder="就把这时的想法，思路，研究都记录下来。 全部学完了，再回过头来巩固和理解，学习效果就会非常好了，知识点掌握得也牢固"  ></textarea>
+						</div>		
+						<div class="tabDiv"  tabName="code" >
+								<textarea style="height:300px;" id="noteCommentCode"  class="noteCommentCodeDesc form-control" placeholder="记录关键代码，将来复习的时候，提醒用"  ></textarea>
+						</div>	
+						<input type="hidden" id= "noteCommentid" value="">	
+						<input type="hidden" id= "noteCommentKnowledgeId" value="1395">	
+		          </div>
+		          <div class="modal-footer">
+		          	<div style="margin-bottom:20px">
+						<span  id="renderingNoteComment" class="label label-warning">保存中预计需要<span class="noteCommentSavingCount"></span>秒</span>
+						<span id="renderedNoteComment" class="label label-success">保存完成</span>
+						<span id="failNoteComment" class="label label-danger">保存失败，请联系站长</span>
+						 <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+					</div>				
+		          
+		          
+		           
+		          </div>
+		        </div>
+			 </div>
+		</div>	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addFavoriteButton").click(function(){
+		var desc =$("textarea.favoriteInputText").val();
+		if(desc.length>=100){
+			alert("（请控制在100个字以内）");
+			return false;
+		}
+		$("textarea.favoriteInputText").val("");
+		var knowledgeid = 1395;
+		 var page = "/frontaddFavorite";
+		 alert("已经成功提交");
+		 $.post(
+		            page,
+		            {
+		            	"favorite.knowledge.id":knowledgeid,
+		            	"favorite.desc":desc,
+		            },
+		            function(){
+// 		            	alert(1);
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+
+<script>
+$(function(){
+	$("button#addCorrectButton").click(function(){
+		var oldText =$("textarea.oldText").val();
+		if(oldText.length>=100){
+			alert("请把原文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(oldText.length==0){
+			alert("原文字不能为空");
+			return false;
+		}
+
+		var correctedText =$("textarea.correctedText").val();
+		if(correctedText.length>=100){
+			alert("请把纠错文字控制在100个字以内，谢谢");
+			return false;
+		}
+		if(correctedText.length==0){
+			alert("纠错文字不能为空");
+			return false;
+		}
+		
+		
+		
+		$("textarea.correctInputText").val("");
+		var knowledgeid = 1395;
+		var stepid = $("#stepid4correct").val();
+		 var page = "/frontcorrect";
+		 alert("已经提交，谢谢");
+		 $.post(
+		            page,
+		            {
+		            	"correct.knowledge.id":knowledgeid,
+		            	"correct.step.id":stepid,
+		            	"correct.oldText":oldText,
+		            	"correct.correctedText":correctedText,
+		            },
+		            function(){
+//  		            	alert("已经提交，谢谢");
+		            }
+		            
+		);		
+		 
+	});
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+			
+			
+		
+		
+			
+			<br>
+			
+
+
+	
+<div style="width:100%;margin-top:15px;margin-bottom:15px">
+
+	
+	<table width="100%">
+		<tr>
+			<td align="left">
+			
+			
+					<a class="text-muted" href="../../../k/maven/maven-eclipse-web-project/1334.html">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+					 Eclipse Web 项目
+					</a>
+			
+			
+			</td>
+			<td align="right">
+				
+					<a class="text-muted" href="../../../k/maven/maven-maven-eclpise-ssm-import/1396.html">
+					导入 SSM项目
+						<span class="glyphicon glyphicon-arrow-right"></span>
+					</a>
+				
+			</td>
+		</tr>
+	</table>
+</div>
+			
+			<br>
+			
+			
+			
+		<div align="center">
+
+			
+			<div class="text-muted strong">
+				HOW2J公众号，关注后实时获知布最新的教程和优惠活动，谢谢。
+			</div>
+			<img src="../../../img/site/344.jpg">
+			
+			
+			
+			
+			
+		</div>
+		
+
+			
+			
+			
+
+
+
+<script>
+$(function(){
+
+
+	
+	$(".tabDiv").hide();
+	$(".tabDiv[tabName=desc]").show();
+
+	$("input#commentFile").change(function(){
+		$("#commentFilePath").html( $(this).val());
+	});
+
+	$("ul#commentTabs li a").click(function(){
+		var tabName = $(this).attr("tabName");
+		
+		$("ul#commentTabs li").removeClass("active");
+		$(this).parent().addClass("active");
+		
+
+		$("div.tabDiv").hide();
+
+		$("div.tabDiv[tabName="+tabName+"]").show(0);
+		$("div.tabDiv[tabName="+tabName+"]")[0].focus();
+
+		
+	});
+
+	$(".jump2commentLink").click(function(){
+		var stepName = $(this).attr("stepName");
+		$("#commentInfoStepName").html("-"+stepName);
+		var sid = $(this).attr("sid");
+		$("#commentStepId").val(sid);
+
+		if(!!logon){
+			$("#commentDiv").show();
+			$("input.logcommentButton").hide();
+			location.href="#commentDiv";
+		}
+		else{
+			$("span.jump2commentWord[sid="+sid+"]").hide();
+			$("a.jump2commentlogin[sid="+sid+"]").show();
+		}
+		
+	});
+
+// 	var tinyEditor= new TINY.editor.edit('editor',{
+// 		id:'commentdesc',
+// 		height:'161px',
+// 		cssclass:'te',
+// 		controlclass:'tecontrol',
+// 		rowclass:'teheader',
+// 		dividerclass:'tedivider',
+// 		controls:['bold','italic','underline','strikethrough','|',
+// 				  'orderedlist','unorderedlist','|','unformat','undo','redo','link','unlink'],
+// 		footer:false,
+
+// 		xhtml:true,
+// 		cssfile:'../../../css/tinyeditor/tinyeditor.css',
+// 		bodyid:'editor',
+// 		footerclass:'tefooter',
+// <!--		toggle:{text:'源代码',activetext:'可视化',cssclass:'toggle'},-->
+// 		resize:{cssclass:'resize'}
+// 	});
+
+	$("#commentForm").submit(function(){
+// 		tinyEditor.post();
+
+		var commentdesc = $("#commentdesc").val();
+		if(0==commentdesc.length){
+			alert("问题描述信息不可为空");
+			return false;
+		}
+		return true;	
+	});
+
+	$("#commentDiv").hide();
+
+	$("input.notlogcommentButton hidden").click(function(){
+		//需要登陆后作答
+		location.href="http://how2j.cn/frontloginPage";
+	});
+	$("input.logcommentButton").click(function(){
+		$("#commentDiv").show();
+		$(this).hide();
+	});
+
+	
+	
+});
+</script>
+
+
+<style>
+
+/*a  upload */
+.a-upload {
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #D0EEFF;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #78c3f3;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+
+
+</style>
+
+<br>
+<br>
+
+	
+	
+			<input id="commentButton" type="button" value="提问" class="btn btn-primary btn notlogcommentButton hidden" >
+			
+			<span class="text-muted hidden">提问之前请<a href="http://how2j.cn/frontloginPage">登陆</a>
+			</span>
+	
+
+
+<form method="post" id="commentForm" action="/frontcomment" enctype="multipart/form-data">
+<div id="commentDiv">
+		
+		
+		
+		<div class="text-muted">关于
+		<span style="font-style:italic;font-weight:bold"> 
+		工具和中间件-Maven-创建 SSM 项目 <span id="commentInfoStepName"></span>
+		</span>
+		 的提问</div>
+		
+
+		<input value="" style="margin-top:20px;"  id="commentTitle" name="comment.title"  class="form-control" placeholder="标题： 简要说明问题概况" required >
+		
+		<br/>
+		<div class="text-muted">尽量提供<span class="strong">截图</span>、<span class="strong">代码</span>和<span class="strong">异常信息</span>，有助于分析和解决问题。
+		
+		
+		
+		
+			也可进本站QQ群交流: 620943819
+			<div class="text-muted">
+<!-- 				站长会在每个工作日早上尽量回答提问（如果有漏掉没有回答的，请进群提醒一下） <br> -->
+				提问尽量提供完整的代码，环境描述，越是有利于问题的重现，您的问题越能更快得到解答。<br>
+				对教程中代码有疑问，请提供是哪个步骤，哪一行有疑问，这样便于快速定位问题，提高问题得到解答的速度 <br>
+				在已经存在的几千个提问里，有相当大的比例，是因为使用了和站长<span class="strong">不同版本的开发环境</span>导致的,比如 jdk, eclpise, idea, mysql,tomcat 等等软件的版本不一致。<br>
+				请使用和站长一样的版本，可以节约自己大量的学习时间。 站长把教学中用的软件版本整理了，都统一放在了这里， 方便大家下载：
+				<a href="http://how2j.cn/k/helloworld/helloworld-version/1718.html">http://how2j.cn/k/helloworld/helloworld-version/1718.html
+				</a> 
+				
+				
+				
+				 
+<!-- 				站长是玻璃心，提问的时候请语气温柔些  kiss~<br> -->
+<!-- 				截止2017-5-19日累计提问 1638个，站长回答了 1546个<br> -->
+<!-- 				截止2017-8-15日累计提问 2788个，站长回答了 2544个<br> -->
+			</div>
+		 
+		
+		
+		
+		</div>
+		<br/>
+		<table>
+			<tr valign="top">
+				<td style="padding-right:50px">
+					<a href="#nowhere" class="a-upload">
+						<input id="commentFile" type="file" name="doc" id=""  accept="image/*">上传截图
+					</a>				
+				</td>
+				<td style="padding-top:5px">
+					<span id="commentFilePath"  class="text-muted"></span>
+				</td>
+			</tr>
+		
+		</table>
+		
+		<br/>
+		<br/>
+		
+
+			<ul class="nav nav-tabs" id="commentTabs">
+			  <li role="presentation"  class="active"><a href="#nowhere" tabName="desc" >描述</a></li>
+			  <li role="presentation" ><a href="#nowhere" tabName="code" >代码</a></li>
+			  <li role="presentation"  test="test"  ><a href="#nowhere" tabName="exception" >异常</a></li>
+			</ul>			
+			<br>
+			<div class="tabDiv" tabName="desc"  >
+					<textarea style="height:200px;" id="commentdesc" name="comment.desc"  class="form-control" placeholder="描述：描述问题发生的环境，本来期望的结果，实际得到的结果"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="code" >
+					<textarea style="height:200px;"  name="comment.code"  class="form-control" placeholder="粘贴代码,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>		
+			<div class="tabDiv"  tabName="exception" >
+					<textarea style="height:200px;"  name="comment.exception"  class="form-control" placeholder="粘贴异常,提供的信息越丰富，越有助于分析和解决问题"  ></textarea>
+			</div>
+			
+			<br/>
+		<div>
+			<input type="hidden" name="comment.knowledge.id" value="1395" >
+			
+			<input type="hidden" id="commentStepId" name="comment.step.id" value="" >
+			
+			<input type="submit" id="commentSubmitButton" value="提交问题" class="btn btn-success btn-lg pull-left" >
+		</div>
+				
+	</div>
+</form>	
+			
+		<br/>
+		<br/>
+
+	
+
+
+
+
+
+
+
+				
+					<div style="position:fixed;bottom:60px;right:10px">
+						<a href="#" class="addNoteCommentLink">
+							<span  style="font-size:20px" title="笔记" class="glyphicon glyphicon-pencil"></span>
+						</a>				
+					</div>
+				
+			
+				<div style="position:fixed;bottom:20px;right:10px">
+					<a href="#">
+						<span  style="font-size:20px" title="跳到顶部" class="glyphicon glyphicon-upload"></span>
+					</a>				
+				</div>
+				
+		</td>
+	</tr>
+</table>
+
+ 
+
+</body>
+
+
+
+
+
+	
+	
+	
+		
+
+
+
+<script>
+$(function(){
+	
+
+
+});
+	
+</script>
+
+
+<div>
+	
+</div>
+
+
+	
+
+
+
+	<footer class="footer" id="footer">
+		    
+	     		© 2015-2018 <a href="http://how2j.cn">how2j.cn</a> — All Rights Reserved. 蜀ICP备15000533号
+	     		
+<!-- 	     			<a href="../../../frontshowFriendLinks">友情链接</a> -->
+	     		
+	     		
+	     		
+	     		<a href="http://how2j.cn/frontshowJavaPractises">JAVA练习题</a>
+	     			| <a href="http://how2j.cn/frontabout">关于本站</a>  
+					     		
+	     		
+<!-- 	     		本站QQ群: 620943819 -->
+
+				<div style="display:none">
+<!-- 					<script type="text/javascript">//var cnzz_protocol  = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258013751'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1258013751%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+				</div>
+				
+				  <script>
+				    $(function () {
+				      // 延迟CNZZ统计, 以免影响页面载入
+					  //原来是2000，但是有可能影响ip和pv的统计，所以改成2				      
+				      setTimeout(function(){
+				    	  
+					      var cz = document.createElement("script");
+					      cz.src = "//s11.cnzz.com/z_stat.php?id=1258013751&web_id=1258013751";
+					      document.getElementsByTagName('body')[0].appendChild(cz);
+				    	  
+				      },002);
+
+				    });
+ 				 </script>
+	     		
+					
+	</footer>
+	
+
+
+	
+
+<script type="text/javascript">
+function syntaxCallback(){
+	$('div.syntaxhighlighter').each(function(){
+		
+// 		console.log("allContent width:"+ $("#allContent").width());
+		var width = ($("div#allContent").width()-255)*0.95;
+		
+		var commentHighLight = $(this).parent().parent().parent().attr("commentHighLight");
+
+		
+		var commentWidth = $(".eachCommentDiv:visible").width();
+		commentWidth-=150;
+
+		
+		if("true"== commentHighLight){
+			$(this).css("width",commentWidth+"px");
+			console.log(commentWidth);
+		}
+			
+		else{
+			$(this).css("width",width+"px");
+		}
+
+		$(".eachCommentDescDiv").css("width",commentWidth+"px");
+			
+	});
+
+	
+}
+
+$(function () {
+
+	var count = SyntaxHighlighter.findElements().length,
+    now = 0;
+	SyntaxHighlighter.complete = function(callback){
+	    (function wait() {
+	        setTimeout(function () {
+	            now = $('div.syntaxhighlighter');
+	            if (now.length < count) {
+	                wait();
+	            } else {
+	            	syntaxCallback();
+	            }
+	        }, 200);
+	    })();
+	};
+	
+	$(document).ready(function(){
+	    $(".stepCode").on("dblclick", ".syntaxhighlighter", function(){
+	        var textarea = $(this).find('textarea');
+	        textarea.val(textarea.val().replace(new RegExp(String.fromCharCode(160), 'g'), " "));
+	        textarea.trigger("select");
+	    });
+	    SyntaxHighlighter.all();
+	})
+	
+	SyntaxHighlighter.all();
+	SyntaxHighlighter.complete(syntaxCallback);
+
+	// Line wrap back
+	var shLineWrap = function() {
+		$('.syntaxhighlighter').each(function() {
+		// Fetch
+		var $sh = $(this),
+		$gutter = $sh.find('td.gutter'),
+		$code = $sh.find('td.code');
+		// Cycle through lines
+		$gutter.children('.line').each(function(i) {
+			console.log(new Date());
+		// Fetch
+		var $gutterLine = $(this),
+		$codeLine = $code.find('.line:nth-child(' + (i + 1) + ')');
+		//alert($gutterLine);
+		// Fetch height
+		var height = $codeLine.height() || 0;
+		if (!height) {
+		height = 'auto';
+		} else {
+		height = height += 'px';
+		//alert(height);
+		}
+		// Copy height over
+		$gutterLine.attr('style', 'height: ' + height + ' !important'); // fix by Edi, for JQuery 1.7+ under Firefox 15.0
+	// 	console.debug($gutterLine.height(), height, $gutterLine.text(), $codeLine);
+		});
+		});
+	};
+	 
+	 
+	// Line wrap back when syntax highlighter has done it's stuff
+// 	var shLineWrapWhenReady = function() {
+// 	if ($('.syntaxhighlighter').length === 0) {
+// 	setTimeout(shLineWrapWhenReady, 10);
+// 	} else {
+// 		//不能加载这个，否则当代码一多，就会超级卡顿
+// // 	shLineWrap();
+// 	}
+// 	};  // Fire
+// 	shLineWrapWhenReady();	
+	
+});
+</script>
+</div> <!-- start from siteframe.jsp -->
+
+</body>
+
+
+
+
+
+<script>
+
+function getQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+$(function(){
+	var tid = getQueryString("tid");
+	if(null!=tid ){
+		var page = "/frontaddTrackEntry";
+	    $.ajax({
+	        url: page,
+	        data:{"track.id":tid},
+	        success: function(result){
+	        	
+	        }
+	    });	
+	}	
+	
+	var pid = getQueryString("p");
+	if(null!=pid){
+		var page = "/frontshareByPID";
+		var referer = getReferrer();
+	    $.ajax({
+	    	type:"post",
+	        url: page,
+	        data:{"user.id":pid,"shareReferer":referer},
+	        success: function(result){
+	        }
+	    });	
+	}
+	
+	$(document).keydown(function (event) {
+	    //判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+	    //判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+<!--	    console.log(event.keyCode);-->
+<!--	    if (event.keyCode == 37) {-->
+<!--	    	history.back(-1);-->
+<!--	    }-->
+<!--	    if (event.keyCode == 39) {-->
+<!--	    	history.forward(1);-->
+<!--	    }-->
+	});
+	
+});
+//获取键盘ascII码;
+//$(document).keydown(function (event) {
+//    alert(console.log(event.keyCode));
+//    alert(event.keyCode);
+//});
+
+
+
+</script>
+
+<script>
+$(function(){
+	var hash = window.location.hash; 
+	hash = hash.replace("#",""); 
+	
+	commentid = hash.replace("comment","");
+	function go2Archor(){
+		if(!go2ArchorFlag){
+			setTimeout(go2Archor,1000);
+			return;
+		}
+		if(hash.length!=0){
+			var pos = document.getElementById(hash);
+			if(null!=pos)
+				pos.scrollIntoView(true);			
+			$("div.commentBody[cid="+commentid+"]").show();
+		}
+	}
+	setTimeout(go2Archor,1000);
+	
+	setTimeout(function(){
+		$("div.stepAnswer").hide();
+	},500);	
+		
+	//4offline
+		$("a").click(function(e){
+			var href= $(this).attr("href");
+			if(-1!=href.indexOf("how2j.cn")){
+				e.preventDefault();
+				if(-1!=href.indexOf("?")){
+					var newLocation = href+"&tid="+56+"&p="+pid;
+					location=newLocation;
+				}
+				else{
+					var newLocation = href+"?tid="+56+"&p="+pid;
+					location=newLocation;				
+				}
+
+			}
+		});		
+	
+
+});
+
+
+</script> 
+
+
+
+
+
+
+
+<div class="modal fade" id="popAdModal" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="popAdModalLabel">
+<div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">优惠活动</h4>
+            
+          </div>
+          <div class="modal-body" style="text-align:center">
+          
+          
+          <p class="text-danger" style="font-size:40px">全场五折</p>
+          
+          <p >欢庆八一建军节，全场五折，优惠码：<span class="text-danger" style="font-weight:bold;text-decoration: underline1;margin-left:10px" >81V5</span> <p>
+          <p class="text-danger"  style="font-weight:bold;text-decoration: underline1;margin-left:10px">可用于全站通</p>
+          
+    	  <p>有效期7.30-8.1</p>      
+          <p><a style="font-size:20px;text-decoration: underline;" class="text-info" target="_blank" href="http://how2j.cn/frontproductList?promoteCode.code=81V5&tid=136">点击查看</a></p>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>
+	
+	
+	
